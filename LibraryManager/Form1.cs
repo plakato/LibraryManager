@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Shaolinq;
+using Shaolinq.MySql;
+using Shaolinq.Sqlite;
+using System;
 using System.Windows.Forms;
 
 namespace LibraryManager
@@ -15,6 +11,13 @@ namespace LibraryManager
         public Form1()
         {
             InitializeComponent();
+
+            var configuration = MySqlConfiguration.Create("LibraryDatabase", "localhost", "root", "");
+            var model = DataAccessModel.BuildDataAccessModel<DatabaseModels.MainDatabase>(configuration);
+
+            Console.WriteLine();
+
+            model.Create(DatabaseCreationOptions.DeleteExistingDatabase);
         }
     }
 }
