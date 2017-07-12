@@ -9,14 +9,15 @@ namespace LibraryManager.DatabaseModels
     [DataAccessObject]
     public abstract class User : DataAccessObject
     {
-        [PersistedMember]
-        public abstract string Name { get; set; }
-
+        [PrimaryKey]
         [PersistedMember]
         public abstract string Login { get; set; }
 
         [PersistedMember]
         public abstract string Password { get; set; }
+
+        [PersistedMember]
+        public abstract string Name { get; set; }
 
         [PersistedMember]
         public abstract bool Admin { get; set; }

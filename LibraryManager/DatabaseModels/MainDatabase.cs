@@ -1,4 +1,5 @@
 ﻿using Shaolinq;
+using Shaolinq.MySql;
 
 namespace LibraryManager.DatabaseModels
 {
@@ -8,6 +9,27 @@ namespace LibraryManager.DatabaseModels
     [DataAccessModel]
     public abstract class MainDatabase : DataAccessModel
     {
+        static MainDatabase model;
+        public static void Initicialize()
+        {
+            var configuration = MySqlConfiguration.Create("LibraryDatabase", "localhost", "root", "");
+            model = DataAccessModel.BuildDataAccessModel<DatabaseModels.MainDatabase>(configuration);
+
+            try
+            {
+                model.Create(DatabaseCreationOptions.IfDatabaseNotExist);
+
+            }
+            catch (MySql.Data.MySqlClient.MySqlException)
+            {
+                // DO nothing - database is already created
+            }
+        }
+        public static MainDatabase getInstance()
+        {
+            return model;
+        }
+
         [DataAccessObjects]
         public abstract DataAccessObjects<User> Users { get;  }
 
@@ -34,7 +56,7 @@ namespace LibraryManager.DatabaseModels
 
         [DataAccessObjects]
         public abstract DataAccessObjects<Reservation> Reservations { get; }
-        
+       
 
     }
 }

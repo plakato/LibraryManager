@@ -1,7 +1,12 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LibraryManager.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LibraryRed" Type="MetroFramework.MetroThemeStyle" Scope="Application">
+      <Value Profile="(Default)">Dark</Value>
+    </Setting>
+    <Setting Name="LibraryRedStyle" Type="MetroFramework.MetroColorStyle" Scope="Application">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
