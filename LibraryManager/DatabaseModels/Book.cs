@@ -15,7 +15,7 @@ namespace LibraryManager.DatabaseModels
         public abstract string ISBN { get; set; }
 
         [PersistedMember]
-        public abstract string Name { get; set; }
+        public abstract string Title { get; set; }
 
         [PersistedMember]
         public abstract string Author { get; set; }

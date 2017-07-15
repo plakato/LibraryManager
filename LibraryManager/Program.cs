@@ -15,7 +15,7 @@ namespace LibraryManager
             // Default auto-generated start configuration.
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WelcomeScreen());
+            Application.Run(new MainForm());
         }
     }
 }

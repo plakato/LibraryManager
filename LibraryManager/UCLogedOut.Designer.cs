@@ -1,6 +1,6 @@
 ﻿namespace LibraryManager
 {
-    partial class UCLogIn
+    partial class UCLogedOut
     {
         /// <summary> 
         /// Required designer variable.

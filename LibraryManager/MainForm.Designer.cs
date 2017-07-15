@@ -2,7 +2,7 @@
 
 namespace LibraryManager
 {
-    partial class WelcomeScreen
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,13 +32,17 @@ namespace LibraryManager
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomeScreen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Lschool_name = new System.Windows.Forms.Label();
             this.Divider = new System.Windows.Forms.Label();
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.ucWelcome1 = new LibraryManager.UCWelcome();
-            this.ucLogIn1 = new LibraryManager.UCLogIn();
+            this.ucLogIn1 = new LibraryManager.UCLogedOut();
+            this.PLogInLogOut = new MetroFramework.Controls.MetroPanel();
+            this.PMainPanel = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.PLogInLogOut.SuspendLayout();
+            this.PMainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Lschool_name
@@ -72,35 +76,67 @@ namespace LibraryManager
             // 
             // ucWelcome1
             // 
-            this.ucWelcome1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ucWelcome1.Location = new System.Drawing.Point(300, 292);
+            this.ucWelcome1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucWelcome1.Location = new System.Drawing.Point(3, 67);
             this.ucWelcome1.Name = "ucWelcome1";
-            this.ucWelcome1.Size = new System.Drawing.Size(378, 125);
+            this.ucWelcome1.Size = new System.Drawing.Size(954, 450);
             this.ucWelcome1.TabIndex = 3;
             // 
             // ucLogIn1
             // 
             this.ucLogIn1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ucLogIn1.Location = new System.Drawing.Point(576, 50);
+            this.ucLogIn1.Location = new System.Drawing.Point(20, 0);
             this.ucLogIn1.Name = "ucLogIn1";
             this.ucLogIn1.Size = new System.Drawing.Size(401, 47);
             this.ucLogIn1.TabIndex = 4;
             // 
-            // WelcomeScreen
+            // PLogInLogOut
+            // 
+            this.PLogInLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PLogInLogOut.AutoSize = true;
+            this.PLogInLogOut.Controls.Add(this.ucLogIn1);
+            this.PLogInLogOut.HorizontalScrollbarBarColor = true;
+            this.PLogInLogOut.HorizontalScrollbarHighlightOnWheel = false;
+            this.PLogInLogOut.HorizontalScrollbarSize = 10;
+            this.PLogInLogOut.Location = new System.Drawing.Point(556, 42);
+            this.PLogInLogOut.Name = "PLogInLogOut";
+            this.PLogInLogOut.Size = new System.Drawing.Size(421, 55);
+            this.PLogInLogOut.TabIndex = 6;
+            this.PLogInLogOut.VerticalScrollbarBarColor = true;
+            this.PLogInLogOut.VerticalScrollbarHighlightOnWheel = false;
+            this.PLogInLogOut.VerticalScrollbarSize = 10;
+            // 
+            // PMainPanel
+            // 
+            this.PMainPanel.ColumnCount = 1;
+            this.PMainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PMainPanel.Controls.Add(this.ucWelcome1, 0, 1);
+            this.PMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PMainPanel.Location = new System.Drawing.Point(20, 60);
+            this.PMainPanel.Name = "PMainPanel";
+            this.PMainPanel.RowCount = 2;
+            this.PMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.3431F));
+            this.PMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.65691F));
+            this.PMainPanel.Size = new System.Drawing.Size(960, 520);
+            this.PMainPanel.TabIndex = 7;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.ucLogIn1);
+            this.Controls.Add(this.PLogInLogOut);
             this.Controls.Add(this.Divider);
             this.Controls.Add(this.Lschool_name);
-            this.Controls.Add(this.ucWelcome1);
+            this.Controls.Add(this.PMainPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "WelcomeScreen";
+            this.Name = "MainForm";
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Učiteľská knižnica";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            this.PLogInLogOut.ResumeLayout(false);
+            this.PMainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,7 +148,9 @@ namespace LibraryManager
         private System.Windows.Forms.Label Divider;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private UCWelcome ucWelcome1;
-        private UCLogIn ucLogIn1;
+        private UCLogedOut ucLogIn1;
+        private MetroPanel PLogInLogOut;
+        private System.Windows.Forms.TableLayoutPanel PMainPanel;
     }
 }
 

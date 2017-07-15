@@ -10,33 +10,33 @@ using System.Windows.Forms;
 
 namespace LibraryManager
 {
-    public partial class UCLogIn : UserControl
+    public partial class UCLogedOut : UserControl
     {
-        public UCLogIn()
+        DatabaseModels.MainDatabase model;
+        public UCLogedOut()
         {
             InitializeComponent();
+
         }
 
         private void BSignIn_Click(object sender, EventArgs e)
         {
-            
             String login = TBLogin.Text;
             String password = TBPassword.Text;
 
-            DatabaseModels.MainDatabase model = DatabaseModels.MainDatabase.getInstance();
-
-            var user = model.Users.Where(u => u.Login == login).ToList();
+            model = DatabaseModels.MainDatabase.getInstance();
+            var users = model.Users.Where(u => u.Login == login).ToList();
 
             // Check whether user exists.
-            if (user.Count == 0)
+            if (users.Count == 0)
             {
                 Lwarning.Text = "Užívateľ s týmto loginom neexistuje.";
                 Lwarning.Visible = true;
                 return;
             }
-
+            var user = users.First();
             // Check password.
-            if (user.First().Password != password)
+            if (user.Password != password)
             {
                 TBPassword.Text = "";
                 Lwarning.Text = "Zadali ste nesprávne heslo.";
@@ -44,6 +44,14 @@ namespace LibraryManager
                 return;
             }
 
+            // Change screen
+            if (user.Admin)
+            {
+                MainForm.SwitchUserControls(Screen.Admin, user);
+            } else
+            {
+                MainForm.SwitchUserControls(Screen.User,  user);
+            }
         }
     }
 }

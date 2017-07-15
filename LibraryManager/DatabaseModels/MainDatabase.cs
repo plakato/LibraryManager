@@ -10,14 +10,14 @@ namespace LibraryManager.DatabaseModels
     public abstract class MainDatabase : DataAccessModel
     {
         static MainDatabase model;
-        public static void Initicialize()
+        public static void Initialize()
         {
             var configuration = MySqlConfiguration.Create("LibraryDatabase", "localhost", "root", "");
-            model = DataAccessModel.BuildDataAccessModel<DatabaseModels.MainDatabase>(configuration);
+            model = BuildDataAccessModel<MainDatabase>(configuration);
 
             try
             {
-                model.Create(DatabaseCreationOptions.IfDatabaseNotExist);
+                model.Create(DatabaseCreationOptions.DeleteExistingDatabase);
 
             }
             catch (MySql.Data.MySqlClient.MySqlException)
