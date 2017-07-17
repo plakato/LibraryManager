@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.TBLogin = new MetroFramework.Controls.MetroTextBox();
@@ -35,7 +36,9 @@
             this.TBPassword = new MetroFramework.Controls.MetroTextBox();
             this.BSignIn = new MetroFramework.Controls.MetroButton();
             this.Lwarning = new MetroFramework.Controls.MetroLabel();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -47,10 +50,10 @@
             this.flowLayoutPanel1.Controls.Add(this.TBPassword);
             this.flowLayoutPanel1.Controls.Add(this.BSignIn);
             this.flowLayoutPanel1.Controls.Add(this.Lwarning);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(759, 154);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(398, 44);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // metroLabel1
@@ -134,6 +137,7 @@
             // 
             // BSignIn
             // 
+            this.BSignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.SetFlowBreak(this.BSignIn, true);
             this.BSignIn.Location = new System.Drawing.Point(315, 3);
             this.BSignIn.Name = "BSignIn";
@@ -156,15 +160,22 @@
             this.Lwarning.UseCustomForeColor = true;
             this.Lwarning.Visible = false;
             // 
-            // UCLogIn
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = this;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // UCLogedOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "UCLogIn";
-            this.Size = new System.Drawing.Size(759, 154);
+            this.Name = "UCLogedOut";
+            this.Size = new System.Drawing.Size(398, 46);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +190,6 @@
         private MetroFramework.Controls.MetroTextBox TBPassword;
         private MetroFramework.Controls.MetroButton BSignIn;
         private MetroFramework.Controls.MetroLabel Lwarning;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
     }
 }

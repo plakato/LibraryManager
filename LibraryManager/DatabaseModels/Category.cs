@@ -15,10 +15,7 @@ namespace LibraryManager.DatabaseModels
         public abstract string Name { get; set; }
 
         [RelatedDataAccessObjects]
-        public abstract RelatedDataAccessObjects<Category_Book> Category_Books { get; }
-
-
-       
+        public abstract RelatedDataAccessObjects<Category_Book> Category_Books { get; }   
 
     }
 }

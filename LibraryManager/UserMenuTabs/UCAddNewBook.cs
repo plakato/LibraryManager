@@ -127,7 +127,6 @@ namespace LibraryManager
                 using (var scope = new DataAccessScope())
                 {
                     var book = db.Books.Create();
-
                     book.Title = TBTitle.Text;
                     book.Author = TBAuthor.Text;
                     book.ISBN = TBisbn.Text;
@@ -137,12 +136,18 @@ namespace LibraryManager
 
                     var cat_book = db.Category_Book.Create();
                     cat_book.Book = book;
-                    cat_book.Category = (from cat in db.Categories where cat.Name == CBCategory.SelectedText select cat).First();
+                    cat_book.Category = (from cat in db.Categories where cat.Name == CBCategory.Text select cat).First();
 
+                    int numberOfCopies = int.Parse(TBNumberOfCopies.Text);
+                    for (int i = 0; i < numberOfCopies; i++)
+                    {
+                        var copy = db.Copies.Create();
+                        copy.Book = book;
+                    }
                     scope.Complete();
                 }
                 ClearForm();
-                MessageBox.Show("Nová kniha bola úspešne pridaná.");
+                MetroFramework.MetroMessageBox.Show(this,"Nová kniha bola úspešne pridaná.","Hotovo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -164,9 +169,10 @@ namespace LibraryManager
                 return false;
             }
             
-            if (errorProvider.GetError(TBisbn) != null ||
-                errorProvider.GetError(TBPageCount) != null ||
-                errorProvider.GetError(TBPublicationYear) != null)
+            if (errorProvider.GetError(TBisbn) != ""||
+                errorProvider.GetError(TBPageCount) != "" ||
+                errorProvider.GetError(TBPublicationYear) != "" ||
+                errorProvider.GetError(TBNumberOfCopies) != "")
             {
                 Lwarning.Text = "Niektorá hodnota nebola správne zadaná!";
                 Lwarning.Visible = true;
@@ -185,6 +191,17 @@ namespace LibraryManager
             CBPublisher.SelectedItem = null;
             TBPublicationYear.Text = "";
             TBPageCount.Text = "";
+        }
+
+        private void TBNumberOfCopies_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!int.TryParse(TBNumberOfCopies.Text, out int i))
+            {
+                errorProvider.SetError(TBNumberOfCopies, "Musí byť číslená hodnota.");
+            } else
+            {
+                errorProvider.SetError(TBNumberOfCopies, null);
+            }
         }
     }
 }

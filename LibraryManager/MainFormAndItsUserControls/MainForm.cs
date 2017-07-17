@@ -44,10 +44,13 @@ namespace LibraryManager
             {
                 case Screen.Welcome:
                     UCLogedOut ucLogedOut = new UCLogedOut();
-                    ucmain = new UCWelcome();
+                    ucLogedOut.Location = new System.Drawing.Point(logInLogOutPanel.Width - ucLogedOut.Width, 0);
                     ucLogedOut.Anchor = AnchorStyles.Right;
                     logInLogOutPanel.Controls.Add(ucLogedOut);
-                    mainPanel.Controls.Add(ucmain);
+
+                    ucmain = new UCWelcome();
+                    ucmain.Dock = DockStyle.Fill;
+                    mainPanel.Controls.Add(ucmain,0,1);
                     break;
                 case Screen.User:
                     UCLogedIn uclogin = new UCLogedIn();

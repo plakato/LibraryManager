@@ -24,6 +24,9 @@ namespace LibraryManager.DatabaseModels
         public abstract int NumberOfPages { get; set; }
 
         [PersistedMember]
+        public abstract string Section { get; set; }
+
+        [PersistedMember]
         public abstract int PublicationYear { get; set; }
 
         [PersistedMember]

@@ -54,6 +54,7 @@
             this.BLogOut.TabIndex = 1;
             this.BLogOut.Text = "Odhlásiť";
             this.BLogOut.UseSelectable = true;
+            this.BLogOut.Click += new System.EventHandler(this.BLogOut_Click);
             // 
             // metroStyleManager1
             // 

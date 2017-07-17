@@ -15,5 +15,10 @@ namespace LibraryManager
         {
             Llogin.Text = newLogin;
         }
+
+        private void BLogOut_Click(object sender, EventArgs e)
+        {
+            MainForm.SwitchUserControls(Screen.Welcome, null);
+        }
     }
 }

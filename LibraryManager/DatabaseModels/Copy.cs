@@ -18,9 +18,6 @@ namespace LibraryManager.DatabaseModels
         [BackReference]
         public abstract Book Book { get; set; }
 
-        [PersistedMember]
-        public abstract string Section { get; set; }
-
         [RelatedDataAccessObjects]
         public abstract RelatedDataAccessObjects<Loan> Loans { get; }
 
