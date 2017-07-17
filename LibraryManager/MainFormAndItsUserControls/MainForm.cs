@@ -15,10 +15,11 @@ namespace LibraryManager
         private DatabaseModels.MainDatabase model;
         public MainForm()
         {
+            DatabaseModels.MainDatabase.Initialize();
             InitializeComponent();
+            UCAddNewUser a = new UCAddNewUser();
             
             // Create database if not exists => on the first run of the application
-            DatabaseModels.MainDatabase.Initialize();
             model = DatabaseModels.MainDatabase.getInstance();
             mainPanel = PMainPanel;
             logInLogOutPanel = PLogInLogOut;

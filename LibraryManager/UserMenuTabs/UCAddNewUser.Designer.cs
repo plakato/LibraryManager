@@ -44,6 +44,13 @@
             this.BAddUser = new MetroFramework.Controls.MetroButton();
             this.Lwarning = new MetroFramework.Controls.MetroLabel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.LVUsers = new MetroFramework.Controls.MetroListView();
+            this.Meno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Login = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Admin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Odstrániť = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -58,8 +65,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.89165F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.10835F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.10832F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.89169F));
             this.tableLayoutPanel1.Controls.Add(this.metroLabel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.TBName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.metroLabel2, 0, 1);
@@ -83,7 +90,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(463, 252);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(537, 252);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // metroLabel1
@@ -101,7 +108,7 @@
             // 
             // 
             this.TBName.CustomButton.Image = null;
-            this.TBName.CustomButton.Location = new System.Drawing.Point(256, 1);
+            this.TBName.CustomButton.Location = new System.Drawing.Point(324, 1);
             this.TBName.CustomButton.Name = "";
             this.TBName.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -111,7 +118,7 @@
             this.TBName.CustomButton.Visible = false;
             this.TBName.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBName.Lines = new string[0];
-            this.TBName.Location = new System.Drawing.Point(172, 13);
+            this.TBName.Location = new System.Drawing.Point(178, 13);
             this.TBName.MaxLength = 32767;
             this.TBName.Name = "TBName";
             this.TBName.PasswordChar = '\0';
@@ -120,7 +127,7 @@
             this.TBName.SelectionLength = 0;
             this.TBName.SelectionStart = 0;
             this.TBName.ShortcutsEnabled = true;
-            this.TBName.Size = new System.Drawing.Size(278, 23);
+            this.TBName.Size = new System.Drawing.Size(346, 23);
             this.TBName.TabIndex = 1;
             this.TBName.UseSelectable = true;
             this.TBName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -141,7 +148,7 @@
             // 
             // 
             this.TBLogin.CustomButton.Image = null;
-            this.TBLogin.CustomButton.Location = new System.Drawing.Point(256, 1);
+            this.TBLogin.CustomButton.Location = new System.Drawing.Point(324, 1);
             this.TBLogin.CustomButton.Name = "";
             this.TBLogin.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBLogin.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -151,7 +158,7 @@
             this.TBLogin.CustomButton.Visible = false;
             this.TBLogin.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBLogin.Lines = new string[0];
-            this.TBLogin.Location = new System.Drawing.Point(172, 49);
+            this.TBLogin.Location = new System.Drawing.Point(178, 49);
             this.TBLogin.MaxLength = 32767;
             this.TBLogin.Name = "TBLogin";
             this.TBLogin.PasswordChar = '\0';
@@ -160,7 +167,7 @@
             this.TBLogin.SelectionLength = 0;
             this.TBLogin.SelectionStart = 0;
             this.TBLogin.ShortcutsEnabled = true;
-            this.TBLogin.Size = new System.Drawing.Size(278, 23);
+            this.TBLogin.Size = new System.Drawing.Size(346, 23);
             this.TBLogin.TabIndex = 3;
             this.TBLogin.UseSelectable = true;
             this.TBLogin.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -182,7 +189,7 @@
             // 
             // 
             this.TBPassword.CustomButton.Image = null;
-            this.TBPassword.CustomButton.Location = new System.Drawing.Point(256, 1);
+            this.TBPassword.CustomButton.Location = new System.Drawing.Point(324, 1);
             this.TBPassword.CustomButton.Name = "";
             this.TBPassword.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -192,7 +199,7 @@
             this.TBPassword.CustomButton.Visible = false;
             this.TBPassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBPassword.Lines = new string[0];
-            this.TBPassword.Location = new System.Drawing.Point(172, 88);
+            this.TBPassword.Location = new System.Drawing.Point(178, 88);
             this.TBPassword.MaxLength = 32767;
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.PasswordChar = '●';
@@ -201,7 +208,7 @@
             this.TBPassword.SelectionLength = 0;
             this.TBPassword.SelectionStart = 0;
             this.TBPassword.ShortcutsEnabled = true;
-            this.TBPassword.Size = new System.Drawing.Size(278, 23);
+            this.TBPassword.Size = new System.Drawing.Size(346, 23);
             this.TBPassword.TabIndex = 5;
             this.TBPassword.UseSelectable = true;
             this.TBPassword.UseSystemPasswordChar = true;
@@ -223,7 +230,7 @@
             // 
             // 
             this.TBPasswordCheck.CustomButton.Image = null;
-            this.TBPasswordCheck.CustomButton.Location = new System.Drawing.Point(256, 1);
+            this.TBPasswordCheck.CustomButton.Location = new System.Drawing.Point(324, 1);
             this.TBPasswordCheck.CustomButton.Name = "";
             this.TBPasswordCheck.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBPasswordCheck.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -233,7 +240,7 @@
             this.TBPasswordCheck.CustomButton.Visible = false;
             this.TBPasswordCheck.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBPasswordCheck.Lines = new string[0];
-            this.TBPasswordCheck.Location = new System.Drawing.Point(172, 127);
+            this.TBPasswordCheck.Location = new System.Drawing.Point(178, 127);
             this.TBPasswordCheck.MaxLength = 32767;
             this.TBPasswordCheck.Name = "TBPasswordCheck";
             this.TBPasswordCheck.PasswordChar = '●';
@@ -242,7 +249,7 @@
             this.TBPasswordCheck.SelectionLength = 0;
             this.TBPasswordCheck.SelectionStart = 0;
             this.TBPasswordCheck.ShortcutsEnabled = true;
-            this.TBPasswordCheck.Size = new System.Drawing.Size(278, 23);
+            this.TBPasswordCheck.Size = new System.Drawing.Size(346, 23);
             this.TBPasswordCheck.TabIndex = 7;
             this.TBPasswordCheck.UseSelectable = true;
             this.TBPasswordCheck.UseSystemPasswordChar = true;
@@ -262,7 +269,7 @@
             // TAdminRights
             // 
             this.TAdminRights.AutoSize = true;
-            this.TAdminRights.Location = new System.Drawing.Point(172, 171);
+            this.TAdminRights.Location = new System.Drawing.Point(178, 171);
             this.TAdminRights.Name = "TAdminRights";
             this.TAdminRights.Size = new System.Drawing.Size(80, 17);
             this.TAdminRights.TabIndex = 9;
@@ -284,7 +291,7 @@
             // 
             this.Lwarning.AutoSize = true;
             this.Lwarning.ForeColor = System.Drawing.Color.Red;
-            this.Lwarning.Location = new System.Drawing.Point(172, 212);
+            this.Lwarning.Location = new System.Drawing.Point(178, 212);
             this.Lwarning.Name = "Lwarning";
             this.Lwarning.Size = new System.Drawing.Size(55, 19);
             this.Lwarning.TabIndex = 11;
@@ -296,19 +303,64 @@
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
+            // metroLabel6
+            // 
+            this.metroLabel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroLabel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroLabel6.Location = new System.Drawing.Point(0, 252);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(537, 2);
+            this.metroLabel6.TabIndex = 1;
+            // 
+            // LVUsers
+            // 
+            this.LVUsers.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.LVUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Meno,
+            this.Login,
+            this.Admin,
+            this.Odstrániť});
+            this.LVUsers.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LVUsers.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.LVUsers.FullRowSelect = true;
+            this.LVUsers.HoverSelection = true;
+            this.LVUsers.Location = new System.Drawing.Point(0, 290);
+            this.LVUsers.Name = "LVUsers";
+            this.LVUsers.OwnerDraw = true;
+            this.LVUsers.Size = new System.Drawing.Size(537, 69);
+            this.LVUsers.TabIndex = 2;
+            this.LVUsers.UseCompatibleStateImageBehavior = false;
+            this.LVUsers.UseSelectable = true;
+            this.LVUsers.View = System.Windows.Forms.View.Tile;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.Location = new System.Drawing.Point(3, 264);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(119, 19);
+            this.metroLabel7.TabIndex = 3;
+            this.metroLabel7.Text = "Zoznam užívateľov";
+            // 
             // UCAddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.metroLabel7);
+            this.Controls.Add(this.LVUsers);
+            this.Controls.Add(this.metroLabel6);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UCAddNewUser";
-            this.Size = new System.Drawing.Size(463, 342);
+            this.Size = new System.Drawing.Size(537, 359);
+            this.Load += new System.EventHandler(this.UCAddNewUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -329,5 +381,12 @@
         private MetroFramework.Controls.MetroButton BAddUser;
         private MetroFramework.Controls.MetroLabel Lwarning;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private MetroFramework.Controls.MetroListView LVUsers;
+        private System.Windows.Forms.ColumnHeader Meno;
+        private System.Windows.Forms.ColumnHeader Login;
+        private System.Windows.Forms.ColumnHeader Admin;
+        private System.Windows.Forms.ColumnHeader Odstrániť;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
     }
 }
