@@ -19,6 +19,9 @@ namespace LibraryManager
         private void UCAddNewBook_Load(object sender, System.EventArgs e)
         {
             db = DatabaseModels.MainDatabase.getInstance();
+
+            TBTitle.Select();
+
             var categories = (from c in db.Categories select c.Name).Distinct();
             foreach (var c in categories)
             {
@@ -81,7 +84,7 @@ namespace LibraryManager
             }
         }
 
-        private void metroTextBox2_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TBPublicationYear_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (TBPublicationYear.Text == "")
             {
@@ -90,7 +93,8 @@ namespace LibraryManager
             if (TBPublicationYear.Text.Length == 4 && int.TryParse(TBPublicationYear.Text, out int i))
             {
                 errorProvider.SetError(TBPublicationYear, null);
-            } else
+            }
+            else
             {
                 errorProvider.SetError(TBPublicationYear, "Rok vydania nie je validný.");
             }
@@ -101,7 +105,8 @@ namespace LibraryManager
             if (!int.TryParse(TBPageCount.Text, out int i))
             {
                 errorProvider.SetError(TBPageCount, "Počet strán musí byť číslo!");
-            } else
+            }
+            else
             {
                 errorProvider.SetError(TBPageCount, null);
             }
@@ -115,6 +120,11 @@ namespace LibraryManager
             {
                 errorProvider.SetError(TBisbn, "Zadané ISBN nie je validné!");
             } else
+            if (db.Books.Where(book => book.ISBN == TBisbn.Text).Any())
+            {
+                errorProvider.SetError(TBisbn, "Kniha s týmto ISBN už existuje!");
+            }
+            else
             {
                 errorProvider.SetError(TBisbn, null);
             }
@@ -130,13 +140,15 @@ namespace LibraryManager
                     book.Title = TBTitle.Text;
                     book.Author = TBAuthor.Text;
                     book.ISBN = TBisbn.Text;
+                    book.Section = TBSector.Text;
                     book.NumberOfPages = int.Parse(TBPageCount.Text);
                     book.PublicationYear = int.Parse(TBPublicationYear.Text);
                     book.Publisher = CBPublisher.SelectedText;
 
                     var cat_book = db.Category_Book.Create();
                     cat_book.Book = book;
-                    cat_book.Category = (from cat in db.Categories where cat.Name == CBCategory.Text select cat).First();
+                    cat_book.Category = (from cat in db.Categories
+                                         where cat.Name == CBCategory.Text select cat).First();
 
                     int numberOfCopies = int.Parse(TBNumberOfCopies.Text);
                     for (int i = 0; i < numberOfCopies; i++)
@@ -147,7 +159,7 @@ namespace LibraryManager
                     scope.Complete();
                 }
                 ClearForm();
-                MetroFramework.MetroMessageBox.Show(this,"Nová kniha bola úspešne pridaná.","Hotovo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MetroFramework.MetroMessageBox.Show(this, "Nová kniha bola úspešne pridaná.", "Hotovo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
 
@@ -168,8 +180,8 @@ namespace LibraryManager
                 Lwarning.Visible = true;
                 return false;
             }
-            
-            if (errorProvider.GetError(TBisbn) != ""||
+
+            if (errorProvider.GetError(TBisbn) != "" ||
                 errorProvider.GetError(TBPageCount) != "" ||
                 errorProvider.GetError(TBPublicationYear) != "" ||
                 errorProvider.GetError(TBNumberOfCopies) != "")
@@ -178,6 +190,7 @@ namespace LibraryManager
                 Lwarning.Visible = true;
                 return false;
             }
+            Lwarning.Visible = false;
             return true;
         }
 
@@ -198,7 +211,8 @@ namespace LibraryManager
             if (!int.TryParse(TBNumberOfCopies.Text, out int i))
             {
                 errorProvider.SetError(TBNumberOfCopies, "Musí byť číslená hodnota.");
-            } else
+            }
+            else
             {
                 errorProvider.SetError(TBNumberOfCopies, null);
             }

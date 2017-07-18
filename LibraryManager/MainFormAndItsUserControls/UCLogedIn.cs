@@ -11,9 +11,9 @@ namespace LibraryManager
             InitializeComponent();
         }
 
-        public void ChangeLoginText(String newLogin)
+        public void SetLoginText(string login)
         {
-            Llogin.Text = newLogin;
+            Llogin.Text = login;
         }
 
         private void BLogOut_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using MetroFramework.Forms;
+﻿using LibraryManager.MainFormAndItsUserControls;
+using MetroFramework.Forms;
 using Shaolinq;
 using Shaolinq.MySql;
 using System;
@@ -10,15 +11,14 @@ namespace LibraryManager
 {
     public partial class MainForm : MetroForm
     {
-        static TableLayoutPanel mainPanel;
-        static Panel logInLogOutPanel;
+        private static TableLayoutPanel mainPanel;
+        private static Panel logInLogOutPanel;
         private DatabaseModels.MainDatabase model;
+        private static DatabaseModels.User user;
         public MainForm()
         {
             DatabaseModels.MainDatabase.Initialize();
             InitializeComponent();
-            UCAddNewUser a = new UCAddNewUser();
-            UCAddNewBook b = new UCAddNewBook();
             
             // Create database if not exists => on the first run of the application
             model = DatabaseModels.MainDatabase.getInstance();
@@ -27,18 +27,33 @@ namespace LibraryManager
             using (var scope = new DataAccessScope())
              {
                  var admin = model.Users.Create();
-
                  admin.Name = "";
                  admin.Login = "admin";
                  admin.Password = "admin";
                  admin.Admin = true;
 
+                var book = model.Books.Create();
+                book.Title = "kniha";
+                book.Author = "neznamy";
+                book.ISBN = "7894561261";
+                book.PublicationYear = 1999;
+                book.Publisher = "company";
+                book.Section = "3A";
+                var copy = model.Copies.Create();
+                copy.Book = book;
+                var cat = model.Categories.Create();
+                cat.Name = "beletria";
+                var cat_book = model.Category_Book.Create();
+                cat_book.Book = book;
+                cat_book.Category = cat;
+
                  scope.Complete();
              }
         }
 
-        public static void SwitchUserControls(Screen screen, DatabaseModels.User user)
+        public static void SwitchUserControls(Screen screen, DatabaseModels.User u)
         {
+            user = u;
             mainPanel.Controls.Clear();
             logInLogOutPanel.Controls.Clear();
             UserControl ucmain;
@@ -56,14 +71,15 @@ namespace LibraryManager
                     break;
                 case Screen.User:
                     UCLogedIn uclogin = new UCLogedIn();
+                    uclogin.SetLoginText(user.Login);
                     uclogin.Location = new System.Drawing.Point(logInLogOutPanel.Width - uclogin.Width, 0);
                     uclogin.Anchor = AnchorStyles.Right;
-                    uclogin.ChangeLoginText(user.Login);
                     logInLogOutPanel.Controls.Add(uclogin);
 
-                    ucmain = new UCUserMenu();
+                    ucmain = new UCUserMenu(user);
                     ucmain.Dock = DockStyle.Fill;
                     mainPanel.Controls.Add(ucmain, 0,1);
+                    mainPanel.Refresh();
                     break;
                 case Screen.Admin:
                     goto case Screen.User;

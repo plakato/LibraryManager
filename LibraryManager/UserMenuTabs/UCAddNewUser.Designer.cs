@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.TBName = new MetroFramework.Controls.MetroTextBox();
@@ -44,26 +46,23 @@
             this.BAddUser = new MetroFramework.Controls.MetroButton();
             this.Lwarning = new MetroFramework.Controls.MetroLabel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.LVUsers = new MetroFramework.Controls.MetroListView();
-            this.Meno = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Login = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Admin = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Odstrániť = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LDivider = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.GVUsers = new MetroFramework.Controls.MetroGrid();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Admin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DeleteUser = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GVUsers)).BeginInit();
             this.SuspendLayout();
-            // 
-            // metroStyleManager1
-            // 
-            this.metroStyleManager1.Owner = this;
-            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.10832F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.89169F));
@@ -90,7 +89,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(537, 252);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(537, 249);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // metroLabel1
@@ -136,7 +135,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(13, 46);
+            this.metroLabel2.Location = new System.Drawing.Point(13, 45);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(44, 19);
             this.metroLabel2.TabIndex = 2;
@@ -158,7 +157,7 @@
             this.TBLogin.CustomButton.Visible = false;
             this.TBLogin.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBLogin.Lines = new string[0];
-            this.TBLogin.Location = new System.Drawing.Point(178, 49);
+            this.TBLogin.Location = new System.Drawing.Point(178, 48);
             this.TBLogin.MaxLength = 32767;
             this.TBLogin.Name = "TBLogin";
             this.TBLogin.PasswordChar = '\0';
@@ -177,7 +176,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(13, 85);
+            this.metroLabel3.Location = new System.Drawing.Point(13, 82);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(44, 19);
             this.metroLabel3.TabIndex = 4;
@@ -199,7 +198,7 @@
             this.TBPassword.CustomButton.Visible = false;
             this.TBPassword.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBPassword.Lines = new string[0];
-            this.TBPassword.Location = new System.Drawing.Point(178, 88);
+            this.TBPassword.Location = new System.Drawing.Point(178, 85);
             this.TBPassword.MaxLength = 32767;
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.PasswordChar = '●';
@@ -214,11 +213,12 @@
             this.TBPassword.UseSystemPasswordChar = true;
             this.TBPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TBPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TBPassword.Validating += new System.ComponentModel.CancelEventHandler(this.TBPasswordCheck_Validating);
             // 
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(13, 124);
+            this.metroLabel4.Location = new System.Drawing.Point(13, 121);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(82, 19);
             this.metroLabel4.TabIndex = 6;
@@ -240,7 +240,7 @@
             this.TBPasswordCheck.CustomButton.Visible = false;
             this.TBPasswordCheck.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBPasswordCheck.Lines = new string[0];
-            this.TBPasswordCheck.Location = new System.Drawing.Point(178, 127);
+            this.TBPasswordCheck.Location = new System.Drawing.Point(178, 124);
             this.TBPasswordCheck.MaxLength = 32767;
             this.TBPasswordCheck.Name = "TBPasswordCheck";
             this.TBPasswordCheck.PasswordChar = '●';
@@ -260,7 +260,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(13, 168);
+            this.metroLabel5.Location = new System.Drawing.Point(13, 165);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(148, 19);
             this.metroLabel5.TabIndex = 8;
@@ -269,7 +269,7 @@
             // TAdminRights
             // 
             this.TAdminRights.AutoSize = true;
-            this.TAdminRights.Location = new System.Drawing.Point(178, 171);
+            this.TAdminRights.Location = new System.Drawing.Point(178, 168);
             this.TAdminRights.Name = "TAdminRights";
             this.TAdminRights.Size = new System.Drawing.Size(80, 17);
             this.TAdminRights.TabIndex = 9;
@@ -279,7 +279,7 @@
             // BAddUser
             // 
             this.BAddUser.AutoSize = true;
-            this.BAddUser.Location = new System.Drawing.Point(13, 215);
+            this.BAddUser.Location = new System.Drawing.Point(13, 212);
             this.BAddUser.Name = "BAddUser";
             this.BAddUser.Size = new System.Drawing.Size(92, 23);
             this.BAddUser.TabIndex = 10;
@@ -291,11 +291,12 @@
             // 
             this.Lwarning.AutoSize = true;
             this.Lwarning.ForeColor = System.Drawing.Color.Red;
-            this.Lwarning.Location = new System.Drawing.Point(178, 212);
+            this.Lwarning.Location = new System.Drawing.Point(178, 209);
             this.Lwarning.Name = "Lwarning";
             this.Lwarning.Size = new System.Drawing.Size(55, 19);
             this.Lwarning.TabIndex = 11;
             this.Lwarning.Text = "warning";
+            this.Lwarning.UseCustomForeColor = true;
             this.Lwarning.Visible = false;
             // 
             // errorProvider
@@ -303,70 +304,137 @@
             this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
-            // metroLabel6
+            // LDivider
             // 
-            this.metroLabel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.metroLabel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroLabel6.Location = new System.Drawing.Point(0, 252);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(537, 2);
-            this.metroLabel6.TabIndex = 1;
-            // 
-            // LVUsers
-            // 
-            this.LVUsers.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.LVUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Meno,
-            this.Login,
-            this.Admin,
-            this.Odstrániť});
-            this.LVUsers.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LVUsers.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.LVUsers.FullRowSelect = true;
-            this.LVUsers.HoverSelection = true;
-            this.LVUsers.Location = new System.Drawing.Point(0, 290);
-            this.LVUsers.Name = "LVUsers";
-            this.LVUsers.OwnerDraw = true;
-            this.LVUsers.Size = new System.Drawing.Size(537, 69);
-            this.LVUsers.TabIndex = 2;
-            this.LVUsers.UseCompatibleStateImageBehavior = false;
-            this.LVUsers.UseSelectable = true;
-            this.LVUsers.View = System.Windows.Forms.View.Tile;
+            this.LDivider.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LDivider.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LDivider.Location = new System.Drawing.Point(0, 249);
+            this.LDivider.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.LDivider.Name = "LDivider";
+            this.LDivider.Size = new System.Drawing.Size(537, 2);
+            this.LDivider.TabIndex = 1;
             // 
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(3, 264);
-            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.metroLabel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroLabel7.Location = new System.Drawing.Point(0, 251);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3, 100, 3, 100);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(119, 19);
             this.metroLabel7.TabIndex = 3;
             this.metroLabel7.Text = "Zoznam užívateľov";
+            // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = this;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // GVUsers
+            // 
+            this.GVUsers.AllowUserToAddRows = false;
+            this.GVUsers.AllowUserToDeleteRows = false;
+            this.GVUsers.AllowUserToOrderColumns = true;
+            this.GVUsers.AllowUserToResizeRows = false;
+            this.GVUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GVUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.GVUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GVUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.GVUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GVUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GVUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GVUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FullName,
+            this.Login,
+            this.Admin,
+            this.DeleteUser});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GVUsers.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GVUsers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GVUsers.EnableHeadersVisualStyles = false;
+            this.GVUsers.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.GVUsers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.GVUsers.Location = new System.Drawing.Point(0, 270);
+            this.GVUsers.Name = "GVUsers";
+            this.GVUsers.ReadOnly = true;
+            this.GVUsers.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GVUsers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.GVUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.GVUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GVUsers.Size = new System.Drawing.Size(537, 89);
+            this.GVUsers.TabIndex = 4;
+            this.GVUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVUsers_CellContentClick);
+            // 
+            // FullName
+            // 
+            this.FullName.HeaderText = "Meno";
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            // 
+            // Login
+            // 
+            this.Login.HeaderText = "Login";
+            this.Login.Name = "Login";
+            this.Login.ReadOnly = true;
+            // 
+            // Admin
+            // 
+            this.Admin.HeaderText = "Administrátorské právo";
+            this.Admin.Name = "Admin";
+            this.Admin.ReadOnly = true;
+            // 
+            // DeleteUser
+            // 
+            this.DeleteUser.HeaderText = "Odstrániť užívateľa";
+            this.DeleteUser.Name = "DeleteUser";
+            this.DeleteUser.ReadOnly = true;
+            this.DeleteUser.Text = "Odstrániť";
+            this.DeleteUser.UseColumnTextForButtonValue = true;
             // 
             // UCAddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.Controls.Add(this.GVUsers);
             this.Controls.Add(this.metroLabel7);
-            this.Controls.Add(this.LVUsers);
-            this.Controls.Add(this.metroLabel6);
+            this.Controls.Add(this.LDivider);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UCAddNewUser";
             this.Size = new System.Drawing.Size(537, 359);
             this.Load += new System.EventHandler(this.UCAddNewUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GVUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox TBName;
@@ -381,12 +449,13 @@
         private MetroFramework.Controls.MetroButton BAddUser;
         private MetroFramework.Controls.MetroLabel Lwarning;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private MetroFramework.Controls.MetroListView LVUsers;
-        private System.Windows.Forms.ColumnHeader Meno;
-        private System.Windows.Forms.ColumnHeader Login;
-        private System.Windows.Forms.ColumnHeader Admin;
-        private System.Windows.Forms.ColumnHeader Odstrániť;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroLabel LDivider;
         private MetroFramework.Controls.MetroLabel metroLabel7;
+        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private MetroFramework.Controls.MetroGrid GVUsers;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Login;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Admin;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteUser;
     }
 }

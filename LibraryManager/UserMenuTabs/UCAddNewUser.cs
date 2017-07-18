@@ -1,4 +1,5 @@
 ﻿
+using MetroFramework.Controls;
 using Shaolinq;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 
 namespace LibraryManager
 {
-    public partial class UCAddNewUser : UserControl
+    public partial class UCAddNewUser : MetroUserControl
     {
         DatabaseModels.MainDatabase db = DatabaseModels.MainDatabase.getInstance();
 
@@ -72,7 +73,7 @@ namespace LibraryManager
                     Lwarning.Visible = true;
                     return false;
                 }
-                if (errorProvider.GetError(control) ==  "")
+                else if (errorProvider.GetError(control) !=  "")
                 {
                     Lwarning.Text = "Niektorá z položiek je chybne vyplnená.";
                     Lwarning.Visible = true;
@@ -87,31 +88,50 @@ namespace LibraryManager
 
         private void UCAddNewUser_Load(object sender, System.EventArgs e)
         {
+            
             UpdateUsersList();
         }
 
         private void UpdateUsersList()
         {
             var users = db.Users;
-            // TODO:Clear columns leave headers
+            // Clear columns
+            GVUsers.Rows.Clear();
             foreach (DatabaseModels.User user in users)
-            {
-                Button deleteButton = new Button();
-                deleteButton.Text = "Odstrániť";
-                deleteButton.Click += (s, e) => DeleteUserAsync(user);
-
-             
+            {                
+                GVUsers.Rows.Add(user.Name, user.Login, user.Admin);
             }
         }
 
-        private async void DeleteUserAsync(DatabaseModels.User user)
+        private async void DeleteUserAsync(string login)
         {
             using (var scope = new DataAccessScope())
             {
-                await db.Users.Where(u => u.Login == user.Login).DeleteAsync();
+                await db.Users.Where(u => u.Login == login).DeleteAsync();
                 scope.Complete();
             }
             UpdateUsersList();
+            ClearNewUserForm();
+        }
+
+        private void GVUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (GVUsers.Columns[e.ColumnIndex].Name == "DeleteUser")
+            {
+                string loginToDelete = GVUsers["Login", e.RowIndex].Value.ToString();
+                DeleteUserAsync(loginToDelete);
+            }
+        }
+
+        private void ClearNewUserForm()
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Text = "";
+                }
+            }
         }
     }
 }
