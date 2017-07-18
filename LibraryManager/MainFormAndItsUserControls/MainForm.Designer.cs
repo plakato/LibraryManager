@@ -39,8 +39,10 @@ namespace LibraryManager
             this.ucLogIn1 = new LibraryManager.UCLogedOut();
             this.PLogInLogOut = new MetroFramework.Controls.MetroPanel();
             this.PMainPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ucWelcome1 = new LibraryManager.UCWelcome();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.PLogInLogOut.SuspendLayout();
+            this.PMainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Lschool_name
@@ -100,6 +102,7 @@ namespace LibraryManager
             // 
             this.PMainPanel.ColumnCount = 1;
             this.PMainPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PMainPanel.Controls.Add(this.ucWelcome1, 0, 1);
             this.PMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PMainPanel.Location = new System.Drawing.Point(20, 60);
             this.PMainPanel.Name = "PMainPanel";
@@ -108,6 +111,14 @@ namespace LibraryManager
             this.PMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.65691F));
             this.PMainPanel.Size = new System.Drawing.Size(960, 520);
             this.PMainPanel.TabIndex = 7;
+            // 
+            // ucWelcome1
+            // 
+            this.ucWelcome1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucWelcome1.Location = new System.Drawing.Point(3, 67);
+            this.ucWelcome1.Name = "ucWelcome1";
+            this.ucWelcome1.Size = new System.Drawing.Size(954, 450);
+            this.ucWelcome1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -125,6 +136,7 @@ namespace LibraryManager
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.PLogInLogOut.ResumeLayout(false);
+            this.PMainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +150,7 @@ namespace LibraryManager
         private UCLogedOut ucLogIn1;
         private MetroPanel PLogInLogOut;
         private System.Windows.Forms.TableLayoutPanel PMainPanel;
+        private UCWelcome ucWelcome1;
     }
 }
 

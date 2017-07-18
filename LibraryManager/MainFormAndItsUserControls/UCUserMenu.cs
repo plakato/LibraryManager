@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using MetroFramework.Controls;
 
 namespace LibraryManager
 {
-    public partial class UCUserMenu : UserControl
+    public partial class UCUserMenu : MetroUserControl
     {
         public UCUserMenu()
         {
             InitializeComponent();
+           /* UCAddNewUser a = new UCAddNewUser();
+            MetroTabPage page = new MetroTabPage();
+            page.Controls.Add(a);
+            TCUserMenu.TabPages[1] = page;
+            TCUserMenu.Update();*/
         }
-
-   
     }
 }

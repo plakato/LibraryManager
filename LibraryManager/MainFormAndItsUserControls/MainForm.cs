@@ -18,6 +18,7 @@ namespace LibraryManager
             DatabaseModels.MainDatabase.Initialize();
             InitializeComponent();
             UCAddNewUser a = new UCAddNewUser();
+            UCAddNewBook b = new UCAddNewBook();
             
             // Create database if not exists => on the first run of the application
             model = DatabaseModels.MainDatabase.getInstance();

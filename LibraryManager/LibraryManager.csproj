@@ -116,6 +116,12 @@
     <Compile Include="MainFormAndItsUserControls\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFormAndItsUserControls\UCUserMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainFormAndItsUserControls\UCUserMenu.Designer.cs">
+      <DependentUpon>UCUserMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserMenuTabs\UCAddNewUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,12 +167,6 @@
     <Compile Include="UserMenuTabs\UCSearchBooks.Designer.cs">
       <DependentUpon>UCSearchBooks.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainFormAndItsUserControls\UCUserMenu.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MainFormAndItsUserControls\UCUserMenu.Designer.cs">
-      <DependentUpon>UCUserMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainFormAndItsUserControls\UCWelcome.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,6 +175,9 @@
     </Compile>
     <EmbeddedResource Include="MainFormAndItsUserControls\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormAndItsUserControls\UCUserMenu.resx">
+      <DependentUpon>UCUserMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMenuTabs\NewCategoryForm.resx">
       <DependentUpon>NewCategoryForm.cs</DependentUpon>
@@ -193,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormAndItsUserControls\UCLogedOut.resx">
       <DependentUpon>UCLogedOut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainFormAndItsUserControls\UCUserMenu.resx">
-      <DependentUpon>UCUserMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormAndItsUserControls\UCWelcome.resx">
       <DependentUpon>UCWelcome.cs</DependentUpon>
