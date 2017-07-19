@@ -30,7 +30,7 @@ namespace LibraryManager
                  admin.Name = "";
                  admin.Login = "admin";
                  admin.Password = "admin";
-                 admin.Admin = true;
+                 admin.Admin = false;
 
                 var book = model.Books.Create();
                 book.Title = "kniha";

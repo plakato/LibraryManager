@@ -84,48 +84,11 @@ namespace LibraryManager
                                                  book.NumberOfPages <= int.Parse(CBPageCountTo.Text)).ToListAsync();*/
             foreach (DatabaseModels.Book book in results)
             {
-                String status = GetStatus(book);
+                String status = book.GetStatus();
                 ListViewItem item = new ListViewItem(new string[]{book.ISBN, book.Title, book.Author, status});
                 LVResults.Items.Add(item);
             }
             LVResults.Visible = true;
-        }
-
-        private string GetStatus(DatabaseModels.Book book)
-        {
-            int onLoan = 0;
-            int reserved = 0;
-            int free = 0;
-            int copies = book.Copies.Count();
-
-            foreach (DatabaseModels.Copy copy in book.Copies)
-            {
-                if (copy.Loans.Where(loan => loan.Active == true).Any())
-                {
-                    onLoan++;
-                } else 
-                if (copy.Reservations.Where(res => res.Active == true).Any())
-                {
-                    reserved++;
-                } else
-                {
-                    free++;
-                }
-            }
-
-            if (onLoan >= copies)
-            {
-                return $"Požičaná({onLoan}/{copies})";
-            }
-            else if (reserved >= copies)
-            {
-                return $"Rezervovaná({reserved}/{copies})";
-            }
-            else
-            {
-                return $"Voľná({free}/{copies})";
-            }
-            
         }
 
         private void LVResults_ItemAdded(MetroListView obj)

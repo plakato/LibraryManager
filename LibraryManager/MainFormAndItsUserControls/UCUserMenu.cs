@@ -61,7 +61,7 @@ namespace LibraryManager.MainFormAndItsUserControls
 
             page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
-            page.Text = "Nový užívateľ";
+            page.Text = "Spravovať užívateľov";
             UCAddNewUser ucUser = new UCAddNewUser(user.Login);
             ucUser.Dock = DockStyle.Fill;
             page.Controls.Add(ucUser);

@@ -12,13 +12,16 @@ namespace LibraryManager.DatabaseModels
         public abstract int ID { get; set; }
 
         [BackReference]
-        public abstract Copy Copy { get; set; }
+        public abstract Book Book { get; set; }
 
-        [PersistedMember]
-        public abstract string Who { get; set; }
+        [BackReference]
+        public abstract User Who { get; set; }
 
         [PersistedMember]
         public abstract DateTime DueDate { get; set; }
+
+        [PersistedMember]
+        public abstract DateTime WhenIssued { get; set; }
 
         [PersistedMember]
         public abstract bool Active { get; set; }

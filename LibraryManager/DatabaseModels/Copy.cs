@@ -21,7 +21,5 @@ namespace LibraryManager.DatabaseModels
         [RelatedDataAccessObjects]
         public abstract RelatedDataAccessObjects<Loan> Loans { get; }
 
-        [RelatedDataAccessObjects]
-        public abstract RelatedDataAccessObjects<Reservation> Reservations { get; }
     }
 }

@@ -21,5 +21,11 @@ namespace LibraryManager.DatabaseModels
 
         [PersistedMember]
         public abstract bool Admin { get; set; }
+
+        [RelatedDataAccessObjects]
+        public abstract RelatedDataAccessObjects<Reservation> Reservations { get; }
+
+        [RelatedDataAccessObjects]
+        public abstract RelatedDataAccessObjects<Loan> Loans { get; }
     }
 }

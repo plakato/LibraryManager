@@ -15,11 +15,14 @@ namespace LibraryManager.DatabaseModels
         [BackReference]
         public abstract Copy Copy { get; set; }
 
-        [PersistedMember]
-        public abstract string Who { get; set; }
+        [BackReference]
+        public abstract User Who { get; set; }
 
         [PersistedMember]
         public abstract DateTime When { get; set; }
+
+        [PersistedMember]
+        public abstract DateTime UntilWhen { get; set; }
 
         [PersistedMember]
         public abstract bool Active { get; set; }

@@ -40,5 +40,39 @@ namespace LibraryManager.DatabaseModels
 
         [RelatedDataAccessObjects]
         public abstract RelatedDataAccessObjects<Keyword_Book> Keyword_Book { get; }
+
+        [RelatedDataAccessObjects]
+        public abstract RelatedDataAccessObjects<Reservation> Reservations { get; }
+
+        internal string GetStatus()
+        {
+            int onLoan = 0;
+            int reserved = 0;
+            int free = 0;
+            int copies = Copies.Count();
+
+            foreach (Copy copy in Copies)
+            {
+                if (copy.Loans.Where(loan => loan.Active == true).Any())
+                {
+                    onLoan++;
+                }
+                else
+                {
+                    free++;
+                }
+            }
+            reserved = Reservations.Where(res => res.Active == true).Count();
+
+            if (onLoan >= copies)
+            {
+                return $"Požičaná({onLoan}/{copies})";
+            }
+            else 
+            {
+                return $"Voľná({copies-onLoan}/{copies}), Rezervácií:{reserved}";
+            }
+
+        }
     }
 }
