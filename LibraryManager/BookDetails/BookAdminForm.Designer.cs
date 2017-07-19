@@ -29,10 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // metroStyleManager1
+            // 
+            this.metroStyleManager1.Owner = this;
+            this.metroStyleManager1.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // BookAdminForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "BookAdminForm";
+            this.ClientSize = new System.Drawing.Size(300, 300);
+            this.Name = "BookAdminForm";
+            this.Text = "Detail knihy";
+            ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private MetroFramework.Components.MetroStyleManager metroStyleManager1;
     }
 }

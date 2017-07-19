@@ -17,9 +17,12 @@ namespace LibraryManager
         const int OLDEST_YEAR = 1970;
         const int MAX_PAGE_COUNT = 5000;
         DatabaseModels.MainDatabase db = DatabaseModels.MainDatabase.getInstance();
-        public UCSearchBooks()
+        DatabaseModels.User user;
+
+        public UCSearchBooks(DatabaseModels.User user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         private void UCSearchBooks_Load(object sender, EventArgs e)
@@ -140,13 +143,16 @@ namespace LibraryManager
 
         private void LVResults_ItemActivate(object sender, EventArgs e)
         {
-            ListViewItem item = LVResults.SelectedItems[0];
-            DatabaseModels.User user = ((MainFormAndItsUserControls.UCUserMenu)Parent).user;
+            string ISBN = LVResults.SelectedItems[0].Text;
+
             if (user.Admin)
             {
-                string ISBN = item.SubItems["ISBNColumn"].Text;
                 BookDetails.BookAdminForm form = new BookDetails.BookAdminForm(user, db.Books.GetReference(ISBN));
-
+                form.Show(this);
+            } else
+            {
+                BookDetails.BookUserForm uform = new BookDetails.BookUserForm(user, db.Books.GetReference(ISBN));
+                uform.Show(this);
             }
         }
     }

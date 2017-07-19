@@ -18,13 +18,40 @@ namespace LibraryManager.MainFormAndItsUserControls
         {
             InitializeComponent();
             this.user = user;
-            AddUserTabs();
+            if (user.Admin)
+            {
+                AddAdminTabs();
+            } else
+            {
+                AddUserTabs();
+            }
 
         }
 
         private void AddUserTabs()
         {
             MetroTabPage page = new MetroTabPage();
+            page.Dock = DockStyle.Fill;
+            page.Text = "Nájdi knižku";
+            UCSearchBooks ucSearchBooks = new UCSearchBooks(user);
+            ucSearchBooks.Dock = DockStyle.Fill;
+            page.Controls.Add(ucSearchBooks);
+            TCUserMenu.TabPages.Add(page);
+
+            //TODO: Moje vypozicky
+        }
+
+        private void AddAdminTabs()
+        {
+            MetroTabPage page = new MetroTabPage();
+            page.Dock = DockStyle.Fill;
+            page.Text = "Nájdi knižku";
+            UCSearchBooks ucSearchBooks = new UCSearchBooks(user);
+            ucSearchBooks.Dock = DockStyle.Fill;
+            page.Controls.Add(ucSearchBooks);
+            TCUserMenu.TabPages.Add(page);
+            
+            page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = "Nová kniha";
             UCAddNewBook uc = new UCAddNewBook();
@@ -35,18 +62,11 @@ namespace LibraryManager.MainFormAndItsUserControls
             page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = "Nový užívateľ";
-            UCAddNewUser ucUser = new UCAddNewUser();
+            UCAddNewUser ucUser = new UCAddNewUser(user.Login);
             ucUser.Dock = DockStyle.Fill;
             page.Controls.Add(ucUser);
             TCUserMenu.TabPages.Add(page);
 
-            page = new MetroTabPage();
-            page.Dock = DockStyle.Fill;
-            page.Text = "Nájdi knižku";
-            UCSearchBooks ucSearchBooks = new UCSearchBooks(); 
-            ucSearchBooks.Dock = DockStyle.Fill;
-            page.Controls.Add(ucSearchBooks);
-            TCUserMenu.TabPages.Add(page);
         }
     }
 }

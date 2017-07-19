@@ -57,6 +57,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MessageBoxManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MessageBoxManager\bin\Release\MessageBoxManager.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -186,6 +190,12 @@
     <Compile Include="MainFormAndItsUserControls\UCWelcome.Designer.cs">
       <DependentUpon>UCWelcome.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BookDetails\BookAdminForm.resx">
+      <DependentUpon>BookAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookDetails\BookUserForm.resx">
+      <DependentUpon>BookUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainFormAndItsUserControls\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,7 +249,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MessageBoxManager.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

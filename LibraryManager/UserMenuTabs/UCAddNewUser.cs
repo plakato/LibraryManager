@@ -11,10 +11,11 @@ namespace LibraryManager
     public partial class UCAddNewUser : MetroUserControl
     {
         DatabaseModels.MainDatabase db = DatabaseModels.MainDatabase.getInstance();
-
-        public UCAddNewUser()
+        string currLogin;
+        public UCAddNewUser(string login)
         {
             InitializeComponent();
+            currLogin = login;
         }
 
         private void TBLogin_Validating(object sender, CancelEventArgs e)
@@ -60,6 +61,7 @@ namespace LibraryManager
                 scope.Complete();
             }
             MetroFramework.MetroMessageBox.Show(this, "Užívateľ " + TBName.Text + " bol úspešne pridaný.", "Hotovo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ClearNewUserForm();
             UpdateUsersList();
         }
 
@@ -88,7 +90,6 @@ namespace LibraryManager
 
         private void UCAddNewUser_Load(object sender, System.EventArgs e)
         {
-            
             UpdateUsersList();
         }
 
@@ -111,7 +112,6 @@ namespace LibraryManager
                 scope.Complete();
             }
             UpdateUsersList();
-            ClearNewUserForm();
         }
 
         private void GVUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -119,7 +119,15 @@ namespace LibraryManager
             if (GVUsers.Columns[e.ColumnIndex].Name == "DeleteUser")
             {
                 string loginToDelete = GVUsers["Login", e.RowIndex].Value.ToString();
-                DeleteUserAsync(loginToDelete);
+                if (loginToDelete == currLogin)
+                {
+                    MetroFramework.MetroMessageBox.Show(this, "Tento užívateľ je práve prihlásený. Nemôžete ho zrušiť!", "Varovanie", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (DialogResult.Yes == MessageBox.Show(this, $"Naozaj chcete odstrániť užívateľa {loginToDelete}?", "Odstrániť", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    DeleteUserAsync(loginToDelete);
+                }
             }
         }
 
