@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
+using LibraryManager.UserMenuTabs;
 
 namespace LibraryManager.MainFormAndItsUserControls
 {
     public partial class UCUserMenu : UserControl
     {
         internal DatabaseModels.User user;
+        private const string MY_LOANS_AND_RESERVATIONS = "Moje výpožičky a rezervácie";
         public UCUserMenu(DatabaseModels.User user)
         {
             InitializeComponent();
@@ -38,7 +40,21 @@ namespace LibraryManager.MainFormAndItsUserControls
             page.Controls.Add(ucSearchBooks);
             TCUserMenu.TabPages.Add(page);
 
-            //TODO: Moje vypozicky
+            page = new MetroTabPage();
+            page.Dock = DockStyle.Fill;
+            page.Text = MY_LOANS_AND_RESERVATIONS;
+            UCMyLoans ucMyLoans = new UCMyLoans(user);
+            ucMyLoans.Dock = DockStyle.Fill;
+            page.Controls.Add(ucMyLoans);
+            TCUserMenu.TabPages.Add(page);
+
+            page = new MetroTabPage();
+            page.Dock = DockStyle.Fill;
+            page.Text = "Zmeniť heslo";
+            UCChangePassword ucChangePassword = new UCChangePassword(user);
+            ucChangePassword.Dock = DockStyle.Fill;
+            page.Controls.Add(ucChangePassword);
+            TCUserMenu.TabPages.Add(page);
         }
 
         private void AddAdminTabs()
@@ -67,6 +83,35 @@ namespace LibraryManager.MainFormAndItsUserControls
             page.Controls.Add(ucUser);
             TCUserMenu.TabPages.Add(page);
 
+            page = new MetroTabPage();
+            page.Dock = DockStyle.Fill;
+            page.Text = MY_LOANS_AND_RESERVATIONS;
+            UCMyLoans ucMyLoans = new UCMyLoans(user);
+            ucMyLoans.Dock = DockStyle.Fill;
+            page.Controls.Add(ucMyLoans);
+            TCUserMenu.TabPages.Add(page);
+
+            page = new MetroTabPage();
+            page.Dock = DockStyle.Fill;
+            page.Text = "Zmeniť heslo";
+            UCChangePassword ucChangePassword = new UCChangePassword(user);
+            ucChangePassword.Dock = DockStyle.Fill;
+            page.Controls.Add(ucChangePassword);
+            TCUserMenu.TabPages.Add(page);
+        }
+
+        private void TCUserMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TCUserMenu.SelectedTab.Text == MY_LOANS_AND_RESERVATIONS)
+            {
+                foreach (Control c in TCUserMenu.SelectedTab.Controls)
+                {
+                    if (c is UCMyLoans)
+                    {
+                        ((UCMyLoans)c).UpdateReservationTable();
+                    }
+                }
+            }
         }
     }
 }

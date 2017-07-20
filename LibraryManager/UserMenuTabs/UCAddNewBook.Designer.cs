@@ -67,7 +67,7 @@
             TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.27084F));
             TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 248F));
+            TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 249F));
             TPAddNewBook.Controls.Add(this.metroLabel1, 0, 0);
             TPAddNewBook.Controls.Add(this.metroLabel2, 0, 1);
             TPAddNewBook.Controls.Add(this.metroLabel3, 0, 2);
@@ -144,7 +144,7 @@
             // 
             // 
             this.TBTitle.CustomButton.Image = null;
-            this.TBTitle.CustomButton.Location = new System.Drawing.Point(235, 1);
+            this.TBTitle.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.TBTitle.CustomButton.Name = "";
             this.TBTitle.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBTitle.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -163,7 +163,7 @@
             this.TBTitle.SelectionLength = 0;
             this.TBTitle.SelectionStart = 0;
             this.TBTitle.ShortcutsEnabled = true;
-            this.TBTitle.Size = new System.Drawing.Size(257, 23);
+            this.TBTitle.Size = new System.Drawing.Size(256, 23);
             this.TBTitle.TabIndex = 4;
             this.TBTitle.UseSelectable = true;
             this.TBTitle.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -175,7 +175,7 @@
             // 
             // 
             this.TBAuthor.CustomButton.Image = null;
-            this.TBAuthor.CustomButton.Location = new System.Drawing.Point(235, 1);
+            this.TBAuthor.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.TBAuthor.CustomButton.Name = "";
             this.TBAuthor.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBAuthor.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -194,7 +194,7 @@
             this.TBAuthor.SelectionLength = 0;
             this.TBAuthor.SelectionStart = 0;
             this.TBAuthor.ShortcutsEnabled = true;
-            this.TBAuthor.Size = new System.Drawing.Size(257, 23);
+            this.TBAuthor.Size = new System.Drawing.Size(256, 23);
             this.TBAuthor.TabIndex = 5;
             this.TBAuthor.UseSelectable = true;
             this.TBAuthor.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -206,7 +206,7 @@
             // 
             // 
             this.TBisbn.CustomButton.Image = null;
-            this.TBisbn.CustomButton.Location = new System.Drawing.Point(235, 1);
+            this.TBisbn.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.TBisbn.CustomButton.Name = "";
             this.TBisbn.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBisbn.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -225,7 +225,7 @@
             this.TBisbn.SelectionLength = 0;
             this.TBisbn.SelectionStart = 0;
             this.TBisbn.ShortcutsEnabled = true;
-            this.TBisbn.Size = new System.Drawing.Size(257, 23);
+            this.TBisbn.Size = new System.Drawing.Size(256, 23);
             this.TBisbn.TabIndex = 6;
             this.TBisbn.UseSelectable = true;
             this.TBisbn.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -238,7 +238,7 @@
             // 
             // 
             this.TBSector.CustomButton.Image = null;
-            this.TBSector.CustomButton.Location = new System.Drawing.Point(235, 1);
+            this.TBSector.CustomButton.Location = new System.Drawing.Point(234, 1);
             this.TBSector.CustomButton.Name = "";
             this.TBSector.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBSector.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -257,7 +257,7 @@
             this.TBSector.SelectionLength = 0;
             this.TBSector.SelectionStart = 0;
             this.TBSector.ShortcutsEnabled = true;
-            this.TBSector.Size = new System.Drawing.Size(257, 23);
+            this.TBSector.Size = new System.Drawing.Size(256, 23);
             this.TBSector.TabIndex = 7;
             this.TBSector.UseSelectable = true;
             this.TBSector.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -266,7 +266,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(416, 10);
+            this.metroLabel5.Location = new System.Drawing.Point(415, 10);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(68, 19);
             this.metroLabel5.TabIndex = 8;
@@ -275,7 +275,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(416, 46);
+            this.metroLabel6.Location = new System.Drawing.Point(415, 46);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(92, 19);
             this.metroLabel6.TabIndex = 9;
@@ -285,7 +285,7 @@
             // 
             this.CBCategory.FormattingEnabled = true;
             this.CBCategory.ItemHeight = 23;
-            this.CBCategory.Location = new System.Drawing.Point(536, 13);
+            this.CBCategory.Location = new System.Drawing.Point(535, 13);
             this.CBCategory.Name = "CBCategory";
             this.CBCategory.Size = new System.Drawing.Size(177, 29);
             this.CBCategory.TabIndex = 12;
@@ -296,7 +296,7 @@
             // 
             this.CBPublisher.FormattingEnabled = true;
             this.CBPublisher.ItemHeight = 23;
-            this.CBPublisher.Location = new System.Drawing.Point(536, 49);
+            this.CBPublisher.Location = new System.Drawing.Point(535, 49);
             this.CBPublisher.Name = "CBPublisher";
             this.CBPublisher.Size = new System.Drawing.Size(177, 29);
             this.CBPublisher.TabIndex = 13;
@@ -328,7 +328,7 @@
             this.TBPageCount.CustomButton.UseSelectable = true;
             this.TBPageCount.CustomButton.Visible = false;
             this.TBPageCount.Lines = new string[0];
-            this.TBPageCount.Location = new System.Drawing.Point(536, 120);
+            this.TBPageCount.Location = new System.Drawing.Point(535, 120);
             this.TBPageCount.MaxLength = 32767;
             this.TBPageCount.Name = "TBPageCount";
             this.TBPageCount.PasswordChar = '\0';
@@ -338,7 +338,7 @@
             this.TBPageCount.SelectionStart = 0;
             this.TBPageCount.ShortcutsEnabled = true;
             this.TBPageCount.Size = new System.Drawing.Size(75, 23);
-            this.TBPageCount.TabIndex = 17;
+            this.TBPageCount.TabIndex = 18;
             this.TBPageCount.UseSelectable = true;
             this.TBPageCount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TBPageCount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -359,7 +359,7 @@
             this.TBPublicationYear.CustomButton.UseSelectable = true;
             this.TBPublicationYear.CustomButton.Visible = false;
             this.TBPublicationYear.Lines = new string[0];
-            this.TBPublicationYear.Location = new System.Drawing.Point(536, 85);
+            this.TBPublicationYear.Location = new System.Drawing.Point(535, 85);
             this.TBPublicationYear.MaxLength = 32767;
             this.TBPublicationYear.Name = "TBPublicationYear";
             this.TBPublicationYear.PasswordChar = '\0';
@@ -369,7 +369,7 @@
             this.TBPublicationYear.SelectionStart = 0;
             this.TBPublicationYear.ShortcutsEnabled = true;
             this.TBPublicationYear.Size = new System.Drawing.Size(75, 23);
-            this.TBPublicationYear.TabIndex = 18;
+            this.TBPublicationYear.TabIndex = 17;
             this.TBPublicationYear.UseSelectable = true;
             this.TBPublicationYear.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TBPublicationYear.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -378,7 +378,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(416, 82);
+            this.metroLabel7.Location = new System.Drawing.Point(415, 82);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(82, 19);
             this.metroLabel7.TabIndex = 10;
@@ -387,7 +387,7 @@
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(416, 117);
+            this.metroLabel8.Location = new System.Drawing.Point(415, 117);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(76, 19);
             this.metroLabel8.TabIndex = 11;

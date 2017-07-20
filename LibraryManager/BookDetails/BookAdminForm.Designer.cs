@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookAdminForm));
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -51,8 +57,31 @@
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.LStatus = new MetroFramework.Controls.MetroLabel();
             this.BEditBookDetail = new MetroFramework.Controls.MetroButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.GVLoanReturn = new MetroFramework.Controls.MetroGrid();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.GVResevations = new MetroFramework.Controls.MetroGrid();
+            this.NumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WhoMadeReservationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UntilWhenReservColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReservationIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteReservationColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WhoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LoginColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WhenColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UntilWhenColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LoanIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteCopyColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GVLoanReturn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GVResevations)).BeginInit();
             this.SuspendLayout();
             // 
             // metroStyleManager1
@@ -63,8 +92,7 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.metroLabel3, 0, 2);
@@ -85,10 +113,12 @@
             this.tableLayoutPanel1.Controls.Add(this.LSection, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.metroLabel9, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.LStatus, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.BEditBookDetail, 2, 7);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(24, 73);
+            this.tableLayoutPanel1.Controls.Add(this.BEditBookDetail, 0, 9);
+            this.flowLayoutPanel1.SetFlowBreak(this.tableLayoutPanel1, true);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
@@ -98,7 +128,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(368, 285);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(235, 319);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // metroLabel3
@@ -265,7 +296,7 @@
             // 
             // BEditBookDetail
             // 
-            this.BEditBookDetail.Location = new System.Drawing.Point(164, 232);
+            this.BEditBookDetail.Location = new System.Drawing.Point(3, 290);
             this.BEditBookDetail.Name = "BEditBookDetail";
             this.BEditBookDetail.Size = new System.Drawing.Size(75, 22);
             this.BEditBookDetail.TabIndex = 18;
@@ -273,12 +304,256 @@
             this.BEditBookDetail.UseSelectable = true;
             this.BEditBookDetail.Click += new System.EventHandler(this.BEditBookDetail_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
+            this.flowLayoutPanel1.Controls.Add(this.metroLabel10);
+            this.flowLayoutPanel1.Controls.Add(this.GVLoanReturn);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Controls.Add(this.metroLabel11);
+            this.flowLayoutPanel1.Controls.Add(this.GVResevations);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 63);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(920, 483);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // GVLoanReturn
+            // 
+            this.GVLoanReturn.AllowUserToAddRows = false;
+            this.GVLoanReturn.AllowUserToDeleteRows = false;
+            this.GVLoanReturn.AllowUserToOrderColumns = true;
+            this.GVLoanReturn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GVLoanReturn.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.GVLoanReturn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.GVLoanReturn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GVLoanReturn.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.GVLoanReturn.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GVLoanReturn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GVLoanReturn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GVLoanReturn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDColumn,
+            this.StatusColumn,
+            this.WhoColumn,
+            this.LoginColumn,
+            this.WhenColumn,
+            this.UntilWhenColumn,
+            this.ButtonColumn,
+            this.LoanIDColumn,
+            this.DeleteCopyColumn});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GVLoanReturn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GVLoanReturn.EnableHeadersVisualStyles = false;
+            this.GVLoanReturn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.GVLoanReturn.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.GVLoanReturn.Location = new System.Drawing.Point(244, 22);
+            this.GVLoanReturn.Name = "GVLoanReturn";
+            this.GVLoanReturn.ReadOnly = true;
+            this.GVLoanReturn.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GVLoanReturn.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.GVLoanReturn.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.GVLoanReturn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GVLoanReturn.Size = new System.Drawing.Size(517, 127);
+            this.GVLoanReturn.TabIndex = 1;
+            this.GVLoanReturn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVLoanReturn_CellContentClick);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(244, 155);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(0, 0);
+            this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // metroLabel10
+            // 
+            this.metroLabel10.AutoSize = true;
+            this.metroLabel10.Location = new System.Drawing.Point(244, 0);
+            this.metroLabel10.Name = "metroLabel10";
+            this.metroLabel10.Size = new System.Drawing.Size(89, 19);
+            this.metroLabel10.TabIndex = 0;
+            this.metroLabel10.Text = "Stav výtlačkov";
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(244, 158);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(72, 19);
+            this.metroLabel11.TabIndex = 2;
+            this.metroLabel11.Text = "Rezervácie";
+            // 
+            // GVResevations
+            // 
+            this.GVResevations.AllowUserToAddRows = false;
+            this.GVResevations.AllowUserToDeleteRows = false;
+            this.GVResevations.AllowUserToOrderColumns = true;
+            this.GVResevations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GVResevations.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.GVResevations.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.GVResevations.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GVResevations.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.GVResevations.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GVResevations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.GVResevations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GVResevations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NumberColumn,
+            this.WhoMadeReservationColumn,
+            this.UntilWhenReservColumn,
+            this.ReservationIDColumn,
+            this.DeleteReservationColumn});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GVResevations.DefaultCellStyle = dataGridViewCellStyle5;
+            this.GVResevations.EnableHeadersVisualStyles = false;
+            this.GVResevations.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.GVResevations.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.GVResevations.Location = new System.Drawing.Point(244, 180);
+            this.GVResevations.Name = "GVResevations";
+            this.GVResevations.ReadOnly = true;
+            this.GVResevations.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GVResevations.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.GVResevations.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.GVResevations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GVResevations.Size = new System.Drawing.Size(517, 135);
+            this.GVResevations.TabIndex = 3;
+            this.GVResevations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVResevations_CellContentClick);
+            // 
+            // NumberColumn
+            // 
+            this.NumberColumn.HeaderText = "Poradové číslo";
+            this.NumberColumn.Name = "NumberColumn";
+            this.NumberColumn.ReadOnly = true;
+            // 
+            // WhoMadeReservationColumn
+            // 
+            this.WhoMadeReservationColumn.HeaderText = "Kto";
+            this.WhoMadeReservationColumn.Name = "WhoMadeReservationColumn";
+            this.WhoMadeReservationColumn.ReadOnly = true;
+            // 
+            // UntilWhenReservColumn
+            // 
+            this.UntilWhenReservColumn.HeaderText = "Dokedy má záujem";
+            this.UntilWhenReservColumn.Name = "UntilWhenReservColumn";
+            this.UntilWhenReservColumn.ReadOnly = true;
+            // 
+            // ReservationIDColumn
+            // 
+            this.ReservationIDColumn.HeaderText = "ReservationNumber";
+            this.ReservationIDColumn.Name = "ReservationIDColumn";
+            this.ReservationIDColumn.ReadOnly = true;
+            this.ReservationIDColumn.Visible = false;
+            // 
+            // DeleteReservationColumn
+            // 
+            this.DeleteReservationColumn.HeaderText = "Zrušiť rezerváciu";
+            this.DeleteReservationColumn.Name = "DeleteReservationColumn";
+            this.DeleteReservationColumn.ReadOnly = true;
+            // 
+            // IDColumn
+            // 
+            this.IDColumn.HeaderText = "Číslo výtlačku";
+            this.IDColumn.Name = "IDColumn";
+            this.IDColumn.ReadOnly = true;
+            // 
+            // StatusColumn
+            // 
+            this.StatusColumn.HeaderText = "Stav";
+            this.StatusColumn.Name = "StatusColumn";
+            this.StatusColumn.ReadOnly = true;
+            // 
+            // WhoColumn
+            // 
+            this.WhoColumn.HeaderText = "Kto požičal";
+            this.WhoColumn.Name = "WhoColumn";
+            this.WhoColumn.ReadOnly = true;
+            // 
+            // LoginColumn
+            // 
+            this.LoginColumn.HeaderText = "Login";
+            this.LoginColumn.Name = "LoginColumn";
+            this.LoginColumn.ReadOnly = true;
+            this.LoginColumn.Visible = false;
+            // 
+            // WhenColumn
+            // 
+            this.WhenColumn.HeaderText = "Kedy";
+            this.WhenColumn.Name = "WhenColumn";
+            this.WhenColumn.ReadOnly = true;
+            // 
+            // UntilWhenColumn
+            // 
+            this.UntilWhenColumn.HeaderText = "Dokedy";
+            this.UntilWhenColumn.Name = "UntilWhenColumn";
+            this.UntilWhenColumn.ReadOnly = true;
+            // 
+            // ButtonColumn
+            // 
+            this.ButtonColumn.HeaderText = "Vrátiť/Požičať";
+            this.ButtonColumn.Name = "ButtonColumn";
+            this.ButtonColumn.ReadOnly = true;
+            // 
+            // LoanIDColumn
+            // 
+            this.LoanIDColumn.HeaderText = "LoanID";
+            this.LoanIDColumn.Name = "LoanIDColumn";
+            this.LoanIDColumn.ReadOnly = true;
+            this.LoanIDColumn.Visible = false;
+            // 
+            // DeleteCopyColumn
+            // 
+            this.DeleteCopyColumn.HeaderText = "Odstrániť výtlačok";
+            this.DeleteCopyColumn.Name = "DeleteCopyColumn";
+            this.DeleteCopyColumn.ReadOnly = true;
+            this.DeleteCopyColumn.Text = "Odstrániť";
+            // 
             // BookAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 398);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(913, 465);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BookAdminForm";
             this.Style = MetroFramework.MetroColorStyle.Red;
@@ -288,7 +563,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GVLoanReturn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GVResevations)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -315,5 +595,25 @@
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroLabel LStatus;
         private MetroFramework.Controls.MetroButton BEditBookDetail;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private MetroFramework.Controls.MetroGrid GVLoanReturn;
+        private MetroFramework.Controls.MetroLabel metroLabel10;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroGrid GVResevations;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WhoMadeReservationColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UntilWhenReservColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationIDColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteReservationColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WhoColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoginColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WhenColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UntilWhenColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn ButtonColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoanIDColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteCopyColumn;
     }
 }

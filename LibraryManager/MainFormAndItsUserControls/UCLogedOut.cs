@@ -53,5 +53,13 @@ namespace LibraryManager
                 MainForm.SwitchUserControls(Screen.User,  user);
             }
         }
+
+        private void TBPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BSignIn_Click(sender, e);
+            }
+        }
     }
 }

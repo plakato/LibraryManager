@@ -18,6 +18,9 @@ namespace LibraryManager.DatabaseModels
         public abstract User Who { get; set; }
 
         [PersistedMember]
+        public abstract int Count { get; set; }
+
+        [PersistedMember]
         public abstract DateTime DueDate { get; set; }
 
         [PersistedMember]

@@ -70,7 +70,7 @@ namespace LibraryManager.DatabaseModels
             }
             else 
             {
-                return $"Voľná({copies-onLoan}/{copies}), Rezervácií:{reserved}";
+                return $"Voľná({copies-onLoan}/{copies})"+(reserved==0?"":$"Rezervácií:{reserved}");
             }
 
         }

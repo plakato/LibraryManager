@@ -117,6 +117,12 @@
     <Compile Include="BookDetails\BookUserForm.Designer.cs">
       <DependentUpon>BookUserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookDetails\LoanCopyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookDetails\LoanCopyForm.Designer.cs">
+      <DependentUpon>LoanCopyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseModels\Book.cs" />
     <Compile Include="DatabaseModels\Category.cs" />
     <Compile Include="DatabaseModels\Category_Book.cs" />
@@ -178,6 +184,18 @@
     <Compile Include="MainFormAndItsUserControls\UCLogedOut.Designer.cs">
       <DependentUpon>UCLogedOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserMenuTabs\UCChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserMenuTabs\UCChangePassword.Designer.cs">
+      <DependentUpon>UCChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserMenuTabs\UCMyLoans.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserMenuTabs\UCMyLoans.Designer.cs">
+      <DependentUpon>UCMyLoans.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserMenuTabs\UCSearchBooks.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookDetails\BookUserForm.resx">
       <DependentUpon>BookUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookDetails\LoanCopyForm.resx">
+      <DependentUpon>LoanCopyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormAndItsUserControls\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -231,6 +252,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserMenuTabs\UCAddNewUser.resx">
       <DependentUpon>UCAddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMenuTabs\UCChangePassword.resx">
+      <DependentUpon>UCChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMenuTabs\UCMyLoans.resx">
+      <DependentUpon>UCMyLoans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMenuTabs\UCSearchBooks.resx">
       <DependentUpon>UCSearchBooks.cs</DependentUpon>

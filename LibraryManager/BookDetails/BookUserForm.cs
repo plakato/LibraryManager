@@ -71,8 +71,11 @@ namespace LibraryManager.BookDetails
                 scope.Complete();
             }
 
-            MetroFramework.MetroMessageBox.Show(this, "Rezervácia úspešne pridaná.", "Hurá!", 
-                                                MessageBoxButtons.OK, MessageBoxIcon.Question);
+            if (DialogResult.OK == MetroFramework.MetroMessageBox.Show(this, "Rezervácia úspešne pridaná.", "Hurá!", 
+                                                MessageBoxButtons.OK, MessageBoxIcon.Question))
+            {
+                Close();
+            }
         }
     }
 }

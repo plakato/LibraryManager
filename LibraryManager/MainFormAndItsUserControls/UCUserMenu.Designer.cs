@@ -40,8 +40,11 @@
             this.TCUserMenu.Location = new System.Drawing.Point(0, 0);
             this.TCUserMenu.Name = "TCUserMenu";
             this.TCUserMenu.Size = new System.Drawing.Size(662, 429);
+            this.TCUserMenu.Style = MetroFramework.MetroColorStyle.Red;
             this.TCUserMenu.TabIndex = 0;
+            this.TCUserMenu.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.TCUserMenu.UseSelectable = true;
+            this.TCUserMenu.SelectedIndexChanged += new System.EventHandler(this.TCUserMenu_SelectedIndexChanged);
             // 
             // metroStyleManager1
             // 
