@@ -1,4 +1,5 @@
-﻿using MetroFramework.Forms;
+﻿using LibraryManager.DatabaseModels;
+using MetroFramework.Forms;
 using Shaolinq;
 using System;
 using System.Collections.Generic;
@@ -14,19 +15,21 @@ namespace LibraryManager.BookDetails
 {
     public partial class LoanCopyForm : MetroForm
     {
-        DatabaseModels.MainDatabase db = DatabaseModels.MainDatabase.getInstance();
-        DatabaseModels.Copy copy;
-        public LoanCopyForm(DatabaseModels.Copy copy)
+        MainDatabase db = MainDatabase.getInstance();
+        int copyID;
+        string ISBN;
+        public LoanCopyForm(int copyID, string ISBN)
         {
             InitializeComponent();
-            this.copy = copy;
+            this.copyID = copyID;
+            this.ISBN = ISBN;
             CBWho.DropDownStyle = ComboBoxStyle.DropDownList;
             CBWho.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
         private void LoanCopyForm_Load(object sender, EventArgs e)
         {
-            foreach (DatabaseModels.User user in db.Users)
+            foreach (User user in db.Users)
             {
                 ComboBoxItem item = new ComboBoxItem();
                 item.Text = user.Name;
@@ -53,13 +56,13 @@ namespace LibraryManager.BookDetails
                 MetroFramework.MetroMessageBox.Show(this, "Zadané údaje nie sú validné.", "Uups", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DatabaseModels.User user = db.Users.GetReference(((ComboBoxItem)CBWho.SelectedItem).Value);
-
+            User user = db.Users.GetReference(((ComboBoxItem)CBWho.SelectedItem).Value);
+            Book book = db.Books.GetReference(ISBN);
             using (var scope = new DataAccessScope())
             {
                 var loan = db.Loans.Create();
                 loan.Active = true;
-                loan.Copy = copy;
+                loan.Copy = db.Copies.GetReference(new { ID = copyID, Book = book });
                 loan.When = DateTime.Now;
                 loan.UntilWhen = DTUntilWhen.Value;
                 loan.Who = user;

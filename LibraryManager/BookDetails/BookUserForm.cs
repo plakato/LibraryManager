@@ -1,4 +1,5 @@
-﻿using MetroFramework.Forms;
+﻿using LibraryManager.DatabaseModels;
+using MetroFramework.Forms;
 using Shaolinq;
 using System;
 using System.Collections.Generic;
@@ -14,18 +15,20 @@ namespace LibraryManager.BookDetails
 {
     public partial class BookUserForm : MetroForm
     {
-        DatabaseModels.User user;
-        DatabaseModels.Book book;
+        MainDatabase db = MainDatabase.getInstance();
+        string login;
+        string ISBN;
 
-        public BookUserForm(DatabaseModels.User user, DatabaseModels.Book book)
+        public BookUserForm(string login, string ISBN)
         {
             InitializeComponent();
-            this.book = book;
-            this.user = user;
+            this.login = login;
+            this.ISBN = ISBN;
         }
 
         private void BookUserForm_Load(object sender, EventArgs e)
         {
+            Book book = db.Books.GetReference(ISBN);
             LTitle.Text = book.Title;
             LAuthor.Text = book.Author;
             LISBN.Text = book.ISBN;
@@ -45,6 +48,8 @@ namespace LibraryManager.BookDetails
 
         private void BMakeReservation_Click(object sender, EventArgs e)
         {
+            User user = db.Users.GetReference(login);
+            Book book = db.Books.GetReference(ISBN);
             if (user.Reservations.Where(res => res.Active && res.Book == book).Any())
             {
                 MetroFramework.MetroMessageBox.Show(this, "Na túto knihu už máte rezerváciu. Môžete ju zrušiť v sekcii Moje výpožičky a rezervácie.", "Uups",
@@ -59,7 +64,6 @@ namespace LibraryManager.BookDetails
                 return;
             }
 
-            DatabaseModels.MainDatabase db = DatabaseModels.MainDatabase.getInstance();
             using (var scope = new DataAccessScope())
             {
                 var reservation = db.Reservations.Create();

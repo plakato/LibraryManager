@@ -108,7 +108,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(219, 307);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(264, 307);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // metroLabel3
@@ -306,7 +306,7 @@
             this.tableLayoutPanel2.Controls.Add(this.DTDueDate, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.BMakeReservation, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.CBCopiesCount, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(249, 10);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(294, 10);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(10);

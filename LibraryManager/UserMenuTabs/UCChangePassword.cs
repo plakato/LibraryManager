@@ -14,10 +14,13 @@ namespace LibraryManager.UserMenuTabs
 {
     public partial class UCChangePassword : MetroUserControl
     {
+        string login;
         DatabaseModels.User user;
-        public UCChangePassword(DatabaseModels.User user)
+        DatabaseModels.MainDatabase db = DatabaseModels.MainDatabase.getInstance();
+        public UCChangePassword(string login)
         {
-            this.user = user;
+            this.login = login;
+            user = db.Users.GetReference(login);
             InitializeComponent();
         }
 
@@ -73,7 +76,7 @@ namespace LibraryManager.UserMenuTabs
             TBNewPassword.Text = "";
             TBNewPasswordCheck.Text = "";
             MetroFramework.MetroMessageBox.Show(this, "Vaše heslo bolo úspešne zmenené!", "Hurá", MessageBoxButtons.OK, MessageBoxIcon.Question);
-
+            user = db.Users.GetReference(login);
         }
     }
 }

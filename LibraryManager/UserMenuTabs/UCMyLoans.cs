@@ -9,34 +9,36 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shaolinq;
 using MetroFramework.Controls;
+using LibraryManager.DatabaseModels;
 
 namespace LibraryManager.UserMenuTabs
 {
     public partial class UCMyLoans : MetroUserControl
     {
-        DatabaseModels.User user;
-        DatabaseModels.MainDatabase db = DatabaseModels.MainDatabase.getInstance();
+        string login;
+        MainDatabase db = MainDatabase.getInstance();
         private const string CANCEL = "Zrušiť";
-        public UCMyLoans(DatabaseModels.User user)
+        public UCMyLoans(string login)
         {
-            this.user = user;
+            this.login = login;
             InitializeComponent();
         }
 
         private void UCMyLoans_Load(object sender, EventArgs e)
         {
-            foreach (DatabaseModels.Loan loan in user.Loans.Where(l => l.Active == true))
+            User user = db.Users.GetReference(login);
+            foreach (Loan loan in user.Loans.Where(l => l.Active == true))
             {
                 var copy = loan.Copy;
                 GVLoans.Rows.Add(copy.Book.Title, copy.Book.Author, loan.UntilWhen.ToString("dd/MM/yyyy"));
             }
-            UpdateReservationTable();
+            UpdateReservationTable(user);
         }
         
-        internal void UpdateReservationTable()
+        internal void UpdateReservationTable(User user)
         {
             GVReservations.Rows.Clear();
-            foreach (DatabaseModels.Reservation res in user.Reservations.Where(r => r.Active == true))
+            foreach (Reservation res in user.Reservations.Where(r => r.Active == true))
             {
                 GVReservations.Rows.Add(res.ID, res.Book.Title, res.Book.Author, res.Count, res.DueDate.ToString("dd/MM/yyyy"), CANCEL);
             }
@@ -53,7 +55,7 @@ namespace LibraryManager.UserMenuTabs
                     res.Active = false;
                     await scope.CompleteAsync();
                 }
-                UpdateReservationTable();
+                UpdateReservationTable(db.Users.GetReference(login));
             }
         }
     }

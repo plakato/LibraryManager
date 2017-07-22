@@ -20,9 +20,7 @@ namespace LibraryManager
         {
             db = DatabaseModels.MainDatabase.getInstance();
 
-            TBTitle.Select();
-
-            var categories = (from c in db.Categories select c.Name).Distinct();
+            var categories = (from c in db.Categories select c.Name).Distinct().OrderBy(x => x);
             foreach (var c in categories)
             {
                 CBCategory.Items.Add(c);
@@ -143,7 +141,7 @@ namespace LibraryManager
                     book.Section = TBSector.Text;
                     book.NumberOfPages = int.Parse(TBPageCount.Text);
                     book.PublicationYear = int.Parse(TBPublicationYear.Text);
-                    book.Publisher = CBPublisher.SelectedText;
+                    book.Publisher = CBPublisher.SelectedItem.ToString();
 
                     var cat_book = db.Category_Book.Create();
                     cat_book.Book = book;

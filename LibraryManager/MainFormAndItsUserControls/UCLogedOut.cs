@@ -12,11 +12,10 @@ namespace LibraryManager
 {
     public partial class UCLogedOut : UserControl
     {
-        DatabaseModels.MainDatabase model;
+        DatabaseModels.MainDatabase db;
         public UCLogedOut()
         {
             InitializeComponent();
-
         }
 
         private void BSignIn_Click(object sender, EventArgs e)
@@ -24,8 +23,8 @@ namespace LibraryManager
             String login = TBLogin.Text;
             String password = TBPassword.Text;
 
-            model = DatabaseModels.MainDatabase.getInstance();
-            var users = model.Users.Where(u => u.Login == login).ToList();
+            db = DatabaseModels.MainDatabase.getInstance();
+            var users = db.Users.Where(u => u.Login == login).ToList();
 
             // Check whether user exists.
             if (users.Count == 0)
@@ -47,10 +46,10 @@ namespace LibraryManager
             // Change screen
             if (user.Admin)
             {
-                MainForm.SwitchUserControls(Screen.Admin, user);
+                MainForm.SwitchUserControls(Screen.Admin, user.Login);
             } else
             {
-                MainForm.SwitchUserControls(Screen.User,  user);
+                MainForm.SwitchUserControls(Screen.User,  user.Login);
             }
         }
 

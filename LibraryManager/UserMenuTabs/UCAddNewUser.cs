@@ -95,10 +95,9 @@ namespace LibraryManager
 
         private void UpdateUsersList()
         {
-            var users = db.Users;
             // Clear columns
             GVUsers.Rows.Clear();
-            foreach (DatabaseModels.User user in users)
+            foreach (DatabaseModels.User user in db.Users)
             {                
                 GVUsers.Rows.Add(user.Name, user.Login, user.Admin);
             }

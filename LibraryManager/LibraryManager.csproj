@@ -145,6 +145,12 @@
     <Compile Include="MainFormAndItsUserControls\UCUserMenu.Designer.cs">
       <DependentUpon>UCUserMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserMenuTabs\NewKeywordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserMenuTabs\NewKeywordForm.Designer.cs">
+      <DependentUpon>NewKeywordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserMenuTabs\UCAddNewBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,6 +195,12 @@
     </Compile>
     <Compile Include="UserMenuTabs\UCChangePassword.Designer.cs">
       <DependentUpon>UCChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserMenuTabs\UCKeywords.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserMenuTabs\UCKeywords.Designer.cs">
+      <DependentUpon>UCKeywords.cs</DependentUpon>
     </Compile>
     <Compile Include="UserMenuTabs\UCMyLoans.cs">
       <SubType>UserControl</SubType>
@@ -244,6 +256,9 @@
     <EmbeddedResource Include="MainFormAndItsUserControls\UCWelcome.resx">
       <DependentUpon>UCWelcome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserMenuTabs\NewKeywordForm.resx">
+      <DependentUpon>NewKeywordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserMenuTabs\NewPublisherForm.resx">
       <DependentUpon>NewPublisherForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserMenuTabs\UCChangePassword.resx">
       <DependentUpon>UCChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMenuTabs\UCKeywords.resx">
+      <DependentUpon>UCKeywords.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserMenuTabs\UCMyLoans.resx">
       <DependentUpon>UCMyLoans.cs</DependentUpon>

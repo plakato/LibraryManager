@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
 using Shaolinq;
+using LibraryManager.DatabaseModels;
 
 namespace LibraryManager
 {
@@ -16,13 +17,13 @@ namespace LibraryManager
     {
         const int OLDEST_YEAR = 1970;
         const int MAX_PAGE_COUNT = 5000;
-        DatabaseModels.MainDatabase db = DatabaseModels.MainDatabase.getInstance();
-        DatabaseModels.User user;
+        MainDatabase db = MainDatabase.getInstance();
+        string login;
 
-        public UCSearchBooks(DatabaseModels.User user)
+        public UCSearchBooks(string login)
         {
             InitializeComponent();
-            this.user = user;
+            this.login = login;
         }
 
         private void UCSearchBooks_Load(object sender, EventArgs e)
@@ -57,22 +58,11 @@ namespace LibraryManager
             CBPageCountTo.SelectedItem = MAX_PAGE_COUNT;
         }
 
-        private void BSearch_Click(object sender, EventArgs e)
+        private async void BSearch_Click(object sender, EventArgs e)
         {
-            LVResults.Items.Clear();
+            LVResults.Items.Clear();      
 
-            var results = db.Books.Where(book => book.Title.Contains(TBTitle.Text));
-            results = results.Where(book => book.Author.Contains(TBAuthor.Text));
-            results = results.Where(book => book.ISBN.Contains(TBisbn.Text));
-            results = results.Where(book => book.Section.Contains(TBSector.Text));
-            results = results.Where(book => CBCategory.Text==""? true:(book.Category_Books.Where(cat_book => cat_book.Category.Name == CBCategory.Text).Any()));
-            results = results.Where(book => book.Publisher == CBPublisher.Text || CBPublisher.Text =="");
-            results = results.Where(book => book.PublicationYear >= int.Parse(CBPublicationYearFrom.Text));
-            results = results.Where(book => book.PublicationYear <= int.Parse(CBPublicationYearTo.Text));
-            results = results.Where(book => book.NumberOfPages >= int.Parse(CBPageCountFrom.Text));
-            results = results.Where(book => book.NumberOfPages <= int.Parse(CBPageCountTo.Text));
-
-            /* var results = await db.Books.Where(book => book.Title.Contains(TBTitle.Text) &&
+            var results = await db.Books.Where(book => book.Title.Contains(TBTitle.Text) &&
                                                  book.Author.Contains(TBAuthor.Text) &&
                                                  book.ISBN.Contains(TBisbn.Text) &&
                                                  book.Section.Contains(TBSector.Text) &&
@@ -81,14 +71,19 @@ namespace LibraryManager
                                                  book.PublicationYear >= int.Parse(CBPublicationYearFrom.Text) && 
                                                  book.PublicationYear <= int.Parse(CBPublicationYearTo.Text) &&
                                                  book.NumberOfPages >= int.Parse(CBPageCountFrom.Text) &&
-                                                 book.NumberOfPages <= int.Parse(CBPageCountTo.Text)).ToListAsync();*/
-            foreach (DatabaseModels.Book book in results)
+                                                 book.NumberOfPages <= int.Parse(CBPageCountTo.Text)).ToListAsync();
+            foreach (Book book in results)
             {
                 String status = book.GetStatus();
                 ListViewItem item = new ListViewItem(new string[]{book.ISBN, book.Title, book.Author, status});
                 LVResults.Items.Add(item);
             }
             LVResults.Visible = true;
+        }
+
+        public void ClearResults()
+        {
+            LVResults.Items.Clear();
         }
 
         private void LVResults_ItemAdded(MetroListView obj)
@@ -107,14 +102,19 @@ namespace LibraryManager
         private void LVResults_ItemActivate(object sender, EventArgs e)
         {
             string ISBN = LVResults.SelectedItems[0].Text;
-
-            if (user.Admin)
+            if (!db.Books.Where(b => b.ISBN == ISBN).Any())
             {
-                BookDetails.BookAdminForm form = new BookDetails.BookAdminForm(user, db.Books.GetReference(ISBN));
+                MetroFramework.MetroMessageBox.Show(this, "Táto kniha bola odstránená. Pre získanie výsledkov bez ostránených kníh prosím opakujte hľadanie.", "Kniha neexistuje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            bool admin = db.Users.GetReference(login).Admin;
+            if (admin)
+            {
+                BookDetails.BookAdminForm form = new BookDetails.BookAdminForm(login, ISBN);
                 form.Show(this);
             } else
             {
-                BookDetails.BookUserForm uform = new BookDetails.BookUserForm(user, db.Books.GetReference(ISBN));
+                BookDetails.BookUserForm uform = new BookDetails.BookUserForm(login, ISBN);
                 uform.Show(this);
             }
         }

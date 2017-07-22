@@ -9,18 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
 using LibraryManager.UserMenuTabs;
+using LibraryManager.DatabaseModels;
 
 namespace LibraryManager.MainFormAndItsUserControls
 {
     public partial class UCUserMenu : UserControl
     {
-        internal DatabaseModels.User user;
+        internal string login;
         private const string MY_LOANS_AND_RESERVATIONS = "Moje výpožičky a rezervácie";
-        public UCUserMenu(DatabaseModels.User user)
+        public UCUserMenu(string login, bool admin)
         {
             InitializeComponent();
-            this.user = user;
-            if (user.Admin)
+            this.login = login;
+            if (admin)
             {
                 AddAdminTabs();
             } else
@@ -35,7 +36,7 @@ namespace LibraryManager.MainFormAndItsUserControls
             MetroTabPage page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = "Nájdi knižku";
-            UCSearchBooks ucSearchBooks = new UCSearchBooks(user);
+            UCSearchBooks ucSearchBooks = new UCSearchBooks(login);
             ucSearchBooks.Dock = DockStyle.Fill;
             page.Controls.Add(ucSearchBooks);
             TCUserMenu.TabPages.Add(page);
@@ -43,7 +44,7 @@ namespace LibraryManager.MainFormAndItsUserControls
             page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = MY_LOANS_AND_RESERVATIONS;
-            UCMyLoans ucMyLoans = new UCMyLoans(user);
+            UCMyLoans ucMyLoans = new UCMyLoans(login);
             ucMyLoans.Dock = DockStyle.Fill;
             page.Controls.Add(ucMyLoans);
             TCUserMenu.TabPages.Add(page);
@@ -51,7 +52,7 @@ namespace LibraryManager.MainFormAndItsUserControls
             page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = "Zmeniť heslo";
-            UCChangePassword ucChangePassword = new UCChangePassword(user);
+            UCChangePassword ucChangePassword = new UCChangePassword(login);
             ucChangePassword.Dock = DockStyle.Fill;
             page.Controls.Add(ucChangePassword);
             TCUserMenu.TabPages.Add(page);
@@ -62,7 +63,7 @@ namespace LibraryManager.MainFormAndItsUserControls
             MetroTabPage page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = "Nájdi knižku";
-            UCSearchBooks ucSearchBooks = new UCSearchBooks(user);
+            UCSearchBooks ucSearchBooks = new UCSearchBooks(login);
             ucSearchBooks.Dock = DockStyle.Fill;
             page.Controls.Add(ucSearchBooks);
             TCUserMenu.TabPages.Add(page);
@@ -78,7 +79,7 @@ namespace LibraryManager.MainFormAndItsUserControls
             page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = "Spravovať užívateľov";
-            UCAddNewUser ucUser = new UCAddNewUser(user.Login);
+            UCAddNewUser ucUser = new UCAddNewUser(login);
             ucUser.Dock = DockStyle.Fill;
             page.Controls.Add(ucUser);
             TCUserMenu.TabPages.Add(page);
@@ -86,7 +87,7 @@ namespace LibraryManager.MainFormAndItsUserControls
             page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = MY_LOANS_AND_RESERVATIONS;
-            UCMyLoans ucMyLoans = new UCMyLoans(user);
+            UCMyLoans ucMyLoans = new UCMyLoans(login);
             ucMyLoans.Dock = DockStyle.Fill;
             page.Controls.Add(ucMyLoans);
             TCUserMenu.TabPages.Add(page);
@@ -94,9 +95,17 @@ namespace LibraryManager.MainFormAndItsUserControls
             page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = "Zmeniť heslo";
-            UCChangePassword ucChangePassword = new UCChangePassword(user);
+            UCChangePassword ucChangePassword = new UCChangePassword(login);
             ucChangePassword.Dock = DockStyle.Fill;
             page.Controls.Add(ucChangePassword);
+            TCUserMenu.TabPages.Add(page);
+
+            page = new MetroTabPage();
+            page.Dock = DockStyle.Fill;
+            page.Text = "Klucove slova";
+            UCKeywords uck = new UCKeywords();
+            uck.Dock = DockStyle.Fill;
+            page.Controls.Add(uck);
             TCUserMenu.TabPages.Add(page);
         }
 
@@ -108,7 +117,8 @@ namespace LibraryManager.MainFormAndItsUserControls
                 {
                     if (c is UCMyLoans)
                     {
-                        ((UCMyLoans)c).UpdateReservationTable();
+                        User user = MainDatabase.getInstance().Users.GetReference(login);
+                        ((UCMyLoans)c).UpdateReservationTable(user);
                     }
                 }
             }
