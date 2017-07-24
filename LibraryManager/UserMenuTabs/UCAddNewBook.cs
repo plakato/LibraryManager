@@ -1,4 +1,5 @@
-﻿using MetroFramework.Controls;
+﻿using LibraryManager.UserMenuTabs;
+using MetroFramework.Controls;
 using Shaolinq;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,10 +11,15 @@ namespace LibraryManager
         DatabaseModels.MainDatabase db;
         const string NEW_CATEGORY = "Nová kategória";
         const string ADD_PUBLISHER = "Pridať vydavateľstvo";
+        UCKeywords uck;
 
         public UCAddNewBook()
         {
             InitializeComponent();
+            uck = new UCKeywords();     
+            TLPAddNewBook.Controls.Add(uck, 0, 5);
+            TLPAddNewBook.SetColumnSpan(uck, 5);
+            uck.Dock = DockStyle.Fill;
         }
 
         private void UCAddNewBook_Load(object sender, System.EventArgs e)
@@ -154,6 +160,14 @@ namespace LibraryManager
                         var copy = db.Copies.Create();
                         copy.Book = book;
                     }
+                    foreach (string word in uck.GetSelected())
+                    {
+                        var keyword = db.Keywords.GetReference(word);
+                        var keyw_book = db.Keyword_Book.Create();
+                        keyw_book.Book = book;
+                        keyw_book.Keyword = keyword;
+                        
+                    }
                     scope.Complete();
                 }
                 ClearForm();
@@ -202,6 +216,7 @@ namespace LibraryManager
             CBPublisher.SelectedItem = null;
             TBPublicationYear.Text = "";
             TBPageCount.Text = "";
+            uck.ClearSelected();
         }
 
         private void TBNumberOfCopies_Validating(object sender, System.ComponentModel.CancelEventArgs e)

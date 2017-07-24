@@ -38,6 +38,7 @@ namespace LibraryManager.BookDetails
             LCategory.Text = string.Join(",", book.Category_Books.Select(cb => cb.Category.Name));
             LSection.Text = book.Section;
             LStatus.Text = book.GetStatus();
+            LKeywords.Text = string.Join(", ", book.GetKeywords());
 
             for (int i = 1; i <= book.Copies.Count(); i++)
             {
@@ -81,5 +82,6 @@ namespace LibraryManager.BookDetails
                 Close();
             }
         }
+
     }
 }

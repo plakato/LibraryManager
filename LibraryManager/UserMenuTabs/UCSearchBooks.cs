@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MetroFramework.Controls;
 using Shaolinq;
 using LibraryManager.DatabaseModels;
+using LibraryManager.UserMenuTabs;
 
 namespace LibraryManager
 {
@@ -19,11 +20,15 @@ namespace LibraryManager
         const int MAX_PAGE_COUNT = 5000;
         MainDatabase db = MainDatabase.getInstance();
         string login;
-
+        UCKeywords uck;
         public UCSearchBooks(string login)
         {
             InitializeComponent();
             this.login = login;
+            uck = new UCKeywords();
+            TLPConditions.Controls.Add(uck, 0, 4);
+            TLPConditions.SetColumnSpan(uck, 5);
+            uck.Dock = DockStyle.Fill;
         }
 
         private void UCSearchBooks_Load(object sender, EventArgs e)
@@ -60,18 +65,21 @@ namespace LibraryManager
 
         private async void BSearch_Click(object sender, EventArgs e)
         {
-            LVResults.Items.Clear();      
+            LVResults.Items.Clear();
 
-            var results = await db.Books.Where(book => book.Title.Contains(TBTitle.Text) &&
+            var resultsWithoutKeywords = await db.Books.Where(book => book.Title.Contains(TBTitle.Text) &&
                                                  book.Author.Contains(TBAuthor.Text) &&
                                                  book.ISBN.Contains(TBisbn.Text) &&
                                                  book.Section.Contains(TBSector.Text) &&
-                                                 CBCategory.Text==""? true:(book.Category_Books.Where(cat_book => cat_book.Category.Name == CBCategory.Text).Any()) &&
-                                                 (book.Publisher == CBPublisher.Text || CBPublisher.Text =="") &&
-                                                 book.PublicationYear >= int.Parse(CBPublicationYearFrom.Text) && 
+                                                 CBCategory.Text == "" ? true : (book.Category_Books.Where(cat_book => cat_book.Category.Name == CBCategory.Text).Any()) &&
+                                                 (book.Publisher == CBPublisher.Text || CBPublisher.Text == "") &&
+                                                 book.PublicationYear >= int.Parse(CBPublicationYearFrom.Text) &&
                                                  book.PublicationYear <= int.Parse(CBPublicationYearTo.Text) &&
                                                  book.NumberOfPages >= int.Parse(CBPageCountFrom.Text) &&
-                                                 book.NumberOfPages <= int.Parse(CBPageCountTo.Text)).ToListAsync();
+                                                 book.NumberOfPages <= int.Parse(CBPageCountTo.Text))
+                                                 .ToListAsync();
+            var results = resultsWithoutKeywords.Where(book => BookHasAllKeywords(book));
+
             foreach (Book book in results)
             {
                 String status = book.GetStatus();
@@ -79,19 +87,20 @@ namespace LibraryManager
                 LVResults.Items.Add(item);
             }
             LVResults.Visible = true;
-        }
-
-        public void ClearResults()
-        {
-            LVResults.Items.Clear();
-        }
-
-        private void LVResults_ItemAdded(MetroListView obj)
-        {
+            // Resize grid to fit the content
             for (int i = 0; i < LVResults.Columns.Count; i++)
             {
                 LVResults.Columns[i].Width = -2;
             }
+        }
+
+        private bool BookHasAllKeywords(Book book)
+        {
+            return !uck.GetSelected().Except(book.GetKeywords()).Any();
+        }
+        public void ClearResults()
+        {
+            LVResults.Items.Clear();
         }
 
         private void LVResults_Resize(object sender, EventArgs e)

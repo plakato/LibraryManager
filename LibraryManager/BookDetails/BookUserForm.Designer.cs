@@ -50,6 +50,8 @@
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.LStatus = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.LKeywords = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -72,10 +74,10 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.metroLabel3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.metroLabel4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.metroLabel5, 0, 4);
@@ -94,27 +96,31 @@
             this.tableLayoutPanel1.Controls.Add(this.metroLabel9, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.LStatus, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.metroLabel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.metroLabel13, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.LKeywords, 1, 9);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 10);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(264, 307);
+            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(181, 310);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(13, 69);
+            this.metroLabel3.Location = new System.Drawing.Point(13, 68);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(40, 19);
             this.metroLabel3.TabIndex = 2;
@@ -123,7 +129,8 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(13, 103);
+            this.metroLabel4.Location = new System.Drawing.Point(13, 97);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(82, 19);
             this.metroLabel4.TabIndex = 3;
@@ -132,7 +139,8 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(13, 139);
+            this.metroLabel5.Location = new System.Drawing.Point(13, 126);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(92, 19);
             this.metroLabel5.TabIndex = 4;
@@ -141,7 +149,8 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(13, 172);
+            this.metroLabel6.Location = new System.Drawing.Point(13, 155);
+            this.metroLabel6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(76, 19);
             this.metroLabel6.TabIndex = 5;
@@ -150,7 +159,8 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(13, 206);
+            this.metroLabel7.Location = new System.Drawing.Point(13, 184);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(68, 19);
             this.metroLabel7.TabIndex = 6;
@@ -159,7 +169,8 @@
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(13, 239);
+            this.metroLabel8.Location = new System.Drawing.Point(13, 213);
+            this.metroLabel8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(48, 19);
             this.metroLabel8.TabIndex = 7;
@@ -168,7 +179,8 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(13, 38);
+            this.metroLabel2.Location = new System.Drawing.Point(13, 39);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(46, 19);
             this.metroLabel2.TabIndex = 1;
@@ -186,7 +198,7 @@
             // LAuthor
             // 
             this.LAuthor.AutoSize = true;
-            this.LAuthor.Location = new System.Drawing.Point(111, 38);
+            this.LAuthor.Location = new System.Drawing.Point(111, 39);
             this.LAuthor.Name = "LAuthor";
             this.LAuthor.Size = new System.Drawing.Size(57, 19);
             this.LAuthor.TabIndex = 9;
@@ -195,7 +207,7 @@
             // LISBN
             // 
             this.LISBN.AutoSize = true;
-            this.LISBN.Location = new System.Drawing.Point(111, 69);
+            this.LISBN.Location = new System.Drawing.Point(111, 68);
             this.LISBN.Name = "LISBN";
             this.LISBN.Size = new System.Drawing.Size(37, 19);
             this.LISBN.TabIndex = 10;
@@ -204,7 +216,7 @@
             // LPublicationYear
             // 
             this.LPublicationYear.AutoSize = true;
-            this.LPublicationYear.Location = new System.Drawing.Point(111, 103);
+            this.LPublicationYear.Location = new System.Drawing.Point(111, 97);
             this.LPublicationYear.Name = "LPublicationYear";
             this.LPublicationYear.Size = new System.Drawing.Size(33, 19);
             this.LPublicationYear.TabIndex = 11;
@@ -213,7 +225,7 @@
             // LPublisher
             // 
             this.LPublisher.AutoSize = true;
-            this.LPublisher.Location = new System.Drawing.Point(111, 139);
+            this.LPublisher.Location = new System.Drawing.Point(111, 126);
             this.LPublisher.Name = "LPublisher";
             this.LPublisher.Size = new System.Drawing.Size(53, 19);
             this.LPublisher.TabIndex = 12;
@@ -222,7 +234,7 @@
             // LPageCount
             // 
             this.LPageCount.AutoSize = true;
-            this.LPageCount.Location = new System.Drawing.Point(111, 172);
+            this.LPageCount.Location = new System.Drawing.Point(111, 155);
             this.LPageCount.Name = "LPageCount";
             this.LPageCount.Size = new System.Drawing.Size(25, 19);
             this.LPageCount.TabIndex = 13;
@@ -231,7 +243,7 @@
             // LCategory
             // 
             this.LCategory.AutoSize = true;
-            this.LCategory.Location = new System.Drawing.Point(111, 206);
+            this.LCategory.Location = new System.Drawing.Point(111, 184);
             this.LCategory.Name = "LCategory";
             this.LCategory.Size = new System.Drawing.Size(21, 19);
             this.LCategory.TabIndex = 14;
@@ -240,7 +252,7 @@
             // LSection
             // 
             this.LSection.AutoSize = true;
-            this.LSection.Location = new System.Drawing.Point(111, 239);
+            this.LSection.Location = new System.Drawing.Point(111, 213);
             this.LSection.Name = "LSection";
             this.LSection.Size = new System.Drawing.Size(25, 19);
             this.LSection.TabIndex = 15;
@@ -249,7 +261,8 @@
             // metroLabel9
             // 
             this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(13, 267);
+            this.metroLabel9.Location = new System.Drawing.Point(13, 242);
+            this.metroLabel9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(36, 19);
             this.metroLabel9.TabIndex = 16;
@@ -258,7 +271,7 @@
             // LStatus
             // 
             this.LStatus.AutoSize = true;
-            this.LStatus.Location = new System.Drawing.Point(111, 267);
+            this.LStatus.Location = new System.Drawing.Point(111, 242);
             this.LStatus.Name = "LStatus";
             this.LStatus.Size = new System.Drawing.Size(25, 19);
             this.LStatus.TabIndex = 17;
@@ -268,10 +281,30 @@
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(13, 10);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(49, 19);
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "Názov:";
+            // 
+            // metroLabel13
+            // 
+            this.metroLabel13.AutoSize = true;
+            this.metroLabel13.Location = new System.Drawing.Point(13, 271);
+            this.metroLabel13.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.metroLabel13.Name = "metroLabel13";
+            this.metroLabel13.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel13.TabIndex = 18;
+            this.metroLabel13.Text = "Kľúčové slová:";
+            // 
+            // LKeywords
+            // 
+            this.LKeywords.AutoSize = true;
+            this.LKeywords.Location = new System.Drawing.Point(111, 271);
+            this.LKeywords.Name = "LKeywords";
+            this.LKeywords.Size = new System.Drawing.Size(33, 19);
+            this.LKeywords.TabIndex = 19;
+            this.LKeywords.Text = "      ";
             // 
             // metroLabel10
             // 
@@ -291,7 +324,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(654, 347);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(648, 328);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -306,7 +339,7 @@
             this.tableLayoutPanel2.Controls.Add(this.DTDueDate, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.BMakeReservation, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.CBCopiesCount, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(294, 10);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(211, 10);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(10);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(10);
@@ -377,7 +410,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 427);
+            this.ClientSize = new System.Drawing.Size(688, 408);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BookUserForm";
@@ -426,5 +459,7 @@
         private MetroFramework.Controls.MetroDateTime DTDueDate;
         private MetroFramework.Controls.MetroButton BMakeReservation;
         private MetroFramework.Controls.MetroComboBox CBCopiesCount;
+        private MetroFramework.Controls.MetroLabel metroLabel13;
+        private MetroFramework.Controls.MetroLabel LKeywords;
     }
 }

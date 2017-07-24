@@ -27,10 +27,12 @@ namespace LibraryManager.UserMenuTabs
         private void UCMyLoans_Load(object sender, EventArgs e)
         {
             User user = db.Users.GetReference(login);
-            foreach (Loan loan in user.Loans.Where(l => l.Active == true))
+            foreach (Loan l in user.Loans.Where(l => l.Active == true))
             {
-                var copy = loan.Copy;
-                GVLoans.Rows.Add(copy.Book.Title, copy.Book.Author, loan.UntilWhen.ToString("dd/MM/yyyy"));
+                // Needs this - otherwise can't have such long reference chain
+                var loan = db.Loans.GetReference(l.ID);
+                var book = loan.Copy.Book;
+                GVLoans.Rows.Add(book.Title, book.Author, loan.UntilWhen.ToString("dd/MM/yyyy"));
             }
             UpdateReservationTable(user);
         }

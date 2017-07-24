@@ -55,9 +55,21 @@
             this.LCategory = new MetroFramework.Controls.MetroLabel();
             this.LSection = new MetroFramework.Controls.MetroLabel();
             this.BEditBookDetail = new MetroFramework.Controls.MetroButton();
+            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.LCopyCount = new MetroFramework.Controls.MetroLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.GVLoanReturn = new MetroFramework.Controls.MetroGrid();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.GVResevations = new MetroFramework.Controls.MetroGrid();
+            this.NumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WhoMadeReservationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UntilWhenReservColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReservationIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteReservationColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.LKeywords = new MetroFramework.Controls.MetroLabel();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WhoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,16 +79,6 @@
             this.ButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.LoanIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeleteCopyColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.GVResevations = new MetroFramework.Controls.MetroGrid();
-            this.NumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WhoMadeReservationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UntilWhenReservColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReservationIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeleteReservationColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
-            this.LCopyCount = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.TLPDetail.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -92,6 +94,7 @@
             // 
             // TLPDetail
             // 
+            this.TLPDetail.AutoSize = true;
             this.TLPDetail.ColumnCount = 2;
             this.TLPDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.TLPDetail.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -111,14 +114,17 @@
             this.TLPDetail.Controls.Add(this.LPageCount, 1, 5);
             this.TLPDetail.Controls.Add(this.LCategory, 1, 6);
             this.TLPDetail.Controls.Add(this.LSection, 1, 7);
-            this.TLPDetail.Controls.Add(this.BEditBookDetail, 0, 9);
+            this.TLPDetail.Controls.Add(this.BEditBookDetail, 0, 10);
             this.TLPDetail.Controls.Add(this.metroLabel9, 0, 8);
             this.TLPDetail.Controls.Add(this.LCopyCount, 1, 8);
+            this.TLPDetail.Controls.Add(this.metroLabel12, 0, 9);
+            this.TLPDetail.Controls.Add(this.LKeywords, 1, 9);
             this.flowLayoutPanel1.SetFlowBreak(this.TLPDetail, true);
-            this.TLPDetail.Location = new System.Drawing.Point(3, 3);
+            this.TLPDetail.Location = new System.Drawing.Point(10, 10);
+            this.TLPDetail.Margin = new System.Windows.Forms.Padding(10);
             this.TLPDetail.Name = "TLPDetail";
             this.TLPDetail.Padding = new System.Windows.Forms.Padding(10);
-            this.TLPDetail.RowCount = 10;
+            this.TLPDetail.RowCount = 11;
             this.TLPDetail.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TLPDetail.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TLPDetail.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -129,13 +135,15 @@
             this.TLPDetail.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TLPDetail.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.TLPDetail.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.TLPDetail.Size = new System.Drawing.Size(259, 342);
+            this.TLPDetail.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TLPDetail.Size = new System.Drawing.Size(189, 338);
             this.TLPDetail.TabIndex = 0;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(13, 48);
+            this.metroLabel3.Location = new System.Drawing.Point(13, 68);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(40, 19);
             this.metroLabel3.TabIndex = 2;
@@ -144,7 +152,8 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(13, 67);
+            this.metroLabel4.Location = new System.Drawing.Point(13, 97);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(82, 19);
             this.metroLabel4.TabIndex = 3;
@@ -153,7 +162,8 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(13, 86);
+            this.metroLabel5.Location = new System.Drawing.Point(13, 126);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(92, 19);
             this.metroLabel5.TabIndex = 4;
@@ -162,7 +172,8 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(13, 105);
+            this.metroLabel6.Location = new System.Drawing.Point(13, 155);
+            this.metroLabel6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(76, 19);
             this.metroLabel6.TabIndex = 5;
@@ -171,7 +182,8 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(13, 124);
+            this.metroLabel7.Location = new System.Drawing.Point(13, 184);
+            this.metroLabel7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(68, 19);
             this.metroLabel7.TabIndex = 6;
@@ -180,7 +192,8 @@
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(13, 143);
+            this.metroLabel8.Location = new System.Drawing.Point(13, 213);
+            this.metroLabel8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(48, 19);
             this.metroLabel8.TabIndex = 7;
@@ -190,6 +203,7 @@
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(13, 10);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(49, 19);
             this.metroLabel1.TabIndex = 0;
@@ -198,7 +212,8 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(13, 29);
+            this.metroLabel2.Location = new System.Drawing.Point(13, 39);
+            this.metroLabel2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(46, 19);
             this.metroLabel2.TabIndex = 1;
@@ -216,7 +231,7 @@
             // LAuthor
             // 
             this.LAuthor.AutoSize = true;
-            this.LAuthor.Location = new System.Drawing.Point(119, 29);
+            this.LAuthor.Location = new System.Drawing.Point(119, 39);
             this.LAuthor.Name = "LAuthor";
             this.LAuthor.Size = new System.Drawing.Size(57, 19);
             this.LAuthor.TabIndex = 9;
@@ -225,7 +240,7 @@
             // LISBN
             // 
             this.LISBN.AutoSize = true;
-            this.LISBN.Location = new System.Drawing.Point(119, 48);
+            this.LISBN.Location = new System.Drawing.Point(119, 68);
             this.LISBN.Name = "LISBN";
             this.LISBN.Size = new System.Drawing.Size(37, 19);
             this.LISBN.TabIndex = 10;
@@ -234,7 +249,7 @@
             // LPublicationYear
             // 
             this.LPublicationYear.AutoSize = true;
-            this.LPublicationYear.Location = new System.Drawing.Point(119, 67);
+            this.LPublicationYear.Location = new System.Drawing.Point(119, 97);
             this.LPublicationYear.Name = "LPublicationYear";
             this.LPublicationYear.Size = new System.Drawing.Size(33, 19);
             this.LPublicationYear.TabIndex = 11;
@@ -243,7 +258,7 @@
             // LPublisher
             // 
             this.LPublisher.AutoSize = true;
-            this.LPublisher.Location = new System.Drawing.Point(119, 86);
+            this.LPublisher.Location = new System.Drawing.Point(119, 126);
             this.LPublisher.Name = "LPublisher";
             this.LPublisher.Size = new System.Drawing.Size(53, 19);
             this.LPublisher.TabIndex = 12;
@@ -252,7 +267,7 @@
             // LPageCount
             // 
             this.LPageCount.AutoSize = true;
-            this.LPageCount.Location = new System.Drawing.Point(119, 105);
+            this.LPageCount.Location = new System.Drawing.Point(119, 155);
             this.LPageCount.Name = "LPageCount";
             this.LPageCount.Size = new System.Drawing.Size(25, 19);
             this.LPageCount.TabIndex = 13;
@@ -261,7 +276,7 @@
             // LCategory
             // 
             this.LCategory.AutoSize = true;
-            this.LCategory.Location = new System.Drawing.Point(119, 124);
+            this.LCategory.Location = new System.Drawing.Point(119, 184);
             this.LCategory.Name = "LCategory";
             this.LCategory.Size = new System.Drawing.Size(21, 19);
             this.LCategory.TabIndex = 14;
@@ -270,7 +285,7 @@
             // LSection
             // 
             this.LSection.AutoSize = true;
-            this.LSection.Location = new System.Drawing.Point(119, 143);
+            this.LSection.Location = new System.Drawing.Point(119, 213);
             this.LSection.Name = "LSection";
             this.LSection.Size = new System.Drawing.Size(25, 19);
             this.LSection.TabIndex = 15;
@@ -278,13 +293,32 @@
             // 
             // BEditBookDetail
             // 
-            this.BEditBookDetail.Location = new System.Drawing.Point(13, 184);
+            this.BEditBookDetail.Location = new System.Drawing.Point(13, 303);
             this.BEditBookDetail.Name = "BEditBookDetail";
             this.BEditBookDetail.Size = new System.Drawing.Size(75, 22);
             this.BEditBookDetail.TabIndex = 18;
             this.BEditBookDetail.Text = "Editovať";
             this.BEditBookDetail.UseSelectable = true;
             this.BEditBookDetail.Click += new System.EventHandler(this.BEditBookDetail_Click);
+            // 
+            // metroLabel9
+            // 
+            this.metroLabel9.AutoSize = true;
+            this.metroLabel9.Location = new System.Drawing.Point(13, 242);
+            this.metroLabel9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.metroLabel9.Name = "metroLabel9";
+            this.metroLabel9.Size = new System.Drawing.Size(100, 19);
+            this.metroLabel9.TabIndex = 19;
+            this.metroLabel9.Text = "Počet výtlačkov:";
+            // 
+            // LCopyCount
+            // 
+            this.LCopyCount.AutoSize = true;
+            this.LCopyCount.Location = new System.Drawing.Point(119, 242);
+            this.LCopyCount.Name = "LCopyCount";
+            this.LCopyCount.Size = new System.Drawing.Size(45, 19);
+            this.LCopyCount.TabIndex = 20;
+            this.LCopyCount.Text = "         ";
             // 
             // flowLayoutPanel1
             // 
@@ -295,16 +329,17 @@
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.metroLabel11);
             this.flowLayoutPanel1.Controls.Add(this.GVResevations);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(23, 63);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(920, 483);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(872, 463);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // metroLabel10
             // 
             this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(268, 0);
+            this.metroLabel10.Location = new System.Drawing.Point(212, 0);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(89, 19);
             this.metroLabel10.TabIndex = 0;
@@ -352,7 +387,7 @@
             this.GVLoanReturn.EnableHeadersVisualStyles = false;
             this.GVLoanReturn.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GVLoanReturn.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GVLoanReturn.Location = new System.Drawing.Point(268, 22);
+            this.GVLoanReturn.Location = new System.Drawing.Point(212, 22);
             this.GVLoanReturn.Name = "GVLoanReturn";
             this.GVLoanReturn.ReadOnly = true;
             this.GVLoanReturn.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -370,11 +405,137 @@
             this.GVLoanReturn.TabIndex = 1;
             this.GVLoanReturn.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVLoanReturn_CellContentClick);
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(212, 155);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(0, 0);
+            this.flowLayoutPanel2.TabIndex = 2;
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(212, 158);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(72, 19);
+            this.metroLabel11.TabIndex = 2;
+            this.metroLabel11.Text = "Rezervácie";
+            // 
+            // GVResevations
+            // 
+            this.GVResevations.AllowUserToAddRows = false;
+            this.GVResevations.AllowUserToDeleteRows = false;
+            this.GVResevations.AllowUserToOrderColumns = true;
+            this.GVResevations.AllowUserToResizeRows = false;
+            this.GVResevations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.GVResevations.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.GVResevations.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.GVResevations.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.GVResevations.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.GVResevations.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GVResevations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.GVResevations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GVResevations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NumberColumn,
+            this.WhoMadeReservationColumn,
+            this.UntilWhenReservColumn,
+            this.ReservationIDColumn,
+            this.DeleteReservationColumn});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GVResevations.DefaultCellStyle = dataGridViewCellStyle5;
+            this.GVResevations.EnableHeadersVisualStyles = false;
+            this.GVResevations.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.GVResevations.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.GVResevations.Location = new System.Drawing.Point(212, 180);
+            this.GVResevations.Name = "GVResevations";
+            this.GVResevations.ReadOnly = true;
+            this.GVResevations.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GVResevations.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.GVResevations.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.GVResevations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GVResevations.Size = new System.Drawing.Size(517, 135);
+            this.GVResevations.TabIndex = 3;
+            this.GVResevations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVResevations_CellContentClick);
+            // 
+            // NumberColumn
+            // 
+            this.NumberColumn.HeaderText = "Poradové číslo";
+            this.NumberColumn.Name = "NumberColumn";
+            this.NumberColumn.ReadOnly = true;
+            // 
+            // WhoMadeReservationColumn
+            // 
+            this.WhoMadeReservationColumn.HeaderText = "Kto";
+            this.WhoMadeReservationColumn.Name = "WhoMadeReservationColumn";
+            this.WhoMadeReservationColumn.ReadOnly = true;
+            // 
+            // UntilWhenReservColumn
+            // 
+            this.UntilWhenReservColumn.HeaderText = "Dokedy má záujem";
+            this.UntilWhenReservColumn.Name = "UntilWhenReservColumn";
+            this.UntilWhenReservColumn.ReadOnly = true;
+            // 
+            // ReservationIDColumn
+            // 
+            this.ReservationIDColumn.HeaderText = "ReservationNumber";
+            this.ReservationIDColumn.Name = "ReservationIDColumn";
+            this.ReservationIDColumn.ReadOnly = true;
+            this.ReservationIDColumn.Visible = false;
+            // 
+            // DeleteReservationColumn
+            // 
+            this.DeleteReservationColumn.HeaderText = "Zrušiť rezerváciu";
+            this.DeleteReservationColumn.Name = "DeleteReservationColumn";
+            this.DeleteReservationColumn.ReadOnly = true;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(13, 271);
+            this.metroLabel12.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(87, 19);
+            this.metroLabel12.TabIndex = 21;
+            this.metroLabel12.Text = "Kľúčové slová";
+            // 
+            // LKeywords
+            // 
+            this.LKeywords.AutoSize = true;
+            this.LKeywords.Location = new System.Drawing.Point(119, 271);
+            this.LKeywords.Name = "LKeywords";
+            this.LKeywords.Size = new System.Drawing.Size(17, 19);
+            this.LKeywords.TabIndex = 22;
+            this.LKeywords.Text = "  ";
+            this.LKeywords.WrapToLine = true;
+            // 
             // IDColumn
             // 
             this.IDColumn.HeaderText = "Číslo výtlačku";
             this.IDColumn.Name = "IDColumn";
             this.IDColumn.ReadOnly = true;
+            this.IDColumn.Visible = false;
             // 
             // StatusColumn
             // 
@@ -427,134 +588,11 @@
             this.DeleteCopyColumn.ReadOnly = true;
             this.DeleteCopyColumn.Text = "Odstrániť";
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.AutoSize = true;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(268, 155);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(0, 0);
-            this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // metroLabel11
-            // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(268, 158);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(72, 19);
-            this.metroLabel11.TabIndex = 2;
-            this.metroLabel11.Text = "Rezervácie";
-            // 
-            // GVResevations
-            // 
-            this.GVResevations.AllowUserToAddRows = false;
-            this.GVResevations.AllowUserToDeleteRows = false;
-            this.GVResevations.AllowUserToOrderColumns = true;
-            this.GVResevations.AllowUserToResizeRows = false;
-            this.GVResevations.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.GVResevations.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.GVResevations.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GVResevations.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.GVResevations.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.GVResevations.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GVResevations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.GVResevations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GVResevations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NumberColumn,
-            this.WhoMadeReservationColumn,
-            this.UntilWhenReservColumn,
-            this.ReservationIDColumn,
-            this.DeleteReservationColumn});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GVResevations.DefaultCellStyle = dataGridViewCellStyle5;
-            this.GVResevations.EnableHeadersVisualStyles = false;
-            this.GVResevations.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.GVResevations.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GVResevations.Location = new System.Drawing.Point(268, 180);
-            this.GVResevations.Name = "GVResevations";
-            this.GVResevations.ReadOnly = true;
-            this.GVResevations.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GVResevations.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.GVResevations.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.GVResevations.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GVResevations.Size = new System.Drawing.Size(517, 135);
-            this.GVResevations.TabIndex = 3;
-            this.GVResevations.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GVResevations_CellContentClick);
-            // 
-            // NumberColumn
-            // 
-            this.NumberColumn.HeaderText = "Poradové číslo";
-            this.NumberColumn.Name = "NumberColumn";
-            this.NumberColumn.ReadOnly = true;
-            // 
-            // WhoMadeReservationColumn
-            // 
-            this.WhoMadeReservationColumn.HeaderText = "Kto";
-            this.WhoMadeReservationColumn.Name = "WhoMadeReservationColumn";
-            this.WhoMadeReservationColumn.ReadOnly = true;
-            // 
-            // UntilWhenReservColumn
-            // 
-            this.UntilWhenReservColumn.HeaderText = "Dokedy má záujem";
-            this.UntilWhenReservColumn.Name = "UntilWhenReservColumn";
-            this.UntilWhenReservColumn.ReadOnly = true;
-            // 
-            // ReservationIDColumn
-            // 
-            this.ReservationIDColumn.HeaderText = "ReservationNumber";
-            this.ReservationIDColumn.Name = "ReservationIDColumn";
-            this.ReservationIDColumn.ReadOnly = true;
-            this.ReservationIDColumn.Visible = false;
-            // 
-            // DeleteReservationColumn
-            // 
-            this.DeleteReservationColumn.HeaderText = "Zrušiť rezerváciu";
-            this.DeleteReservationColumn.Name = "DeleteReservationColumn";
-            this.DeleteReservationColumn.ReadOnly = true;
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(13, 162);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(100, 19);
-            this.metroLabel9.TabIndex = 19;
-            this.metroLabel9.Text = "Počet výtlačkov:";
-            // 
-            // LCopyCount
-            // 
-            this.LCopyCount.AutoSize = true;
-            this.LCopyCount.Location = new System.Drawing.Point(119, 162);
-            this.LCopyCount.Name = "LCopyCount";
-            this.LCopyCount.Size = new System.Drawing.Size(45, 19);
-            this.LCopyCount.TabIndex = 20;
-            this.LCopyCount.Text = "         ";
-            // 
             // BookAdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 465);
+            this.ClientSize = new System.Drawing.Size(912, 543);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BookAdminForm";
@@ -606,6 +644,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UntilWhenReservColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReservationIDColumn;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteReservationColumn;
+        private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroLabel LCopyCount;
+        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel LKeywords;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn WhoColumn;
@@ -615,7 +657,5 @@
         private System.Windows.Forms.DataGridViewButtonColumn ButtonColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LoanIDColumn;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteCopyColumn;
-        private MetroFramework.Controls.MetroLabel metroLabel9;
-        private MetroFramework.Controls.MetroLabel LCopyCount;
     }
 }

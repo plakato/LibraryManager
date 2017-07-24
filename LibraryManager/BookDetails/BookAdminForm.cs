@@ -1,4 +1,5 @@
 ﻿using LibraryManager.DatabaseModels;
+using LibraryManager.UserMenuTabs;
 using MetroFramework.Controls;
 using MetroFramework.Forms;
 using Shaolinq;
@@ -20,6 +21,7 @@ namespace LibraryManager.BookDetails
         MainDatabase db = MainDatabase.getInstance();
         string login;
         string ISBN;
+        UCKeywords uck;
         private const string LOAN = "Požičať";
         private const string RETURN = "Vrátiť";
         private const string EMPTY = "-";
@@ -47,9 +49,10 @@ namespace LibraryManager.BookDetails
             LPublicationYear.Text = book.PublicationYear.ToString();
             LPublisher.Text = book.Publisher;
             LPageCount.Text = book.NumberOfPages.ToString();
-            LCategory.Text = string.Join(",", book.Category_Books.Select(cb => cb.Category.Name));
+            LCategory.Text = string.Join(", ", book.Category_Books.Select(cb => cb.Category.Name));
             LSection.Text = book.Section;
             LCopyCount.Text = book.Copies.Count().ToString();
+            LKeywords.Text = string.Join(", ", book.GetKeywords());
 
             UpdateLoanReturnTable(book);
             UpdateReservationTable(book);
@@ -149,7 +152,13 @@ namespace LibraryManager.BookDetails
                     ComboBox cb = GetCategoryComboBox();
                     TLPDetail.Controls.Add(cb, 1, i);
                     cb.SelectedItem = text;
+                    cb.Height = LCategory.Height;
                     cb.SelectionChangeCommitted += (sender, e) => NewCategorySelected(cb);
+                } else if (i == 9)
+                {
+                    uck = new UCKeywords(ISBN);
+                    TLPDetail.Controls.Add(uck, 1, 9);
+                    uck.Dock = DockStyle.Fill;
                 } else
                 {
                     MetroTextBox tb = new MetroTextBox();
@@ -191,7 +200,7 @@ namespace LibraryManager.BookDetails
                 MetroFramework.MetroMessageBox.Show(this, "Chybne zadaný rok vydania.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!int.TryParse(numberOfPages, out int k))
+            if (!int.TryParse(numberOfPages, out int o))
             {
                 MetroFramework.MetroMessageBox.Show(this, "Počet strán musí byť číslo.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -221,6 +230,17 @@ namespace LibraryManager.BookDetails
                 var cat_book = db.Category_Book.Create();
                 cat_book.Book = book;
                 cat_book.Category = cat;
+
+                foreach (string word in uck.GetSelected())
+                {
+                    var keyword = db.Keywords.GetReference(word);
+                    if (!db.Keyword_Book.Where(kb => kb.Book == book && kb.Keyword == keyword).Any())
+                    {
+                        var keyw_book = db.Keyword_Book.Create();
+                        keyw_book.Book = book;
+                        keyw_book.Keyword = keyword;
+                    }
+                }
                 await scope.CompleteAsync();
             }
             for (int b = 0; b < rows; b++)
@@ -236,6 +256,7 @@ namespace LibraryManager.BookDetails
             MetroLabel c = new MetroLabel();
             MetroLabel s = new MetroLabel();
             MetroLabel cc = new MetroLabel();
+            MetroLabel k = new MetroLabel();
             t.Text = title;
             a.Text = author;
             i.Text = isbn;
@@ -245,6 +266,7 @@ namespace LibraryManager.BookDetails
             c.Text = category;
             s.Text = section;
             cc.Text = copyCount;
+            k.Text = string.Join(", ", uck.GetSelected());
             List<MetroLabel> controlsToAdd = new List<MetroLabel>();
             controlsToAdd.Add(t);
             controlsToAdd.Add(a);
@@ -255,6 +277,7 @@ namespace LibraryManager.BookDetails
             controlsToAdd.Add(c);
             controlsToAdd.Add(s);
             controlsToAdd.Add(cc);
+            controlsToAdd.Add(k);
             for (int j = 0; j < rows; j++)
             {
                 controlsToAdd[j].Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -284,7 +307,7 @@ namespace LibraryManager.BookDetails
         private bool EmptyBookInfo()
         {
             int rows = TLPDetail.RowCount - 1;
-            for (int i = 0; i < rows; i++)
+            for (int i = 0; i < rows-1; i++)
             {
                 var control = TLPDetail.GetControlFromPosition(1, i);
                 if (control.Text == "")

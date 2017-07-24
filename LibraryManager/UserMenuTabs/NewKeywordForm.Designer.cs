@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewKeywordForm));
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
             this.TBWord = new MetroFramework.Controls.MetroTextBox();
             this.BSave = new MetroFramework.Controls.MetroButton();
@@ -74,6 +75,7 @@
             // 
             // BSave
             // 
+            this.BSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.BSave.Location = new System.Drawing.Point(24, 127);
             this.BSave.Name = "BSave";
             this.BSave.Size = new System.Drawing.Size(75, 23);
@@ -84,6 +86,7 @@
             // 
             // BClose
             // 
+            this.BClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BClose.Location = new System.Drawing.Point(285, 127);
             this.BClose.Name = "BClose";
             this.BClose.Size = new System.Drawing.Size(75, 23);
@@ -100,6 +103,7 @@
             this.Controls.Add(this.BClose);
             this.Controls.Add(this.BSave);
             this.Controls.Add(this.TBWord);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewKeywordForm";
             this.Style = MetroFramework.MetroColorStyle.Red;
             this.Text = "Nové kľúčové slovo";

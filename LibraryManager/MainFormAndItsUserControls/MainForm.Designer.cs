@@ -109,22 +109,22 @@ namespace LibraryManager
             this.PMainPanel.RowCount = 2;
             this.PMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.3431F));
             this.PMainPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.65691F));
-            this.PMainPanel.Size = new System.Drawing.Size(960, 520);
+            this.PMainPanel.Size = new System.Drawing.Size(960, 620);
             this.PMainPanel.TabIndex = 7;
             // 
             // ucWelcome1
             // 
             this.ucWelcome1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucWelcome1.Location = new System.Drawing.Point(3, 67);
+            this.ucWelcome1.Location = new System.Drawing.Point(3, 79);
             this.ucWelcome1.Name = "ucWelcome1";
-            this.ucWelcome1.Size = new System.Drawing.Size(954, 450);
+            this.ucWelcome1.Size = new System.Drawing.Size(954, 538);
             this.ucWelcome1.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.ClientSize = new System.Drawing.Size(1000, 700);
             this.Controls.Add(this.PLogInLogOut);
             this.Controls.Add(this.Divider);
             this.Controls.Add(this.Lschool_name);

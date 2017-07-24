@@ -39,7 +39,7 @@ namespace LibraryManager.DatabaseModels
         public abstract RelatedDataAccessObjects<Copy> Copies { get; }
 
         [RelatedDataAccessObjects]
-        public abstract RelatedDataAccessObjects<Keyword_Book> Keyword_Book { get; }
+        public abstract RelatedDataAccessObjects<Keyword_Book> Keyword_Books { get; }
 
         [RelatedDataAccessObjects]
         public abstract RelatedDataAccessObjects<Reservation> Reservations { get; }
@@ -73,6 +73,10 @@ namespace LibraryManager.DatabaseModels
                 return $"Voľná({copies-onLoan}/{copies})"+(reserved==0?"":$"Rezervácií:{reserved}");
             }
 
+        }
+        internal IQueryable<string> GetKeywords()
+        {
+            return Keyword_Books.Select(kb => kb.Keyword.Word);
         }
     }
 }

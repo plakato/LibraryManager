@@ -49,26 +49,29 @@ namespace LibraryManager.BookDetails
             }
         }
 
-        private async void BLoan_Click(object sender, EventArgs e)
+        private void BLoan_Click(object sender, EventArgs e)
         {
             if ("" != errorProvider.GetError(DTUntilWhen) || CBWho.SelectedItem.ToString() == "")
             {
                 MetroFramework.MetroMessageBox.Show(this, "Zadané údaje nie sú validné.", "Uups", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            User user = db.Users.GetReference(((ComboBoxItem)CBWho.SelectedItem).Value);
-            Book book = db.Books.GetReference(ISBN);
+            
             using (var scope = new DataAccessScope())
             {
+                db = MainDatabase.getInstance();
+                Book book = db.Books.GetReference(ISBN);
+                var copy = db.Copies.First(); //.Where(c => c.ID == copyID && c.Book == book)
+                User user = db.Users.GetReference(((ComboBoxItem)CBWho.SelectedItem).Value);
                 var loan = db.Loans.Create();
                 loan.Active = true;
-                loan.Copy = db.Copies.GetReference(new { ID = copyID, Book = book });
+                loan.Copy = copy;
                 loan.When = DateTime.Now;
                 loan.UntilWhen = DTUntilWhen.Value;
                 loan.Who = user;
-                await scope.CompleteAsync();
+                scope.Complete();
             }
-
+            User u = db.Users.GetReference(((ComboBoxItem)CBWho.SelectedItem).Value);
             if (DialogResult.OK == MetroFramework.MetroMessageBox.Show(this, "Kniha úspešne vypožičaná.", "Hotovo", MessageBoxButtons.OK, MessageBoxIcon.Question))
             {
                 Close();

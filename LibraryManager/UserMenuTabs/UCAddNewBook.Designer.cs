@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TableLayoutPanel TPAddNewBook;
+            this.TLPAddNewBook = new System.Windows.Forms.TableLayoutPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -52,55 +52,57 @@
             this.Lwarning = new MetroFramework.Controls.MetroLabel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.metroStyleManager1 = new MetroFramework.Components.MetroStyleManager(this.components);
-            TPAddNewBook = new System.Windows.Forms.TableLayoutPanel();
-            TPAddNewBook.SuspendLayout();
+            this.TLPAddNewBook.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.SuspendLayout();
             // 
-            // TPAddNewBook
+            // TLPAddNewBook
             // 
-            TPAddNewBook.BackColor = System.Drawing.Color.Transparent;
-            TPAddNewBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            TPAddNewBook.ColumnCount = 5;
-            TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.72917F));
-            TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.27084F));
-            TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            TPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 249F));
-            TPAddNewBook.Controls.Add(this.metroLabel1, 0, 0);
-            TPAddNewBook.Controls.Add(this.metroLabel2, 0, 1);
-            TPAddNewBook.Controls.Add(this.metroLabel3, 0, 2);
-            TPAddNewBook.Controls.Add(this.metroLabel4, 0, 3);
-            TPAddNewBook.Controls.Add(this.TBTitle, 1, 0);
-            TPAddNewBook.Controls.Add(this.TBAuthor, 1, 1);
-            TPAddNewBook.Controls.Add(this.TBisbn, 1, 2);
-            TPAddNewBook.Controls.Add(this.TBSector, 1, 3);
-            TPAddNewBook.Controls.Add(this.metroLabel5, 3, 0);
-            TPAddNewBook.Controls.Add(this.metroLabel6, 3, 1);
-            TPAddNewBook.Controls.Add(this.CBCategory, 4, 0);
-            TPAddNewBook.Controls.Add(this.CBPublisher, 4, 1);
-            TPAddNewBook.Controls.Add(this.BAddNewBook, 0, 5);
-            TPAddNewBook.Controls.Add(this.TBPageCount, 4, 3);
-            TPAddNewBook.Controls.Add(this.TBPublicationYear, 4, 2);
-            TPAddNewBook.Controls.Add(this.metroLabel7, 3, 2);
-            TPAddNewBook.Controls.Add(this.metroLabel8, 3, 3);
-            TPAddNewBook.Controls.Add(this.metroLabel9, 0, 4);
-            TPAddNewBook.Controls.Add(this.TBNumberOfCopies, 1, 4);
-            TPAddNewBook.Dock = System.Windows.Forms.DockStyle.Top;
-            TPAddNewBook.Location = new System.Drawing.Point(0, 0);
-            TPAddNewBook.Margin = new System.Windows.Forms.Padding(10);
-            TPAddNewBook.Name = "TPAddNewBook";
-            TPAddNewBook.Padding = new System.Windows.Forms.Padding(10);
-            TPAddNewBook.RowCount = 6;
-            TPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            TPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            TPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            TPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            TPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
-            TPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            TPAddNewBook.Size = new System.Drawing.Size(792, 263);
-            TPAddNewBook.TabIndex = 20;
+            this.TLPAddNewBook.AutoSize = true;
+            this.TLPAddNewBook.BackColor = System.Drawing.Color.Transparent;
+            this.TLPAddNewBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.TLPAddNewBook.ColumnCount = 5;
+            this.TLPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.TLPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.TLPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TLPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.TLPAddNewBook.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.TLPAddNewBook.Controls.Add(this.metroLabel1, 0, 0);
+            this.TLPAddNewBook.Controls.Add(this.Lwarning, 1, 6);
+            this.TLPAddNewBook.Controls.Add(this.metroLabel2, 0, 1);
+            this.TLPAddNewBook.Controls.Add(this.metroLabel3, 0, 2);
+            this.TLPAddNewBook.Controls.Add(this.metroLabel4, 0, 3);
+            this.TLPAddNewBook.Controls.Add(this.TBTitle, 1, 0);
+            this.TLPAddNewBook.Controls.Add(this.TBAuthor, 1, 1);
+            this.TLPAddNewBook.Controls.Add(this.TBisbn, 1, 2);
+            this.TLPAddNewBook.Controls.Add(this.TBSector, 1, 3);
+            this.TLPAddNewBook.Controls.Add(this.metroLabel5, 3, 0);
+            this.TLPAddNewBook.Controls.Add(this.metroLabel6, 3, 1);
+            this.TLPAddNewBook.Controls.Add(this.CBCategory, 4, 0);
+            this.TLPAddNewBook.Controls.Add(this.CBPublisher, 4, 1);
+            this.TLPAddNewBook.Controls.Add(this.BAddNewBook, 0, 6);
+            this.TLPAddNewBook.Controls.Add(this.TBPageCount, 4, 3);
+            this.TLPAddNewBook.Controls.Add(this.TBPublicationYear, 4, 2);
+            this.TLPAddNewBook.Controls.Add(this.metroLabel7, 3, 2);
+            this.TLPAddNewBook.Controls.Add(this.metroLabel8, 3, 3);
+            this.TLPAddNewBook.Controls.Add(this.metroLabel9, 0, 4);
+            this.TLPAddNewBook.Controls.Add(this.TBNumberOfCopies, 1, 4);
+            this.TLPAddNewBook.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TLPAddNewBook.Location = new System.Drawing.Point(0, 0);
+            this.TLPAddNewBook.Margin = new System.Windows.Forms.Padding(10);
+            this.TLPAddNewBook.Name = "TLPAddNewBook";
+            this.TLPAddNewBook.Padding = new System.Windows.Forms.Padding(10);
+            this.TLPAddNewBook.RowCount = 7;
+            this.TLPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TLPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TLPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TLPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TLPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TLPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TLPAddNewBook.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.TLPAddNewBook.Size = new System.Drawing.Size(792, 204);
+            this.TLPAddNewBook.TabIndex = 20;
             // 
             // metroLabel1
             // 
@@ -114,7 +116,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(13, 46);
+            this.metroLabel2.Location = new System.Drawing.Point(13, 45);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(46, 19);
             this.metroLabel2.TabIndex = 1;
@@ -123,7 +125,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(13, 82);
+            this.metroLabel3.Location = new System.Drawing.Point(13, 80);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(40, 19);
             this.metroLabel3.TabIndex = 2;
@@ -132,7 +134,7 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(13, 117);
+            this.metroLabel4.Location = new System.Drawing.Point(13, 109);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(50, 19);
             this.metroLabel4.TabIndex = 3;
@@ -154,7 +156,7 @@
             this.TBTitle.CustomButton.Visible = false;
             this.TBTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBTitle.Lines = new string[0];
-            this.TBTitle.Location = new System.Drawing.Point(129, 13);
+            this.TBTitle.Location = new System.Drawing.Point(95, 13);
             this.TBTitle.MaxLength = 32767;
             this.TBTitle.Name = "TBTitle";
             this.TBTitle.PasswordChar = '\0';
@@ -185,7 +187,7 @@
             this.TBAuthor.CustomButton.Visible = false;
             this.TBAuthor.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBAuthor.Lines = new string[0];
-            this.TBAuthor.Location = new System.Drawing.Point(129, 49);
+            this.TBAuthor.Location = new System.Drawing.Point(95, 48);
             this.TBAuthor.MaxLength = 32767;
             this.TBAuthor.Name = "TBAuthor";
             this.TBAuthor.PasswordChar = '\0';
@@ -216,7 +218,7 @@
             this.TBisbn.CustomButton.Visible = false;
             this.TBisbn.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBisbn.Lines = new string[0];
-            this.TBisbn.Location = new System.Drawing.Point(129, 85);
+            this.TBisbn.Location = new System.Drawing.Point(95, 83);
             this.TBisbn.MaxLength = 32767;
             this.TBisbn.Name = "TBisbn";
             this.TBisbn.PasswordChar = '\0';
@@ -248,7 +250,7 @@
             this.TBSector.CustomButton.Visible = false;
             this.TBSector.Dock = System.Windows.Forms.DockStyle.Top;
             this.TBSector.Lines = new string[0];
-            this.TBSector.Location = new System.Drawing.Point(129, 120);
+            this.TBSector.Location = new System.Drawing.Point(95, 112);
             this.TBSector.MaxLength = 32767;
             this.TBSector.Name = "TBSector";
             this.TBSector.PasswordChar = '\0';
@@ -266,7 +268,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(415, 10);
+            this.metroLabel5.Location = new System.Drawing.Point(377, 10);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(68, 19);
             this.metroLabel5.TabIndex = 8;
@@ -275,7 +277,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(415, 46);
+            this.metroLabel6.Location = new System.Drawing.Point(377, 45);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(92, 19);
             this.metroLabel6.TabIndex = 9;
@@ -285,7 +287,7 @@
             // 
             this.CBCategory.FormattingEnabled = true;
             this.CBCategory.ItemHeight = 23;
-            this.CBCategory.Location = new System.Drawing.Point(535, 13);
+            this.CBCategory.Location = new System.Drawing.Point(475, 13);
             this.CBCategory.Name = "CBCategory";
             this.CBCategory.Size = new System.Drawing.Size(177, 29);
             this.CBCategory.TabIndex = 12;
@@ -296,7 +298,7 @@
             // 
             this.CBPublisher.FormattingEnabled = true;
             this.CBPublisher.ItemHeight = 23;
-            this.CBPublisher.Location = new System.Drawing.Point(535, 49);
+            this.CBPublisher.Location = new System.Drawing.Point(475, 48);
             this.CBPublisher.Name = "CBPublisher";
             this.CBPublisher.Size = new System.Drawing.Size(177, 29);
             this.CBPublisher.TabIndex = 13;
@@ -305,7 +307,7 @@
             // 
             // BAddNewBook
             // 
-            this.BAddNewBook.Location = new System.Drawing.Point(13, 224);
+            this.BAddNewBook.Location = new System.Drawing.Point(13, 170);
             this.BAddNewBook.Name = "BAddNewBook";
             this.BAddNewBook.Size = new System.Drawing.Size(75, 21);
             this.BAddNewBook.TabIndex = 16;
@@ -328,7 +330,7 @@
             this.TBPageCount.CustomButton.UseSelectable = true;
             this.TBPageCount.CustomButton.Visible = false;
             this.TBPageCount.Lines = new string[0];
-            this.TBPageCount.Location = new System.Drawing.Point(535, 120);
+            this.TBPageCount.Location = new System.Drawing.Point(475, 112);
             this.TBPageCount.MaxLength = 32767;
             this.TBPageCount.Name = "TBPageCount";
             this.TBPageCount.PasswordChar = '\0';
@@ -359,7 +361,7 @@
             this.TBPublicationYear.CustomButton.UseSelectable = true;
             this.TBPublicationYear.CustomButton.Visible = false;
             this.TBPublicationYear.Lines = new string[0];
-            this.TBPublicationYear.Location = new System.Drawing.Point(535, 85);
+            this.TBPublicationYear.Location = new System.Drawing.Point(475, 83);
             this.TBPublicationYear.MaxLength = 32767;
             this.TBPublicationYear.Name = "TBPublicationYear";
             this.TBPublicationYear.PasswordChar = '\0';
@@ -378,7 +380,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(415, 82);
+            this.metroLabel7.Location = new System.Drawing.Point(377, 80);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(82, 19);
             this.metroLabel7.TabIndex = 10;
@@ -387,7 +389,7 @@
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(415, 117);
+            this.metroLabel8.Location = new System.Drawing.Point(377, 109);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(76, 19);
             this.metroLabel8.TabIndex = 11;
@@ -396,7 +398,7 @@
             // metroLabel9
             // 
             this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(13, 150);
+            this.metroLabel9.Location = new System.Drawing.Point(13, 138);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(76, 19);
             this.metroLabel9.TabIndex = 19;
@@ -418,7 +420,7 @@
             this.TBNumberOfCopies.CustomButton.Visible = false;
             this.TBNumberOfCopies.Lines = new string[] {
         "1"};
-            this.TBNumberOfCopies.Location = new System.Drawing.Point(129, 153);
+            this.TBNumberOfCopies.Location = new System.Drawing.Point(95, 141);
             this.TBNumberOfCopies.MaxLength = 32767;
             this.TBNumberOfCopies.Name = "TBNumberOfCopies";
             this.TBNumberOfCopies.PasswordChar = '\0';
@@ -436,9 +438,10 @@
             // 
             // Lwarning
             // 
+            this.Lwarning.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.Lwarning.AutoSize = true;
             this.Lwarning.ForeColor = System.Drawing.Color.Red;
-            this.Lwarning.Location = new System.Drawing.Point(13, 262);
+            this.Lwarning.Location = new System.Drawing.Point(95, 171);
             this.Lwarning.Name = "Lwarning";
             this.Lwarning.Size = new System.Drawing.Size(55, 19);
             this.Lwarning.TabIndex = 21;
@@ -460,13 +463,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(TPAddNewBook);
-            this.Controls.Add(this.Lwarning);
+            this.Controls.Add(this.TLPAddNewBook);
             this.Name = "UCAddNewBook";
             this.Size = new System.Drawing.Size(792, 466);
             this.Load += new System.EventHandler(this.UCAddNewBook_Load);
-            TPAddNewBook.ResumeLayout(false);
-            TPAddNewBook.PerformLayout();
+            this.TLPAddNewBook.ResumeLayout(false);
+            this.TLPAddNewBook.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             this.ResumeLayout(false);
@@ -497,5 +499,6 @@
         private MetroFramework.Controls.MetroLabel Lwarning;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private MetroFramework.Components.MetroStyleManager metroStyleManager1;
+        private System.Windows.Forms.TableLayoutPanel TLPAddNewBook;
     }
 }

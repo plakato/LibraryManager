@@ -1,4 +1,5 @@
 ﻿using LibraryManager.BookDetails;
+using LibraryManager.DatabaseModels;
 using LibraryManager.MainFormAndItsUserControls;
 using MetroFramework.Forms;
 using Shaolinq;
@@ -26,6 +27,32 @@ namespace LibraryManager
             mainPanel = PMainPanel;
             logInLogOutPanel = PLogInLogOut;
             RemoveExpiredReservations();
+
+            using (var scope = new DataAccessScope())
+            {
+                db = MainDatabase.getInstance();
+                var book = db.Books.Create();
+                book.Title = "kniha";
+                book.Author = "neznamy";
+                book.ISBN = "7894561261";
+                book.PublicationYear = 1999;
+                book.Publisher = "company";
+                book.Section = "3A";
+                var copy = db.Copies.Create();
+                copy.Book = book;
+                var cat_book = db.Category_Book.Create();
+                cat_book.Book = book;
+                cat_book.Category = db.Categories.GetReference("beletria");
+                User user = db.Users.GetReference("meno");
+                var loan = db.Loans.Create();
+                loan.Active = true;
+                loan.Copy = copy;
+                loan.When = DateTime.Now;
+                loan.UntilWhen = DateTime.Now.AddDays(1);
+                loan.Who = user;
+                scope.Complete();
+            }
+            User u = db.Users.GetReference("meno");
         }
 
         private async void RemoveExpiredReservations()

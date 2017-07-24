@@ -99,14 +99,6 @@ namespace LibraryManager.MainFormAndItsUserControls
             ucChangePassword.Dock = DockStyle.Fill;
             page.Controls.Add(ucChangePassword);
             TCUserMenu.TabPages.Add(page);
-
-            page = new MetroTabPage();
-            page.Dock = DockStyle.Fill;
-            page.Text = "Klucove slova";
-            UCKeywords uck = new UCKeywords();
-            uck.Dock = DockStyle.Fill;
-            page.Controls.Add(uck);
-            TCUserMenu.TabPages.Add(page);
         }
 
         private void TCUserMenu_SelectedIndexChanged(object sender, EventArgs e)
