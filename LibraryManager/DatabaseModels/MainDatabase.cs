@@ -17,7 +17,7 @@ namespace LibraryManager.DatabaseModels
 
             try
             {
-                model.Create(DatabaseCreationOptions.IfNotExist);
+                model.Create(DatabaseCreationOptions.DeleteExisting);
             }
             catch (MySql.Data.MySqlClient.MySqlException)
             {

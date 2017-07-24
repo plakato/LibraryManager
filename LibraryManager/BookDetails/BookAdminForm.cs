@@ -66,19 +66,19 @@ namespace LibraryManager.BookDetails
                 if (Copy.LOANED == copy.GetStatus())
                 {
                     Loan loan = copy.Loans.Where(l => l.Active == true).First();
-                    GVLoanReturn.Rows.Add(copy.ID, 
+                    GVLoanReturn.Rows.Add(copy.Id, 
                                           copy.GetStatus(), 
                                           loan.Who.Name, 
                                           loan.Who.Login, 
                                           loan.When.ToString("dd/MM/yyyy"), 
                                           loan.UntilWhen.ToString("dd/MM/yyyy"), 
                                           RETURN, 
-                                          loan.ID, 
+                                          loan.Id, 
                                           DELETE);
                 }
                 else
                 {
-                    GVLoanReturn.Rows.Add(copy.ID, 
+                    GVLoanReturn.Rows.Add(copy.Id, 
                                           copy.GetStatus(), 
                                           EMPTY, 
                                           EMPTY, 
@@ -352,7 +352,7 @@ namespace LibraryManager.BookDetails
             }
             using (var scope = new DataAccessScope())
             {
-                await db.Copies.Where(c => c.ID == copyID && c.Book.ISBN == ISBN).DeleteAsync();
+                await db.Copies.Where(c => c.Id == copyID && c.Book.ISBN == ISBN).DeleteAsync();
                 //ak je to podledna kopia, vymazat aj knihu, updatnut/zavriet okno
                 Book book = db.Books.GetReference(ISBN);
                 if (book.Copies.Count() == 0)

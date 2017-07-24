@@ -20,10 +20,10 @@ namespace LibraryManager
         public MainForm()
         {
             // Create database if not exists => on the first run of the application
-            DatabaseModels.MainDatabase.Initialize();
+            MainDatabase.Initialize();
             InitializeComponent();
             
-            db = DatabaseModels.MainDatabase.getInstance();
+            db = MainDatabase.getInstance();
             mainPanel = PMainPanel;
             logInLogOutPanel = PLogInLogOut;
             RemoveExpiredReservations();
@@ -32,34 +32,30 @@ namespace LibraryManager
             {
                 db = MainDatabase.getInstance();
                 var book = db.Books.Create();
-                book.Title = "kniha";
-                book.Author = "neznamy";
-                book.ISBN = "7894561261";
-                book.PublicationYear = 1999;
-                book.Publisher = "company";
-                book.Section = "3A";
                 var copy = db.Copies.Create();
                 copy.Book = book;
-                var cat_book = db.Category_Book.Create();
-                cat_book.Book = book;
-                cat_book.Category = db.Categories.GetReference("beletria");
-                User user = db.Users.GetReference("meno");
+                var user = db.Users.Create();
+                user.Login = "meno";
+                scope.Complete();
+
+            }
+            using (var scope = new DataAccessScope())
+            {
                 var loan = db.Loans.Create();
-                loan.Active = true;
-                loan.Copy = copy;
-                loan.When = DateTime.Now;
-                loan.UntilWhen = DateTime.Now.AddDays(1);
-                loan.Who = user;
+                loan.Copy = db.Copies.First();
+                loan.Who = db.Users.First();
                 scope.Complete();
             }
+
             User u = db.Users.GetReference("meno");
+            Console.WriteLine("user.loans.first.copy.book = " + u.Loans.First().Copy.Book);
         }
 
         private async void RemoveExpiredReservations()
         {
             using(var scope = new DataAccessScope())
             {
-                foreach (DatabaseModels.Reservation res in db.Reservations)
+                foreach (Reservation res in db.Reservations)
                 {
                     if (res.Active && 0 >= DateTime.Compare(res.DueDate, DateTime.Now))
                     {

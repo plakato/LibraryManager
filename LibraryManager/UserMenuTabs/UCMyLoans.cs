@@ -30,7 +30,7 @@ namespace LibraryManager.UserMenuTabs
             foreach (Loan l in user.Loans.Where(l => l.Active == true))
             {
                 // Needs this - otherwise can't have such long reference chain
-                var loan = db.Loans.GetReference(l.ID);
+                var loan = db.Loans.GetReference(l.Id);
                 var book = loan.Copy.Book;
                 GVLoans.Rows.Add(book.Title, book.Author, loan.UntilWhen.ToString("dd/MM/yyyy"));
             }

@@ -5,12 +5,8 @@ using System;
 namespace LibraryManager.DatabaseModels
 {
     [DataAccessObject]
-    public abstract class Loan : DataAccessObject
+    public abstract class Loan : DataAccessObject<Guid>
     {
-        [PrimaryKey]
-        [AutoIncrement]
-        [PersistedMember]
-        public abstract int ID { get; set; }
 
         [BackReference]
         public abstract Copy Copy { get; set; }

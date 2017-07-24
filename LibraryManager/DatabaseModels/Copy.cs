@@ -8,16 +8,11 @@ using System.Threading.Tasks;
 namespace LibraryManager.DatabaseModels
 {
     [DataAccessObject]
-    public abstract class Copy : DataAccessObject
+    public abstract class Copy : DataAccessObject<int>
     {
         internal const string FREE = "Voľná";
         internal const string LOANED = "Požičaná";
-        [PrimaryKey]
-        [AutoIncrement]
-        [PersistedMember]
-        public abstract int ID { get; set; }
 
-        [PrimaryKey]
         [BackReference]
         public abstract Book Book { get; set; }
 

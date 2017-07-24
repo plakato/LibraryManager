@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 namespace LibraryManager.DatabaseModels
 {
     [DataAccessObject]
-    public abstract class Book : DataAccessObject
+    public abstract class Book : DataAccessObject<Guid>
     {
-        [PrimaryKey]
         [PersistedMember]
         public abstract string ISBN { get; set; }
 
