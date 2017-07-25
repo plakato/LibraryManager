@@ -67,7 +67,7 @@ namespace LibraryManager.MainFormAndItsUserControls
             ucSearchBooks.Dock = DockStyle.Fill;
             page.Controls.Add(ucSearchBooks);
             TCUserMenu.TabPages.Add(page);
-            
+
             page = new MetroTabPage();
             page.Dock = DockStyle.Fill;
             page.Text = "Nová kniha";

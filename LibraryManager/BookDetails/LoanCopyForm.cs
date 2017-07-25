@@ -17,12 +17,12 @@ namespace LibraryManager.BookDetails
     {
         MainDatabase db = MainDatabase.getInstance();
         int copyID;
-        string ISBN;
-        public LoanCopyForm(int copyID, string ISBN)
+        Guid bookId;
+        public LoanCopyForm(int copyID, Guid bookId)
         {
             InitializeComponent();
             this.copyID = copyID;
-            this.ISBN = ISBN;
+            this.bookId = bookId;
             CBWho.DropDownStyle = ComboBoxStyle.DropDownList;
             CBWho.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
@@ -60,7 +60,7 @@ namespace LibraryManager.BookDetails
             using (var scope = new DataAccessScope())
             {
                 db = MainDatabase.getInstance();
-                Book book = db.Books.GetReference(ISBN);
+                Book book = db.Books.GetReference(bookId);
                 var copy = db.Copies.First(); //.Where(c => c.ID == copyID && c.Book == book)
                 User user = db.Users.GetReference(((ComboBoxItem)CBWho.SelectedItem).Value);
                 var loan = db.Loans.Create();

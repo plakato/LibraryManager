@@ -40,6 +40,7 @@
             this.TCUserMenu.Location = new System.Drawing.Point(0, 0);
             this.TCUserMenu.Name = "TCUserMenu";
             this.TCUserMenu.Size = new System.Drawing.Size(662, 429);
+            this.TCUserMenu.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.TCUserMenu.Style = MetroFramework.MetroColorStyle.Red;
             this.TCUserMenu.TabIndex = 0;
             this.TCUserMenu.TabStop = false;
@@ -57,6 +58,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.TCUserMenu);
             this.Name = "UCUserMenu";
             this.Size = new System.Drawing.Size(662, 429);

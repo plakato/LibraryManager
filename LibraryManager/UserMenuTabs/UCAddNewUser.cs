@@ -67,9 +67,9 @@ namespace LibraryManager
 
         private bool isFormValid()
         {
-            foreach (Control control in Controls)
+            foreach (Control control in TLPNewUser.Controls)
             {
-                if (control is TextBox && ((TextBox)control).Text == "")
+                if (control is MetroTextBox && ((MetroTextBox)control).Text == "")
                 {
                     Lwarning.Text = "Všetky položky musia byť vyplnené.";
                     Lwarning.Visible = true;
@@ -132,11 +132,11 @@ namespace LibraryManager
 
         private void ClearNewUserForm()
         {
-            foreach (Control control in Controls)
+            foreach (Control control in TLPNewUser.Controls)
             {
-                if (control is TextBox)
+                if (control is MetroTextBox)
                 {
-                    ((TextBox)control).Text = "";
+                    ((MetroTextBox)control).Text = "";
                 }
             }
         }

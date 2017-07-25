@@ -28,10 +28,10 @@ namespace LibraryManager.UserMenuTabs
 
         }
 
-        public UCKeywords(string ISBN)
+        public UCKeywords(Guid bookId)
         {
             InitializeComponent();
-            Book book = db.Books.GetReference(ISBN);
+            Book book = db.Books.GetReference(bookId);
             selected = book.GetKeywords().ToList();
             foreach (string word in selected)
             {

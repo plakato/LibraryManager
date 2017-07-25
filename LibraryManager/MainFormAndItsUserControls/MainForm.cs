@@ -28,27 +28,39 @@ namespace LibraryManager
             logInLogOutPanel = PLogInLogOut;
             RemoveExpiredReservations();
 
-            using (var scope = new DataAccessScope())
+            /*using (var scope = new DataAccessScope())
             {
-                db = MainDatabase.getInstance();
+                var admin = db.Users.Create();
+                admin.Name = "adminName";
+                admin.Login = "admin";
+                admin.Password = "admin";
+                admin.Admin = true;
+
+                var user = db.Users.Create();
+                user.Name = "menoName";
+                user.Login = "meno";
+                user.Password = "meno";
+                user.Admin = false;
+
                 var book = db.Books.Create();
+                book.Title = "Logické úvahy";
+                book.Author = "Ján Dumal";
+                book.ISBN = "7894561261";
+                book.PublicationYear = 1999;
+                book.Publisher = "Vydavateľstvo Hmmm";
+                book.Section = "3A";
                 var copy = db.Copies.Create();
                 copy.Book = book;
-                var user = db.Users.Create();
-                user.Login = "meno";
+                var cat = db.Categories.Create();
+                cat.Name = "odborné";
+                var cat_book = db.Category_Book.Create();
+                cat_book.Book = book;
+                cat_book.Category = cat;
+
                 scope.Complete();
 
-            }
-            using (var scope = new DataAccessScope())
-            {
-                var loan = db.Loans.Create();
-                loan.Copy = db.Copies.First();
-                loan.Who = db.Users.First();
-                scope.Complete();
-            }
+            }*/
 
-            User u = db.Users.GetReference("meno");
-            Console.WriteLine("user.loans.first.copy.book = " + u.Loans.First().Copy.Book);
         }
 
         private async void RemoveExpiredReservations()

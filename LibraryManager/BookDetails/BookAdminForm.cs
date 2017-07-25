@@ -20,7 +20,7 @@ namespace LibraryManager.BookDetails
     {
         MainDatabase db = MainDatabase.getInstance();
         string login;
-        string ISBN;
+        Guid bookId;
         UCKeywords uck;
         private const string LOAN = "Požičať";
         private const string RETURN = "Vrátiť";
@@ -33,16 +33,16 @@ namespace LibraryManager.BookDetails
 
 
 
-        public BookAdminForm(string login, string ISBN)
+        public BookAdminForm(string login, Guid bookId)
         {
             InitializeComponent();
             this.login = login;
-            this.ISBN = ISBN;
+            this.bookId = bookId;
         }
 
         private void BookAdminForm_Load(object sender, EventArgs e)
         {
-            Book book = db.Books.GetReference(ISBN);
+            Book book = db.Books.GetReference(bookId);
             LTitle.Text = book.Title;
             LAuthor.Text = book.Author;
             LISBN.Text = book.ISBN;
@@ -156,7 +156,7 @@ namespace LibraryManager.BookDetails
                     cb.SelectionChangeCommitted += (sender, e) => NewCategorySelected(cb);
                 } else if (i == 9)
                 {
-                    uck = new UCKeywords(ISBN);
+                    uck = new UCKeywords(bookId);
                     TLPDetail.Controls.Add(uck, 1, 9);
                     uck.Dock = DockStyle.Fill;
                 } else
@@ -205,14 +205,14 @@ namespace LibraryManager.BookDetails
                 MetroFramework.MetroMessageBox.Show(this, "Počet strán musí byť číslo.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!int.TryParse(copyCount, out int z) || z < db.Books.GetReference(ISBN).Copies.Count())
+            if (!int.TryParse(copyCount, out int z) || z < db.Books.GetReference(bookId).Copies.Count())
             {
                 MetroFramework.MetroMessageBox.Show(this, "Počet kópií musí byť číslo väčšie/rovné ako aktuálny počet kópií.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             using (var scope = new DataAccessScope())
             {
-                var book = db.Books.GetReference(ISBN);
+                var book = db.Books.GetReference(bookId);
                 book.Title = title;
                 book.Author = author;
                 book.ISBN = isbn;
@@ -285,7 +285,6 @@ namespace LibraryManager.BookDetails
                 TLPDetail.Controls.Add(controlsToAdd[j], 1, j);
             }
 
-            ISBN = isbn;
             BEditBookDetail.Text = EDIT;
 
         }
@@ -338,7 +337,7 @@ namespace LibraryManager.BookDetails
                     {
                         LoanCopy(copyID);
                     }
-                    UpdateLoanReturnTable(db.Books.GetReference(ISBN));
+                    UpdateLoanReturnTable(db.Books.GetReference(bookId));
                 }
                 
             }
@@ -352,12 +351,12 @@ namespace LibraryManager.BookDetails
             }
             using (var scope = new DataAccessScope())
             {
-                await db.Copies.Where(c => c.Id == copyID && c.Book.ISBN == ISBN).DeleteAsync();
+                await db.Copies.Where(c => c.Id == copyID && c.Book.Id == bookId).DeleteAsync();
                 //ak je to podledna kopia, vymazat aj knihu, updatnut/zavriet okno
-                Book book = db.Books.GetReference(ISBN);
+                Book book = db.Books.GetReference(bookId);
                 if (book.Copies.Count() == 0)
                 {
-                    await db.Books.Where(b => b.ISBN == ISBN).DeleteAsync();
+                    await db.Books.Where(b => b.Id == bookId).DeleteAsync();
                     Close();
                 } else
                 {
@@ -387,7 +386,7 @@ namespace LibraryManager.BookDetails
 
         private void LoanCopy(int copyid)
         {
-            LoanCopyForm lcform = new LoanCopyForm(copyid, ISBN); ;
+            LoanCopyForm lcform = new LoanCopyForm(copyid, bookId); ;
             lcform.ShowDialog(this);
         }
 
@@ -402,7 +401,7 @@ namespace LibraryManager.BookDetails
                     res.Active = false;
                     await scope.CompleteAsync();
                 }
-                UpdateReservationTable(db.Books.GetReference(ISBN));
+                UpdateReservationTable(db.Books.GetReference(bookId));
             }
         }
     }

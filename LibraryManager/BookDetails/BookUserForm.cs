@@ -17,18 +17,18 @@ namespace LibraryManager.BookDetails
     {
         MainDatabase db = MainDatabase.getInstance();
         string login;
-        string ISBN;
+        Guid bookId;
 
-        public BookUserForm(string login, string ISBN)
+        public BookUserForm(string login, Guid bookId)
         {
             InitializeComponent();
             this.login = login;
-            this.ISBN = ISBN;
+            this.bookId = bookId;
         }
 
         private void BookUserForm_Load(object sender, EventArgs e)
         {
-            Book book = db.Books.GetReference(ISBN);
+            Book book = db.Books.GetReference(bookId);
             LTitle.Text = book.Title;
             LAuthor.Text = book.Author;
             LISBN.Text = book.ISBN;
@@ -50,7 +50,7 @@ namespace LibraryManager.BookDetails
         private void BMakeReservation_Click(object sender, EventArgs e)
         {
             User user = db.Users.GetReference(login);
-            Book book = db.Books.GetReference(ISBN);
+            Book book = db.Books.GetReference(bookId);
             if (user.Reservations.Where(res => res.Active && res.Book == book).Any())
             {
                 MetroFramework.MetroMessageBox.Show(this, "Na túto knihu už máte rezerváciu. Môžete ju zrušiť v sekcii Moje výpožičky a rezervácie.", "Uups",

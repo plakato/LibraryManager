@@ -61,6 +61,7 @@ namespace LibraryManager
             }
             CBPageCountFrom.SelectedItem = 0;
             CBPageCountTo.SelectedItem = MAX_PAGE_COUNT;
+            LVResults.Columns[0].Width = 0;
         }
 
         private async void BSearch_Click(object sender, EventArgs e)
@@ -83,7 +84,8 @@ namespace LibraryManager
             foreach (Book book in results)
             {
                 String status = book.GetStatus();
-                ListViewItem item = new ListViewItem(new string[]{book.ISBN, book.Title, book.Author, status});
+                ListViewItem item = new ListViewItem(new string[]{book.Title, book.Author, status});
+                item.Tag = book.Id;
                 LVResults.Items.Add(item);
             }
             LVResults.Visible = true;
@@ -110,8 +112,8 @@ namespace LibraryManager
 
         private void LVResults_ItemActivate(object sender, EventArgs e)
         {
-            string ISBN = LVResults.SelectedItems[0].Text;
-            if (!db.Books.Where(b => b.ISBN == ISBN).Any())
+            Guid bookId = (Guid) LVResults.SelectedItems[0].Tag;
+            if (!db.Books.Where(b => b.Id == bookId).Any())
             {
                 MetroFramework.MetroMessageBox.Show(this, "Táto kniha bola odstránená. Pre získanie výsledkov bez ostránených kníh prosím opakujte hľadanie.", "Kniha neexistuje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -119,11 +121,11 @@ namespace LibraryManager
             bool admin = db.Users.GetReference(login).Admin;
             if (admin)
             {
-                BookDetails.BookAdminForm form = new BookDetails.BookAdminForm(login, ISBN);
+                BookDetails.BookAdminForm form = new BookDetails.BookAdminForm(login, bookId);
                 form.Show(this);
             } else
             {
-                BookDetails.BookUserForm uform = new BookDetails.BookUserForm(login, ISBN);
+                BookDetails.BookUserForm uform = new BookDetails.BookUserForm(login, bookId);
                 uform.Show(this);
             }
         }

@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TLPNewUser = new System.Windows.Forms.TableLayoutPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.TBName = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
@@ -54,43 +54,43 @@
             this.Login = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Admin = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DeleteUser = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.TLPNewUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVUsers)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // TLPNewUser
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.10832F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.89169F));
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.TBName, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.TBLogin, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.TBPassword, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.TBPasswordCheck, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.metroLabel5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.TAdminRights, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.BAddUser, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.Lwarning, 1, 5);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(537, 249);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.TLPNewUser.BackColor = System.Drawing.Color.Transparent;
+            this.TLPNewUser.ColumnCount = 2;
+            this.TLPNewUser.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.10832F));
+            this.TLPNewUser.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.89169F));
+            this.TLPNewUser.Controls.Add(this.metroLabel1, 0, 0);
+            this.TLPNewUser.Controls.Add(this.TBName, 1, 0);
+            this.TLPNewUser.Controls.Add(this.metroLabel2, 0, 1);
+            this.TLPNewUser.Controls.Add(this.TBLogin, 1, 1);
+            this.TLPNewUser.Controls.Add(this.metroLabel3, 0, 2);
+            this.TLPNewUser.Controls.Add(this.TBPassword, 1, 2);
+            this.TLPNewUser.Controls.Add(this.metroLabel4, 0, 3);
+            this.TLPNewUser.Controls.Add(this.TBPasswordCheck, 1, 3);
+            this.TLPNewUser.Controls.Add(this.metroLabel5, 0, 4);
+            this.TLPNewUser.Controls.Add(this.TAdminRights, 1, 4);
+            this.TLPNewUser.Controls.Add(this.BAddUser, 0, 5);
+            this.TLPNewUser.Controls.Add(this.Lwarning, 1, 5);
+            this.TLPNewUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TLPNewUser.Location = new System.Drawing.Point(0, 0);
+            this.TLPNewUser.Name = "TLPNewUser";
+            this.TLPNewUser.Padding = new System.Windows.Forms.Padding(10);
+            this.TLPNewUser.RowCount = 6;
+            this.TLPNewUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48F));
+            this.TLPNewUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52F));
+            this.TLPNewUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.TLPNewUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.TLPNewUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.TLPNewUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.TLPNewUser.Size = new System.Drawing.Size(537, 249);
+            this.TLPNewUser.TabIndex = 0;
             // 
             // metroLabel1
             // 
@@ -420,12 +420,12 @@
             this.Controls.Add(this.GVUsers);
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.LDivider);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.TLPNewUser);
             this.Name = "UCAddNewUser";
             this.Size = new System.Drawing.Size(537, 359);
             this.Load += new System.EventHandler(this.UCAddNewUser_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.TLPNewUser.ResumeLayout(false);
+            this.TLPNewUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GVUsers)).EndInit();
@@ -435,7 +435,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel TLPNewUser;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox TBName;
         private MetroFramework.Controls.MetroLabel metroLabel2;

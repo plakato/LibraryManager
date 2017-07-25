@@ -57,7 +57,6 @@
             this.TLPConditions = new System.Windows.Forms.TableLayoutPanel();
             this.BSearch = new MetroFramework.Controls.MetroButton();
             this.LVResults = new MetroFramework.Controls.MetroListView();
-            this.ISBNColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TitleColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AuthorColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StatusColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -448,7 +447,6 @@
             // LVResults
             // 
             this.LVResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ISBNColumn,
             this.TitleColumn,
             this.AuthorColumn,
             this.StatusColumn});
@@ -467,10 +465,6 @@
             this.LVResults.Visible = false;
             this.LVResults.ItemActivate += new System.EventHandler(this.LVResults_ItemActivate);
             this.LVResults.Resize += new System.EventHandler(this.LVResults_Resize);
-            // 
-            // ISBNColumn
-            // 
-            this.ISBNColumn.Text = "ISBN";
             // 
             // TitleColumn
             // 
@@ -538,7 +532,6 @@
         private System.Windows.Forms.ColumnHeader TitleColumn;
         private System.Windows.Forms.ColumnHeader AuthorColumn;
         private System.Windows.Forms.ColumnHeader StatusColumn;
-        private System.Windows.Forms.ColumnHeader ISBNColumn;
         private MetroFramework.Controls.MetroButton BSearch;
     }
 }
