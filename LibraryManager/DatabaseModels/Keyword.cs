@@ -1,5 +1,4 @@
 ﻿using Shaolinq;
-using System;
 
 namespace LibraryManager.DatabaseModels
 {

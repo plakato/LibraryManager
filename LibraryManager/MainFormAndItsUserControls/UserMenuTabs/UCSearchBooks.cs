@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
 using Shaolinq;
@@ -14,36 +9,43 @@ using LibraryManager.UserMenuTabs;
 
 namespace LibraryManager
 {
+    // UC to search books in the library.
     public partial class UCSearchBooks : MetroUserControl
     {
         const int OLDEST_YEAR = 1970;
         const int MAX_PAGE_COUNT = 5000;
         MainDatabase db = MainDatabase.getInstance();
         string login;
+        bool admin;
         UCKeywords uck;
         public UCSearchBooks(string login)
         {
             InitializeComponent();
             this.login = login;
-            uck = new UCKeywords();
+            admin = db.Users.GetReference(login).Admin;          
+        }
+
+        // Loads UCKeywords, all categories and publishers from the database,
+        // fills possible values for years and sets default values.
+        private void UCSearchBooks_Load(object sender, EventArgs e)
+        {
+            uck = new UCKeywords(admin);
             TLPConditions.Controls.Add(uck, 0, 4);
             TLPConditions.SetColumnSpan(uck, 5);
             uck.Dock = DockStyle.Fill;
-        }
-
-        private void UCSearchBooks_Load(object sender, EventArgs e)
-        {
             var categories = (from c in db.Categories select c.Name).Distinct().OrderBy(x => x);
             foreach (var c in categories)
             {
                 CBCategory.Items.Add(c);
             }
+            CBCategory.Items.Add("");
 
             var publishers = (from book in db.Books select book.Publisher).Distinct().OrderBy(x => x);
             foreach (var pub in publishers)
             {
                 CBPublisher.Items.Add(pub);
             }
+            CBPublisher.Items.Add("");
 
             int currYear = DateTime.Now.Year;
             for (int i = OLDEST_YEAR; i <= currYear; i++)
@@ -64,6 +66,7 @@ namespace LibraryManager
             LVResults.Columns[0].Width = 0;
         }
 
+        // Searches database for books matching all conditions and displays the results.
         private async void BSearch_Click(object sender, EventArgs e)
         {
             LVResults.Items.Clear();
@@ -95,21 +98,26 @@ namespace LibraryManager
                 LVResults.Columns[i].Width = -2;
             }
         }
-
+        
+        // Checks whether the book contains all selected keywords.
         private bool BookHasAllKeywords(Book book)
         {
             return !uck.GetSelected().Except(book.GetKeywords()).Any();
         }
+
+        // Clears results table.
         public void ClearResults()
         {
             LVResults.Items.Clear();
         }
 
+        // Resizes columns to fill the width.
         private void LVResults_Resize(object sender, EventArgs e)
         {
             LVResults.Columns[LVResults.Columns.Count - 1].Width = -2;
         }
 
+        // Displays book info on item activated.
         private void LVResults_ItemActivate(object sender, EventArgs e)
         {
             Guid bookId = (Guid) LVResults.SelectedItems[0].Tag;

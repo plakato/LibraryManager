@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
 using LibraryManager.DatabaseModels;
@@ -13,24 +10,31 @@ using Shaolinq;
 
 namespace LibraryManager.UserMenuTabs
 {
+    // UC with for adding, removing and picking keywords.
     public partial class UCKeywords : MetroUserControl
     {
-        MainDatabase db = MainDatabase.getInstance(); 
+        MainDatabase db = MainDatabase.getInstance();
+        bool admin;
         private const string NEW_KEYWORD = "+ Nové kľúčové slovo";
         private const string DELETE_WORD = "Odstrániť slovo";
+        // Set of selected keywords.
         private List<string> selected = new List<string>();
+        // Set of not selected keywords.
         private List<string> remaining;
 
-        public UCKeywords()
+        // Start with empty "selected" set.
+        public UCKeywords(bool admin)
         {
             InitializeComponent();
+            this.admin = admin;
             RefreshKeywords();
-
         }
 
-        public UCKeywords(Guid bookId)
+        // Start with "selected" set filled with keyword from the book.
+        public UCKeywords(Guid bookId, bool admin)
         {
             InitializeComponent();
+            this.admin = admin;
             Book book = db.Books.GetReference(bookId);
             selected = book.GetKeywords().ToList();
             foreach (string word in selected)
@@ -44,6 +48,7 @@ namespace LibraryManager.UserMenuTabs
             RefreshKeywords();
         }
 
+        // Displays the buttons according to sets.
         private async void RefreshKeywords()
         {
             FLPKeywords.Controls.Clear();
@@ -62,15 +67,20 @@ namespace LibraryManager.UserMenuTabs
                 FLPKeywords.Controls.Add(b);
             }
 
-            RedButton newWord = new RedButton(this);
-            newWord.Text = NEW_KEYWORD;
-            newWord.Width = newWord.Text.Length * 8;
-            newWord.Click += (sender, e) => ShowNewKeywordForm();
-            FLPKeywords.Controls.Add(newWord);
+            // Admin has also a right to add new keywords - hence the extra button.
+            if (admin)
+            {
+                RedButton newWord = new RedButton(this);
+                newWord.Text = NEW_KEYWORD;
+                newWord.Width = newWord.Text.Length * 8;
+                newWord.Click += (sender, e) => ShowNewKeywordForm();
+                FLPKeywords.Controls.Add(newWord);
+            }           
 
             FLPKeywords.Refresh();
         }
 
+        // Shows form for adding keyword.
         private void ShowNewKeywordForm()
         {
             NewKeywordForm form = new NewKeywordForm();
@@ -79,12 +89,15 @@ namespace LibraryManager.UserMenuTabs
                 RefreshKeywords();
             }
         }
-
+        /// <summary>
+        /// </summary>
+        /// <returns> A set of selected keywords. </returns>
         public List<string> GetSelected()
         {
             return selected;
         }
 
+        // Clears the set of selected keywords.
         public void ClearSelected()
         {
             selected.Clear();
@@ -92,8 +105,10 @@ namespace LibraryManager.UserMenuTabs
             RefreshKeywords();
         }
 
+        // Moves keyword between selected and unselected.
         private void KeywordClick(Button b)
         {
+            // If was selected - deselects.
             if (b.Parent == FLPSelected)
             {
                 FLPSelected.Controls.Remove(b);
@@ -101,7 +116,7 @@ namespace LibraryManager.UserMenuTabs
                 selected.Remove(b.Text);
                 remaining.Add(b.Text);
                 }
-            else
+            else // If not selected => selects.
             if (b.Parent == FLPKeywords)
             {
                 FLPKeywords.Controls.Remove(b);
@@ -111,6 +126,7 @@ namespace LibraryManager.UserMenuTabs
             }
         }
 
+        // Refreshes keywords leaving only those that match entered text.
         private void TBKeyword_TextChanged(object sender, EventArgs e)
         {
             RefreshKeywords();
@@ -141,6 +157,11 @@ namespace LibraryManager.UserMenuTabs
             {
                 if (e.ClickedItem.Text == DELETE_WORD)
                 {
+                    if (!parent.admin)
+                    {
+                        MetroFramework.MetroMessageBox.Show(parent, "Na túto operáciu potrebujete administrátorské právo!", "Operácia nepovolená", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
                     if (DialogResult.Yes == MessageBox.Show(this, "Naozaj chcete odstrániť toto kľúčové slovo? Spolu s ním budú odstránené aj všetky jeho výskyty v knižnici.", "", 
                                                             MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
                     {

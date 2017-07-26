@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace LibraryManager
 {
+    // UC for creating new book.
     public partial class UCAddNewBook : MetroUserControl
     {
         DatabaseModels.MainDatabase db;
@@ -16,12 +17,13 @@ namespace LibraryManager
         public UCAddNewBook()
         {
             InitializeComponent();
-            uck = new UCKeywords();     
+            uck = new UCKeywords(true);     
             TLPAddNewBook.Controls.Add(uck, 0, 5);
             TLPAddNewBook.SetColumnSpan(uck, 5);
             uck.Dock = DockStyle.Fill;
         }
 
+        // Loads categories and publishers to comboboxes.
         private void UCAddNewBook_Load(object sender, System.EventArgs e)
         {
             db = DatabaseModels.MainDatabase.getInstance();
@@ -42,6 +44,7 @@ namespace LibraryManager
 
         }
 
+        // When user clicks NEW_CATEGORY opens dialog and saves new category to database.
         private void CBCategory_SelectionChangeCommitted(object sender, System.EventArgs e)
         {
             if (CBCategory.SelectedItem.ToString() == NEW_CATEGORY)
@@ -68,6 +71,7 @@ namespace LibraryManager
             }
         }
 
+        // When user clicks ADD_PUBLISHER opens dialog and saves new publisher.
         private void CBPublisher_SelectionChangeCommitted(object sender, System.EventArgs e)
         {
             if (CBPublisher.SelectedItem.ToString() == ADD_PUBLISHER)
@@ -88,22 +92,29 @@ namespace LibraryManager
             }
         }
 
+        // Publication year must have 4 digits and later than 1970 - otherwise no ISBN :(
         private void TBPublicationYear_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (TBPublicationYear.Text == "")
             {
                 errorProvider.SetError(TBPublicationYear, "Musíte zadať rok vydania!");
             }
-            if (TBPublicationYear.Text.Length == 4 && int.TryParse(TBPublicationYear.Text, out int i))
+            else if (TBPublicationYear.Text.Length != 4 || !int.TryParse(TBPublicationYear.Text, out int i))
+            {
+                errorProvider.SetError(TBPublicationYear, "Rok musí byť 4-miestne číslo.");
+            } 
+            else if (i < 1970)
+            {
+                errorProvider.SetError(TBPublicationYear, "Rok musí byť väčší než 1970.");
+
+            }
+            else 
             {
                 errorProvider.SetError(TBPublicationYear, null);
             }
-            else
-            {
-                errorProvider.SetError(TBPublicationYear, "Rok vydania nie je validný.");
-            }
         }
 
+        // Page count must be a number.
         private void TBPageCount_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!int.TryParse(TBPageCount.Text, out int i))
@@ -116,6 +127,7 @@ namespace LibraryManager
             }
         }
 
+        // ISBN must have 10 or 13 digits.
         private void TBisbn_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!long.TryParse(TBisbn.Text, out long i) ||
@@ -134,6 +146,7 @@ namespace LibraryManager
             }
         }
 
+        // Adds book to database.
         private void BAddNewBook_Click(object sender, System.EventArgs e)
         {
             if (AllValuesSetProperly())
@@ -177,6 +190,7 @@ namespace LibraryManager
 
         }
 
+        // Checks for empty or invalid entries.
         private bool AllValuesSetProperly()
         {
             if (TBTitle.Text == "" ||

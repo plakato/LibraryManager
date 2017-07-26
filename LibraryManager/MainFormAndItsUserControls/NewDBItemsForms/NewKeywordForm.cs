@@ -14,6 +14,7 @@ using System.Windows.Forms;
 
 namespace LibraryManager.UserMenuTabs
 {
+    // Form to enter new keyword.
     public partial class NewKeywordForm : MetroForm
     {
         MainDatabase db = MainDatabase.getInstance();
@@ -21,7 +22,7 @@ namespace LibraryManager.UserMenuTabs
         {
             InitializeComponent();
         }
-
+        // Checks whether the keyword doesn't already exists and saves it to the database.
         private async void BSave_Click(object sender, EventArgs e)
         {
             if (TBWord.Text == "")
@@ -47,6 +48,14 @@ namespace LibraryManager.UserMenuTabs
         private void BClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void TBWord_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                BSave_Click(sender, e);
+            }
         }
     }
 }

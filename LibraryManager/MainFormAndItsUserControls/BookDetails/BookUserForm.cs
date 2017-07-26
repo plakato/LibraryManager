@@ -2,17 +2,13 @@
 using MetroFramework.Forms;
 using Shaolinq;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManager.BookDetails
 {
+    // Detailed book info displayed only to common user with an option to make a reservation.
     public partial class BookUserForm : MetroForm
     {
         MainDatabase db = MainDatabase.getInstance();
@@ -24,8 +20,11 @@ namespace LibraryManager.BookDetails
             InitializeComponent();
             this.login = login;
             this.bookId = bookId;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowOnly;
         }
 
+        // Loads book info
         private void BookUserForm_Load(object sender, EventArgs e)
         {
             Book book = db.Books.GetReference(bookId);
@@ -44,19 +43,14 @@ namespace LibraryManager.BookDetails
             {
                 CBCopiesCount.Items.Add(i);
             }
-            CBCopiesCount.SelectedItem = 1;
+            CBCopiesCount.SelectedItem = 1;   
         }
 
+        // Checks the data entered by user and makes a reservation.
         private void BMakeReservation_Click(object sender, EventArgs e)
         {
             User user = db.Users.GetReference(login);
             Book book = db.Books.GetReference(bookId);
-            if (user.Reservations.Where(res => res.Active && res.Book == book).Any())
-            {
-                MetroFramework.MetroMessageBox.Show(this, "Na túto knihu už máte rezerváciu. Môžete ju zrušiť v sekcii Moje výpožičky a rezervácie.", "Uups",
-                                                    MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
 
             if (0 >= DateTime.Compare(DTDueDate.Value, DateTime.Now))
             {
@@ -69,6 +63,7 @@ namespace LibraryManager.BookDetails
             {
                 var reservation = db.Reservations.Create();
                 reservation.Book = book;
+                reservation.Count = int.Parse(CBCopiesCount.Text);
                 reservation.DueDate = DTDueDate.Value;
                 reservation.Active = true;
                 reservation.WhenIssued = DateTime.Now;

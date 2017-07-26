@@ -1,32 +1,37 @@
 ﻿using Shaolinq;
 using Shaolinq.MySql;
+using System.Windows.Forms;
 
 namespace LibraryManager.DatabaseModels
 {
     /// <summary>
-    /// Main database containing specific tables - DataAccessObjects.
+    /// Main database containing specific tables - DataAccessObjects. Works as a singleton
+    /// - saves instance and returns it in static getInstance()
     /// </summary>
     [DataAccessModel]
     public abstract class MainDatabase : DataAccessModel
     {
-        static MainDatabase model;
+        // singleton instance
+        static MainDatabase db;
+
+        // Creates database and saves its instace. Reports succes in bool value.
         public static void Initialize()
         {
             var configuration = MySqlConfiguration.Create("LibraryDatabase", "localhost", "root", "");
-            model = BuildDataAccessModel<MainDatabase>(configuration);
+            db = BuildDataAccessModel<MainDatabase>(configuration);
 
             try
             {
-                model.Create(DatabaseCreationOptions.IfNotExist);
+                db.Create(DatabaseCreationOptions.IfNotExist);
             }
             catch (MySql.Data.MySqlClient.MySqlException)
             {
-                // DO nothing - database is already created
+                // DO nothing - databse already exists
             }
-        }
+         }
         public static MainDatabase getInstance()
         {
-            return model;
+            return db;
         }
 
         [DataAccessObjects]

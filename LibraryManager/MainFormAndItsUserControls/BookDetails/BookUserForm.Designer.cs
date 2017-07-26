@@ -194,6 +194,7 @@
             this.LTitle.Size = new System.Drawing.Size(29, 19);
             this.LTitle.TabIndex = 8;
             this.LTitle.Text = "     ";
+            this.LTitle.WrapToLine = true;
             // 
             // LAuthor
             // 
@@ -203,6 +204,7 @@
             this.LAuthor.Size = new System.Drawing.Size(57, 19);
             this.LAuthor.TabIndex = 9;
             this.LAuthor.Text = "            ";
+            this.LAuthor.WrapToLine = true;
             // 
             // LISBN
             // 
@@ -212,6 +214,7 @@
             this.LISBN.Size = new System.Drawing.Size(37, 19);
             this.LISBN.TabIndex = 10;
             this.LISBN.Text = "       ";
+            this.LISBN.WrapToLine = true;
             // 
             // LPublicationYear
             // 
@@ -221,6 +224,7 @@
             this.LPublicationYear.Size = new System.Drawing.Size(33, 19);
             this.LPublicationYear.TabIndex = 11;
             this.LPublicationYear.Text = "      ";
+            this.LPublicationYear.WrapToLine = true;
             // 
             // LPublisher
             // 
@@ -230,6 +234,7 @@
             this.LPublisher.Size = new System.Drawing.Size(53, 19);
             this.LPublisher.TabIndex = 12;
             this.LPublisher.Text = "           ";
+            this.LPublisher.WrapToLine = true;
             // 
             // LPageCount
             // 
@@ -239,6 +244,7 @@
             this.LPageCount.Size = new System.Drawing.Size(25, 19);
             this.LPageCount.TabIndex = 13;
             this.LPageCount.Text = "    ";
+            this.LPageCount.WrapToLine = true;
             // 
             // LCategory
             // 
@@ -248,6 +254,7 @@
             this.LCategory.Size = new System.Drawing.Size(21, 19);
             this.LCategory.TabIndex = 14;
             this.LCategory.Text = "   ";
+            this.LCategory.WrapToLine = true;
             // 
             // LSection
             // 
@@ -257,6 +264,7 @@
             this.LSection.Size = new System.Drawing.Size(25, 19);
             this.LSection.TabIndex = 15;
             this.LSection.Text = "    ";
+            this.LSection.WrapToLine = true;
             // 
             // metroLabel9
             // 
@@ -276,6 +284,7 @@
             this.LStatus.Size = new System.Drawing.Size(25, 19);
             this.LStatus.TabIndex = 17;
             this.LStatus.Text = "    ";
+            this.LStatus.WrapToLine = true;
             // 
             // metroLabel1
             // 
@@ -305,6 +314,7 @@
             this.LKeywords.Size = new System.Drawing.Size(33, 19);
             this.LKeywords.TabIndex = 19;
             this.LKeywords.Text = "      ";
+            this.LKeywords.WrapToLine = true;
             // 
             // metroLabel10
             // 
@@ -319,12 +329,12 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel2);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 60);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(648, 328);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(648, 330);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -426,6 +436,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

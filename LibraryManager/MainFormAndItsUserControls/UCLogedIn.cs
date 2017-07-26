@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace LibraryManager
 {
+    // UC diplaying loged in user and button to log out.
     public partial class UCLogedIn : MetroUserControl
     {
         public UCLogedIn()

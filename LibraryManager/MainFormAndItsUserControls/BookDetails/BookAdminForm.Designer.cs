@@ -57,6 +57,8 @@
             this.BEditBookDetail = new MetroFramework.Controls.MetroButton();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.LCopyCount = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.LKeywords = new MetroFramework.Controls.MetroLabel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.GVLoanReturn = new MetroFramework.Controls.MetroGrid();
@@ -66,10 +68,9 @@
             this.NumberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WhoMadeReservationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UntilWhenReservColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CopyCountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReservationIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeleteReservationColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.LKeywords = new MetroFramework.Controls.MetroLabel();
             this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WhoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -227,6 +228,7 @@
             this.LTitle.Size = new System.Drawing.Size(29, 19);
             this.LTitle.TabIndex = 8;
             this.LTitle.Text = "     ";
+            this.LTitle.WrapToLine = true;
             // 
             // LAuthor
             // 
@@ -236,6 +238,7 @@
             this.LAuthor.Size = new System.Drawing.Size(57, 19);
             this.LAuthor.TabIndex = 9;
             this.LAuthor.Text = "            ";
+            this.LAuthor.WrapToLine = true;
             // 
             // LISBN
             // 
@@ -245,6 +248,7 @@
             this.LISBN.Size = new System.Drawing.Size(37, 19);
             this.LISBN.TabIndex = 10;
             this.LISBN.Text = "       ";
+            this.LISBN.WrapToLine = true;
             // 
             // LPublicationYear
             // 
@@ -254,6 +258,7 @@
             this.LPublicationYear.Size = new System.Drawing.Size(33, 19);
             this.LPublicationYear.TabIndex = 11;
             this.LPublicationYear.Text = "      ";
+            this.LPublicationYear.WrapToLine = true;
             // 
             // LPublisher
             // 
@@ -263,6 +268,7 @@
             this.LPublisher.Size = new System.Drawing.Size(53, 19);
             this.LPublisher.TabIndex = 12;
             this.LPublisher.Text = "           ";
+            this.LPublisher.WrapToLine = true;
             // 
             // LPageCount
             // 
@@ -272,6 +278,7 @@
             this.LPageCount.Size = new System.Drawing.Size(25, 19);
             this.LPageCount.TabIndex = 13;
             this.LPageCount.Text = "    ";
+            this.LPageCount.WrapToLine = true;
             // 
             // LCategory
             // 
@@ -281,6 +288,7 @@
             this.LCategory.Size = new System.Drawing.Size(21, 19);
             this.LCategory.TabIndex = 14;
             this.LCategory.Text = "   ";
+            this.LCategory.WrapToLine = true;
             // 
             // LSection
             // 
@@ -290,6 +298,7 @@
             this.LSection.Size = new System.Drawing.Size(25, 19);
             this.LSection.TabIndex = 15;
             this.LSection.Text = "    ";
+            this.LSection.WrapToLine = true;
             // 
             // BEditBookDetail
             // 
@@ -319,6 +328,27 @@
             this.LCopyCount.Size = new System.Drawing.Size(45, 19);
             this.LCopyCount.TabIndex = 20;
             this.LCopyCount.Text = "         ";
+            this.LCopyCount.WrapToLine = true;
+            // 
+            // metroLabel12
+            // 
+            this.metroLabel12.AutoSize = true;
+            this.metroLabel12.Location = new System.Drawing.Point(13, 271);
+            this.metroLabel12.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.metroLabel12.Name = "metroLabel12";
+            this.metroLabel12.Size = new System.Drawing.Size(87, 19);
+            this.metroLabel12.TabIndex = 21;
+            this.metroLabel12.Text = "Kľúčové slová";
+            // 
+            // LKeywords
+            // 
+            this.LKeywords.AutoSize = true;
+            this.LKeywords.Location = new System.Drawing.Point(119, 271);
+            this.LKeywords.Name = "LKeywords";
+            this.LKeywords.Size = new System.Drawing.Size(17, 19);
+            this.LKeywords.TabIndex = 22;
+            this.LKeywords.Text = "  ";
+            this.LKeywords.WrapToLine = true;
             // 
             // flowLayoutPanel1
             // 
@@ -448,6 +478,7 @@
             this.NumberColumn,
             this.WhoMadeReservationColumn,
             this.UntilWhenReservColumn,
+            this.CopyCountColumn,
             this.ReservationIDColumn,
             this.DeleteReservationColumn});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -497,6 +528,12 @@
             this.UntilWhenReservColumn.Name = "UntilWhenReservColumn";
             this.UntilWhenReservColumn.ReadOnly = true;
             // 
+            // CopyCountColumn
+            // 
+            this.CopyCountColumn.HeaderText = "Počet kusov";
+            this.CopyCountColumn.Name = "CopyCountColumn";
+            this.CopyCountColumn.ReadOnly = true;
+            // 
             // ReservationIDColumn
             // 
             this.ReservationIDColumn.HeaderText = "ReservationNumber";
@@ -509,26 +546,6 @@
             this.DeleteReservationColumn.HeaderText = "Zrušiť rezerváciu";
             this.DeleteReservationColumn.Name = "DeleteReservationColumn";
             this.DeleteReservationColumn.ReadOnly = true;
-            // 
-            // metroLabel12
-            // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(13, 271);
-            this.metroLabel12.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(87, 19);
-            this.metroLabel12.TabIndex = 21;
-            this.metroLabel12.Text = "Kľúčové slová";
-            // 
-            // LKeywords
-            // 
-            this.LKeywords.AutoSize = true;
-            this.LKeywords.Location = new System.Drawing.Point(119, 271);
-            this.LKeywords.Name = "LKeywords";
-            this.LKeywords.Size = new System.Drawing.Size(17, 19);
-            this.LKeywords.TabIndex = 22;
-            this.LKeywords.Text = "  ";
-            this.LKeywords.WrapToLine = true;
             // 
             // IDColumn
             // 
@@ -545,7 +562,7 @@
             // 
             // WhoColumn
             // 
-            this.WhoColumn.HeaderText = "Kto požičal";
+            this.WhoColumn.HeaderText = "Kto si ju požičal";
             this.WhoColumn.Name = "WhoColumn";
             this.WhoColumn.ReadOnly = true;
             // 
@@ -639,11 +656,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private MetroFramework.Controls.MetroLabel metroLabel11;
         private MetroFramework.Controls.MetroGrid GVResevations;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumberColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WhoMadeReservationColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UntilWhenReservColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationIDColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn DeleteReservationColumn;
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroLabel LCopyCount;
         private MetroFramework.Controls.MetroLabel metroLabel12;
@@ -657,5 +669,11 @@
         private System.Windows.Forms.DataGridViewButtonColumn ButtonColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LoanIDColumn;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteCopyColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumberColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WhoMadeReservationColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UntilWhenReservColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CopyCountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationIDColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteReservationColumn;
     }
 }

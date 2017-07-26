@@ -72,6 +72,7 @@
             this.TBWord.UseSelectable = true;
             this.TBWord.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TBWord.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TBWord.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBWord_KeyPress);
             // 
             // BSave
             // 

@@ -105,22 +105,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookDetails\BookAdminForm.cs">
+    <Compile Include="MainFormAndItsUserControls\BookDetails\BookAdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookDetails\BookAdminForm.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\BookDetails\BookAdminForm.Designer.cs">
       <DependentUpon>BookAdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookDetails\BookUserForm.cs">
+    <Compile Include="MainFormAndItsUserControls\BookDetails\BookUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookDetails\BookUserForm.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\BookDetails\BookUserForm.Designer.cs">
       <DependentUpon>BookUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="BookDetails\LoanCopyForm.cs">
+    <Compile Include="MainFormAndItsUserControls\BookDetails\LoanCopyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookDetails\LoanCopyForm.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\BookDetails\LoanCopyForm.Designer.cs">
       <DependentUpon>LoanCopyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseModels\Book.cs" />
@@ -133,6 +133,7 @@
     <Compile Include="DatabaseModels\MainDatabase.cs" />
     <Compile Include="DatabaseModels\Reservation.cs" />
     <Compile Include="DatabaseModels\User.cs" />
+    <Compile Include="DrawingControl.cs" />
     <Compile Include="MainFormAndItsUserControls\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,34 +146,34 @@
     <Compile Include="MainFormAndItsUserControls\UCUserMenu.Designer.cs">
       <DependentUpon>UCUserMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\NewKeywordForm.cs">
+    <Compile Include="MainFormAndItsUserControls\NewDBItemsForms\NewKeywordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\NewKeywordForm.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\NewDBItemsForms\NewKeywordForm.Designer.cs">
       <DependentUpon>NewKeywordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\UCAddNewBook.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCAddNewBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\UCAddNewBook.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCAddNewBook.Designer.cs">
       <DependentUpon>UCAddNewBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\UCAddNewUser.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCAddNewUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\UCAddNewUser.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCAddNewUser.Designer.cs">
       <DependentUpon>UCAddNewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\NewCategoryForm.cs">
+    <Compile Include="MainFormAndItsUserControls\NewDBItemsForms\NewCategoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\NewCategoryForm.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\NewDBItemsForms\NewCategoryForm.Designer.cs">
       <DependentUpon>NewCategoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\NewPublisherForm.cs">
+    <Compile Include="MainFormAndItsUserControls\NewDBItemsForms\NewPublisherForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\NewPublisherForm.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\NewDBItemsForms\NewPublisherForm.Designer.cs">
       <DependentUpon>NewPublisherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -190,28 +191,28 @@
     <Compile Include="MainFormAndItsUserControls\UCLogedOut.Designer.cs">
       <DependentUpon>UCLogedOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\UCChangePassword.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCChangePassword.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\UCChangePassword.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCChangePassword.Designer.cs">
       <DependentUpon>UCChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\UCKeywords.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCKeywords.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\UCKeywords.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCKeywords.Designer.cs">
       <DependentUpon>UCKeywords.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\UCMyLoans.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCMyLoans.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\UCMyLoans.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCMyLoans.Designer.cs">
       <DependentUpon>UCMyLoans.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMenuTabs\UCSearchBooks.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCSearchBooks.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserMenuTabs\UCSearchBooks.Designer.cs">
+    <Compile Include="MainFormAndItsUserControls\UserMenuTabs\UCSearchBooks.Designer.cs">
       <DependentUpon>UCSearchBooks.cs</DependentUpon>
     </Compile>
     <Compile Include="MainFormAndItsUserControls\UCWelcome.cs">
@@ -220,13 +221,13 @@
     <Compile Include="MainFormAndItsUserControls\UCWelcome.Designer.cs">
       <DependentUpon>UCWelcome.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BookDetails\BookAdminForm.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\BookDetails\BookAdminForm.resx">
       <DependentUpon>BookAdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookDetails\BookUserForm.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\BookDetails\BookUserForm.resx">
       <DependentUpon>BookUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BookDetails\LoanCopyForm.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\BookDetails\LoanCopyForm.resx">
       <DependentUpon>LoanCopyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormAndItsUserControls\MainForm.resx">
@@ -235,7 +236,7 @@
     <EmbeddedResource Include="MainFormAndItsUserControls\UCUserMenu.resx">
       <DependentUpon>UCUserMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\NewCategoryForm.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\NewDBItemsForms\NewCategoryForm.resx">
       <DependentUpon>NewCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -256,28 +257,28 @@
     <EmbeddedResource Include="MainFormAndItsUserControls\UCWelcome.resx">
       <DependentUpon>UCWelcome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\NewKeywordForm.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\NewDBItemsForms\NewKeywordForm.resx">
       <DependentUpon>NewKeywordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\NewPublisherForm.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\NewDBItemsForms\NewPublisherForm.resx">
       <DependentUpon>NewPublisherForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\UCAddNewBook.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\UserMenuTabs\UCAddNewBook.resx">
       <DependentUpon>UCAddNewBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\UCAddNewUser.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\UserMenuTabs\UCAddNewUser.resx">
       <DependentUpon>UCAddNewUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\UCChangePassword.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\UserMenuTabs\UCChangePassword.resx">
       <DependentUpon>UCChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\UCKeywords.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\UserMenuTabs\UCKeywords.resx">
       <DependentUpon>UCKeywords.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\UCMyLoans.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\UserMenuTabs\UCMyLoans.resx">
       <DependentUpon>UCMyLoans.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserMenuTabs\UCSearchBooks.resx">
+    <EmbeddedResource Include="MainFormAndItsUserControls\UserMenuTabs\UCSearchBooks.resx">
       <DependentUpon>UCSearchBooks.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

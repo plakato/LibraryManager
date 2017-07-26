@@ -12,6 +12,7 @@ using Shaolinq;
 
 namespace LibraryManager.UserMenuTabs
 {
+    // UC to change password of the current user.
     public partial class UCChangePassword : MetroUserControl
     {
         string login;

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shaolinq;
 using MetroFramework.Controls;
@@ -13,6 +8,7 @@ using LibraryManager.DatabaseModels;
 
 namespace LibraryManager.UserMenuTabs
 {
+    // UC displaying current user's loans and reservations.
     public partial class UCMyLoans : MetroUserControl
     {
         string login;
@@ -24,19 +20,24 @@ namespace LibraryManager.UserMenuTabs
             InitializeComponent();
         }
 
+        // Displays loans and reservations on load.
         private void UCMyLoans_Load(object sender, EventArgs e)
         {
             User user = db.Users.GetReference(login);
+            UpdateLoanTable(user);
+            UpdateReservationTable(user);
+        }
+        
+        internal void UpdateLoanTable(User user)
+        {
+            GVLoans.Rows.Clear();
             foreach (Loan l in user.Loans.Where(l => l.Active == true))
             {
-                // Needs this - otherwise can't have such long reference chain
                 var loan = db.Loans.GetReference(l.Id);
                 var book = loan.Copy.Book;
                 GVLoans.Rows.Add(book.Title, book.Author, loan.UntilWhen.ToString("dd/MM/yyyy"));
             }
-            UpdateReservationTable(user);
         }
-        
         internal void UpdateReservationTable(User user)
         {
             GVReservations.Rows.Clear();

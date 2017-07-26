@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManager
 {
+    // UC with option to log in.
     public partial class UCLogedOut : UserControl
     {
         DatabaseModels.MainDatabase db;
@@ -18,6 +14,7 @@ namespace LibraryManager
             InitializeComponent();
         }
 
+        // Checks data entered and switches to appropriate screen.
         private void BSignIn_Click(object sender, EventArgs e)
         {
             String login = TBLogin.Text;
@@ -53,6 +50,7 @@ namespace LibraryManager
             }
         }
 
+        // Enter works as button click as well.
         private void TBPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)

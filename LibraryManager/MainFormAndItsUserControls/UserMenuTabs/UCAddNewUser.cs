@@ -1,5 +1,4 @@
-﻿
-using MetroFramework.Controls;
+﻿using MetroFramework.Controls;
 using Shaolinq;
 using System.ComponentModel;
 using System.Data;
@@ -139,6 +138,7 @@ namespace LibraryManager
                     ((MetroTextBox)control).Text = "";
                 }
             }
+            TAdminRights.Checked = false;
         }
     }
 }

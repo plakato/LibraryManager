@@ -1,9 +1,6 @@
 ﻿using Shaolinq;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManager.DatabaseModels
 {
@@ -43,6 +40,10 @@ namespace LibraryManager.DatabaseModels
         [RelatedDataAccessObjects]
         public abstract RelatedDataAccessObjects<Reservation> Reservations { get; }
 
+        /// <summary>
+        /// Returnes status of the book and its copies - free/reserved/loaned
+        /// </summary>
+        /// <returns></returns>
         internal string GetStatus()
         {
             int onLoan = 0;

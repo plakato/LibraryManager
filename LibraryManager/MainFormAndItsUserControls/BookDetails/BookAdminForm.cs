@@ -4,24 +4,24 @@ using MetroFramework.Controls;
 using MetroFramework.Forms;
 using Shaolinq;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManager.BookDetails
 {
+    // It's display only to admin. Lets admin edit book info, 
+    // loan/return/delete book copies and see/delete reservations for the book.
     public partial class BookAdminForm : MetroForm
     {
         MainDatabase db = MainDatabase.getInstance();
         string login;
+        bool admin;
         Guid bookId;
         UCKeywords uck;
+        // Constants used in tables and buttons.
         private const string LOAN = "Požičať";
         private const string RETURN = "Vrátiť";
         private const string EMPTY = "-";
@@ -37,9 +37,13 @@ namespace LibraryManager.BookDetails
         {
             InitializeComponent();
             this.login = login;
+            admin = db.Users.GetReference(login).Admin;
             this.bookId = bookId;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
         }
 
+        // Loads book detailed info, its loans and reservations.
         private void BookAdminForm_Load(object sender, EventArgs e)
         {
             Book book = db.Books.GetReference(bookId);
@@ -58,6 +62,8 @@ namespace LibraryManager.BookDetails
             UpdateReservationTable(book);
         }
 
+        // Updates table with copies, showing which copy is loaned/free
+        // and provides button to loan/return/delete the copy.
         private void UpdateLoanReturnTable(Book book)
         {
             GVLoanReturn.Rows.Clear();
@@ -91,17 +97,20 @@ namespace LibraryManager.BookDetails
             }
         }
 
+        // Updates information in table with reservations. They are ordered by the time
+        // they were issued.
         private void UpdateReservationTable(Book book)
         {
             GVResevations.Rows.Clear();
             int i = 1;
-            foreach (DatabaseModels.Reservation res in book.Reservations.Where(r => r.Active == true).OrderBy(r => r.WhenIssued))
+            foreach (Reservation res in book.Reservations.Where(r => r.Active == true).OrderBy(r => r.WhenIssued))
             {
-                GVResevations.Rows.Add(i,res.Who.Name, res.DueDate.ToString("dd/MM/yyyy"), res.ID, CANCEL);
+                GVResevations.Rows.Add(i,res.Who.Name, res.DueDate.ToString("dd/MM/yyyy"), res.Count, res.ID, CANCEL);
                 i++;
             }
         }
 
+        // Switches between edit mode and display mode of book info.
         private void BEditBookDetail_Click(object sender, EventArgs e)
         {
             if (BEditBookDetail.Text == EDIT)
@@ -114,6 +123,7 @@ namespace LibraryManager.BookDetails
             }
         }
 
+        // Opens dialog to create new category and saves it to database.
         private void NewCategorySelected(ComboBox cb) 
         {
             if (cb.SelectedItem.ToString() == NEW_CATEGORY)
@@ -139,8 +149,10 @@ namespace LibraryManager.BookDetails
                 }
             }
         }
+
+        // Replaces labels with textboxes to edit book info.
         private void SetFormEditMode()
-        { 
+        {
             int rows = TLPDetail.RowCount - 1;
             for (int i = 0; i < rows; i++)
             {
@@ -152,11 +164,11 @@ namespace LibraryManager.BookDetails
                     ComboBox cb = GetCategoryComboBox();
                     TLPDetail.Controls.Add(cb, 1, i);
                     cb.SelectedItem = text;
-                    cb.Height = LCategory.Height;
+                    cb.Margin = new Padding(5,5,5,5);
                     cb.SelectionChangeCommitted += (sender, e) => NewCategorySelected(cb);
                 } else if (i == 9)
                 {
-                    uck = new UCKeywords(bookId);
+                    uck = new UCKeywords(bookId, admin);
                     TLPDetail.Controls.Add(uck, 1, 9);
                     uck.Dock = DockStyle.Fill;
                 } else
@@ -168,10 +180,11 @@ namespace LibraryManager.BookDetails
                     tb.Text = text;
                     TLPDetail.Controls.Add(tb, 1, i);
                 }                    
-            }
-            
+            }            
         }
 
+        // Replaces textboxes with labels with entered book info
+        // and saves it to database.
         private async void SaveFormToDatabase()
         {
             if (EmptyBookInfo())
@@ -230,17 +243,15 @@ namespace LibraryManager.BookDetails
                 var cat_book = db.Category_Book.Create();
                 cat_book.Book = book;
                 cat_book.Category = cat;
-
+                await db.Books.GetReference(bookId).Keyword_Books.DeleteAsync();
                 foreach (string word in uck.GetSelected())
                 {
                     var keyword = db.Keywords.GetReference(word);
-                    if (!db.Keyword_Book.Where(kb => kb.Book == book && kb.Keyword == keyword).Any())
-                    {
-                        var keyw_book = db.Keyword_Book.Create();
-                        keyw_book.Book = book;
-                        keyw_book.Keyword = keyword;
-                    }
+                    var keyw_book = db.Keyword_Book.Create();
+                    keyw_book.Book = book;
+                    keyw_book.Keyword = keyword;
                 }
+                UpdateLoanReturnTable(book);
                 await scope.CompleteAsync();
             }
             for (int b = 0; b < rows; b++)
@@ -282,13 +293,14 @@ namespace LibraryManager.BookDetails
             {
                 controlsToAdd[j].Theme = MetroFramework.MetroThemeStyle.Dark;
                 controlsToAdd[j].Style = MetroFramework.MetroColorStyle.Red;
+                controlsToAdd[j].AutoSize = true;
                 TLPDetail.Controls.Add(controlsToAdd[j], 1, j);
             }
 
             BEditBookDetail.Text = EDIT;
-
         }
 
+        // Returnes combobox with all categories available in the database.
         private ComboBox GetCategoryComboBox()
         {
             MetroComboBox cb = new MetroComboBox();
@@ -303,9 +315,11 @@ namespace LibraryManager.BookDetails
             return cb;
         }
 
+        // Checks wheter the book info entered by is empty.
         private bool EmptyBookInfo()
         {
             int rows = TLPDetail.RowCount - 1;
+            // rows -1 => because the last one is keywords textbox - doesn't need to be filled.
             for (int i = 0; i < rows-1; i++)
             {
                 var control = TLPDetail.GetControlFromPosition(1, i);
@@ -318,6 +332,7 @@ namespace LibraryManager.BookDetails
             return false;
         }
 
+        // Loans, deletes or returnes the book depending on where on the grid did user click.
         private void GVLoanReturn_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (GVLoanReturn.Columns[e.ColumnIndex] is DataGridViewButtonColumn)
@@ -343,6 +358,7 @@ namespace LibraryManager.BookDetails
             }
         }
 
+        // Deletes the copy (or entire book if it's the very last copy)
         private async void DeleteCopyAsync(int copyID)
         {
             if (DialogResult.Yes != MessageBox.Show(this,"Naozaj chcete vymazať túto knižku/výtlačok?", "",MessageBoxButtons.YesNo,MessageBoxIcon.Question))
@@ -352,7 +368,7 @@ namespace LibraryManager.BookDetails
             using (var scope = new DataAccessScope())
             {
                 await db.Copies.Where(c => c.Id == copyID && c.Book.Id == bookId).DeleteAsync();
-                //ak je to podledna kopia, vymazat aj knihu, updatnut/zavriet okno
+                //if it's the last copy - delete the book - else update
                 Book book = db.Books.GetReference(bookId);
                 if (book.Copies.Count() == 0)
                 {
@@ -366,6 +382,8 @@ namespace LibraryManager.BookDetails
                 await scope.CompleteAsync();
             }
         }
+        
+        // Marks copy as returned
         private async void ReturnCopy(int copyID, int loanID)
         {
             try
@@ -384,12 +402,14 @@ namespace LibraryManager.BookDetails
             }
         }
 
+        // Shows dialog to loan the copy
         private void LoanCopy(int copyid)
         {
             LoanCopyForm lcform = new LoanCopyForm(copyid, bookId); ;
             lcform.ShowDialog(this);
         }
 
+        // If user clicked delete on grid - deletes the reservation
         private async void GVResevations_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (GVResevations.Columns[e.ColumnIndex] is DataGridViewButtonColumn)

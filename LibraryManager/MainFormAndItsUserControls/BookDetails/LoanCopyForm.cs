@@ -2,17 +2,13 @@
 using MetroFramework.Forms;
 using Shaolinq;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManager.BookDetails
 {
+    // Form to loan one copy to some user.
     public partial class LoanCopyForm : MetroForm
     {
         MainDatabase db = MainDatabase.getInstance();
@@ -23,10 +19,12 @@ namespace LibraryManager.BookDetails
             InitializeComponent();
             this.copyID = copyID;
             this.bookId = bookId;
+            // Settings to suggest logins as the user types
             CBWho.DropDownStyle = ComboBoxStyle.DropDownList;
             CBWho.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
         }
 
+        // Loads users to combobox.
         private void LoanCopyForm_Load(object sender, EventArgs e)
         {
             foreach (User user in db.Users)
@@ -49,6 +47,7 @@ namespace LibraryManager.BookDetails
             }
         }
 
+        // Checks entered data and creates loan of this book in the database.
         private void BLoan_Click(object sender, EventArgs e)
         {
             if ("" != errorProvider.GetError(DTUntilWhen) || CBWho.SelectedItem.ToString() == "")
@@ -61,7 +60,7 @@ namespace LibraryManager.BookDetails
             {
                 db = MainDatabase.getInstance();
                 Book book = db.Books.GetReference(bookId);
-                var copy = db.Copies.First(); //.Where(c => c.ID == copyID && c.Book == book)
+                var copy = db.Copies.Where(c => c.Id == copyID && c.Book == book).First();
                 User user = db.Users.GetReference(((ComboBoxItem)CBWho.SelectedItem).Value);
                 var loan = db.Loans.Create();
                 loan.Active = true;

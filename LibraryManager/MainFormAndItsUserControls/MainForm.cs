@@ -1,12 +1,8 @@
-﻿using LibraryManager.BookDetails;
-using LibraryManager.DatabaseModels;
+﻿using LibraryManager.DatabaseModels;
 using LibraryManager.MainFormAndItsUserControls;
 using MetroFramework.Forms;
 using Shaolinq;
-using Shaolinq.MySql;
 using System;
-using System.Collections;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace LibraryManager
@@ -22,47 +18,13 @@ namespace LibraryManager
             // Create database if not exists => on the first run of the application
             MainDatabase.Initialize();
             InitializeComponent();
-            
             db = MainDatabase.getInstance();
             mainPanel = PMainPanel;
             logInLogOutPanel = PLogInLogOut;
             RemoveExpiredReservations();
-
-            /*using (var scope = new DataAccessScope())
-            {
-                var admin = db.Users.Create();
-                admin.Name = "adminName";
-                admin.Login = "admin";
-                admin.Password = "admin";
-                admin.Admin = true;
-
-                var user = db.Users.Create();
-                user.Name = "menoName";
-                user.Login = "meno";
-                user.Password = "meno";
-                user.Admin = false;
-
-                var book = db.Books.Create();
-                book.Title = "Logické úvahy";
-                book.Author = "Ján Dumal";
-                book.ISBN = "7894561261";
-                book.PublicationYear = 1999;
-                book.Publisher = "Vydavateľstvo Hmmm";
-                book.Section = "3A";
-                var copy = db.Copies.Create();
-                copy.Book = book;
-                var cat = db.Categories.Create();
-                cat.Name = "odborné";
-                var cat_book = db.Category_Book.Create();
-                cat_book.Book = book;
-                cat_book.Category = cat;
-
-                scope.Complete();
-
-            }*/
-
         }
 
+        // All revervations with duedate pass today are inactivated in the database.
         private async void RemoveExpiredReservations()
         {
             using(var scope = new DataAccessScope())
@@ -77,6 +39,9 @@ namespace LibraryManager
                 await scope.CompleteAsync();
             }
         }
+
+        // Switches controls depending on screen requested. Admin and user are the same so far,
+        // but can be differentiated if necessary (for future purposes).
         public static void SwitchUserControls(Screen screen, string login)
         {
             userLogin = login;
@@ -95,6 +60,7 @@ namespace LibraryManager
                     ucmain.Dock = DockStyle.Fill;
                     mainPanel.Controls.Add(ucmain,0,1);
                     break;
+                case Screen.Admin:
                 case Screen.User:
                     UCLogedIn uclogin = new UCLogedIn();
                     uclogin.SetLoginText(userLogin);
@@ -108,8 +74,6 @@ namespace LibraryManager
                     mainPanel.Controls.Add(ucmain, 0,1);
                     mainPanel.Refresh();
                     break;
-                case Screen.Admin:
-                    goto case Screen.User;
             }
         }  
     }

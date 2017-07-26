@@ -79,7 +79,7 @@
             this.flowLayoutPanel1.Controls.Add(this.metroLabel10);
             this.flowLayoutPanel1.Controls.Add(this.CBPublicationYearTo);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(313, 83);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(393, 83);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(321, 40);
             this.flowLayoutPanel1.TabIndex = 14;
@@ -126,11 +126,12 @@
             // 
             // CBPublisher
             // 
+            this.CBPublisher.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.CBPublisher.FormattingEnabled = true;
             this.CBPublisher.ItemHeight = 23;
-            this.CBPublisher.Location = new System.Drawing.Point(313, 48);
+            this.CBPublisher.Location = new System.Drawing.Point(393, 48);
             this.CBPublisher.Name = "CBPublisher";
-            this.CBPublisher.Size = new System.Drawing.Size(121, 29);
+            this.CBPublisher.Size = new System.Drawing.Size(250, 29);
             this.CBPublisher.TabIndex = 13;
             this.CBPublisher.UseSelectable = true;
             // 
@@ -138,16 +139,16 @@
             // 
             this.CBCategory.FormattingEnabled = true;
             this.CBCategory.ItemHeight = 23;
-            this.CBCategory.Location = new System.Drawing.Point(313, 13);
+            this.CBCategory.Location = new System.Drawing.Point(393, 13);
             this.CBCategory.Name = "CBCategory";
-            this.CBCategory.Size = new System.Drawing.Size(121, 29);
+            this.CBCategory.Size = new System.Drawing.Size(250, 29);
             this.CBCategory.TabIndex = 12;
             this.CBCategory.UseSelectable = true;
             // 
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(215, 126);
+            this.metroLabel8.Location = new System.Drawing.Point(295, 126);
             this.metroLabel8.Name = "metroLabel8";
             this.metroLabel8.Size = new System.Drawing.Size(73, 19);
             this.metroLabel8.TabIndex = 11;
@@ -156,7 +157,7 @@
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(215, 80);
+            this.metroLabel7.Location = new System.Drawing.Point(295, 80);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(82, 19);
             this.metroLabel7.TabIndex = 10;
@@ -165,7 +166,7 @@
             // metroLabel6
             // 
             this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(215, 45);
+            this.metroLabel6.Location = new System.Drawing.Point(295, 45);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(92, 19);
             this.metroLabel6.TabIndex = 9;
@@ -174,7 +175,7 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(215, 10);
+            this.metroLabel5.Location = new System.Drawing.Point(295, 10);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(68, 19);
             this.metroLabel5.TabIndex = 8;
@@ -186,7 +187,7 @@
             // 
             // 
             this.TBSector.CustomButton.Image = null;
-            this.TBSector.CustomButton.Location = new System.Drawing.Point(98, 1);
+            this.TBSector.CustomButton.Location = new System.Drawing.Point(178, 1);
             this.TBSector.CustomButton.Name = "";
             this.TBSector.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBSector.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -205,7 +206,7 @@
             this.TBSector.SelectionLength = 0;
             this.TBSector.SelectionStart = 0;
             this.TBSector.ShortcutsEnabled = true;
-            this.TBSector.Size = new System.Drawing.Size(120, 23);
+            this.TBSector.Size = new System.Drawing.Size(200, 23);
             this.TBSector.TabIndex = 7;
             this.TBSector.UseSelectable = true;
             this.TBSector.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -217,7 +218,7 @@
             // 
             // 
             this.TBisbn.CustomButton.Image = null;
-            this.TBisbn.CustomButton.Location = new System.Drawing.Point(98, 1);
+            this.TBisbn.CustomButton.Location = new System.Drawing.Point(178, 1);
             this.TBisbn.CustomButton.Name = "";
             this.TBisbn.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBisbn.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -236,7 +237,7 @@
             this.TBisbn.SelectionLength = 0;
             this.TBisbn.SelectionStart = 0;
             this.TBisbn.ShortcutsEnabled = true;
-            this.TBisbn.Size = new System.Drawing.Size(120, 23);
+            this.TBisbn.Size = new System.Drawing.Size(200, 23);
             this.TBisbn.TabIndex = 6;
             this.TBisbn.UseSelectable = true;
             this.TBisbn.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -248,7 +249,7 @@
             // 
             // 
             this.TBAuthor.CustomButton.Image = null;
-            this.TBAuthor.CustomButton.Location = new System.Drawing.Point(98, 1);
+            this.TBAuthor.CustomButton.Location = new System.Drawing.Point(178, 1);
             this.TBAuthor.CustomButton.Name = "";
             this.TBAuthor.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBAuthor.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -267,7 +268,7 @@
             this.TBAuthor.SelectionLength = 0;
             this.TBAuthor.SelectionStart = 0;
             this.TBAuthor.ShortcutsEnabled = true;
-            this.TBAuthor.Size = new System.Drawing.Size(120, 23);
+            this.TBAuthor.Size = new System.Drawing.Size(200, 23);
             this.TBAuthor.TabIndex = 5;
             this.TBAuthor.UseSelectable = true;
             this.TBAuthor.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -279,7 +280,7 @@
             // 
             // 
             this.TBTitle.CustomButton.Image = null;
-            this.TBTitle.CustomButton.Location = new System.Drawing.Point(98, 1);
+            this.TBTitle.CustomButton.Location = new System.Drawing.Point(178, 1);
             this.TBTitle.CustomButton.Name = "";
             this.TBTitle.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TBTitle.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -298,7 +299,7 @@
             this.TBTitle.SelectionLength = 0;
             this.TBTitle.SelectionStart = 0;
             this.TBTitle.ShortcutsEnabled = true;
-            this.TBTitle.Size = new System.Drawing.Size(120, 23);
+            this.TBTitle.Size = new System.Drawing.Size(200, 23);
             this.TBTitle.TabIndex = 4;
             this.TBTitle.UseSelectable = true;
             this.TBTitle.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -347,7 +348,7 @@
             this.flowLayoutPanel2.Controls.Add(this.metroLabel12);
             this.flowLayoutPanel2.Controls.Add(this.CBPageCountTo);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(313, 129);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(393, 129);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(321, 59);
             this.flowLayoutPanel2.TabIndex = 15;
@@ -436,7 +437,7 @@
             // BSearch
             // 
             this.BSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BSearch.Location = new System.Drawing.Point(542, 194);
+            this.BSearch.Location = new System.Drawing.Point(622, 194);
             this.BSearch.Name = "BSearch";
             this.BSearch.Size = new System.Drawing.Size(92, 30);
             this.BSearch.TabIndex = 16;
